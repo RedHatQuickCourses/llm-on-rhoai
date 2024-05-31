@@ -1,3 +1,85 @@
-= Section 2
+= Jupyter Notebooks & Mistral LLM Model Setup
 
-This is _Section 2_ of _Chapter 3_ in the *hello* quick course....
+== Open the Jupyter Notebook
+
+From the OpenShift AI ollama-model workbench dashboard,
+
+* Select the Open link to the right of the status section; When the new window opens, use the OpenShift admin user & password to login to the Notebook. 
+
+click *Allow selected permissions* button to complete login to the notebook.
+
+[NOTE]
+If the *OPEN* link for the Notebook is grayed out, the notebook is still starting, this process can take a few minutes to 20+ minutes depending on the image we opt'd to choose.
+
+
+== Open the Jupyter Notebook
+
+To continue learning about notebooks, open RHOAI.
+
+In a new or an existing data science project, create a Standard Data Science workbench.
+
+Open the notebook and clone the https://github.com/RedHatQuickCourses/rhods-qc-apps repository.
+
+Open the 1.intro/chapter3/intro/notebooks-intro.ipynb notebook and follow the instructions.
+
+Now Clone the notebook file to interact with the Ollama Framework from this location: https://github.com/rh-aiservices-bu/llm-on-openshift.git
+
+Navigate to the llm-on-openshift/exmaples/notebooks/lanchain folder:
+
+Then open the file: _Langchain-Ollama-Prompt-memory.ipynb_
+
+== Customize the Notebook
+
+Head back to the workbench dashboard & copy the interence endpoint from our ollama-mistral model.
+
+Return the Jupyter Notebook Environment, 
+
+ * Paste the inference endpoint into the Cell label interfence_server_url = *"paste here"*
+
+We can not start executing the code in the cells, starting with the Set the inference server url cell. 
+
+When we run the second cell: !pip install -q langchain==0.1.14 , there is an error notice, update pip or continue. 
+
+The third cell imports the langchain components that provide the libraries and programming files to interact with our LLM model.
+
+The fourth cell, place our first call to the Ollama-Mistral Framework Served by OpenShift AI. 
+
+[WARNING]
+Before we continue we need to perform the following additional step. As mentioned, The Model Runtime we launched in OpenShift AI is a Framework that can host multiple LLM Models.  It is currently running but is waiting for the command to instruct it to download Model to Serve.  The following command needs to run from the OpenShift Dashboard.  We are going to use the web_terminal operator to perform this next step. 
+
+== Activating the Mistral Model in Ollama
+
+. We will need to obtain the endpoint from the OpenShift AI model serving console. I usually just paste the text below into a cell in the Jupyter Notebook and paste the url in the code block from there.
+
+```yaml
+curl https://your-endpoint/api/pull \
+    -k \
+    -H "Content-Type: application/json" \
+    -d '{"name": "mistral"}'
+
+
+```
+. Next copy the entire code snippet, and open the OpenShift Dashboard.
+. At the top right of the dashboard, locate the ">_" and select it. 
+. This will open the terminal window at the bottom of the dashboard.
+. Click on the Start button in the terminal window, wait for the bash..$ prompt to appear
+. Past the modified code block into the window and press enter.
+
+The message:  *status: pulling manifest* should appear.  This begins the model downloading process.
+
+Once the download completes, the *status: success:* message appears.  We can now return to the Jupyter Notebook Tab in the browser and proceed. 
+
+=== Create the Prompt
+
+This cell sets the *system message* portion of the query to our model.  Normally we don't get the see this part of the query.  This message details now the model should act / respond / and consider our questions.  This adds checks to valdiate the information as best a possible, and to explain answers in detail.
+
+Memory for the conversation
+
+Keeps track of the conversation, this way follow up questions are also sent keeping the context for future questions.
+
+The next cell tracks the conversation and prints it to the Notebook output window so we can experience the full conversation list. 
+
+=== First Message to our LLM  _(finally)_
+
+
+

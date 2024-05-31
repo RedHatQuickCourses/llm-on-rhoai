@@ -1,4 +1,4 @@
-= OpenShift AI Initilization
+= Chapter 1
 
 == Supported configurations
 OpenShift AI is supported in two configurations:
