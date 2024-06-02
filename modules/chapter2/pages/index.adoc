@@ -35,7 +35,7 @@ https://docs.openshift.com/container-platform/latest/hardware_enablement/psap-no
 The *OpenShift Serveless Operator* is a prerequisite for the *Single Model Serving Platform*.
 
 https://docs.openshift.com/container-platform/latest/hardware_enablement/psap-node-feature-discovery-operator.html[OpenShift Service Mesh Operator]::
-The *OpenShift Service Mesh Operator* is a prerequisite for the *NSingle Model Serving Platform*.
+The *OpenShift Service Mesh Operator* is a prerequisite for the *Single Model Serving Platform*.
 
 
 [NOTE]

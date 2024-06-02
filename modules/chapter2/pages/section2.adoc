@@ -49,8 +49,8 @@ tls.key: >-
 type: kubernetes.io/tls
 ```
 
-* Copy the Name portion of the text (optional, but helpful)
-* Click create to apply this YAML into the istio-system proejct (namespace).
+* Copy the Name in red portion of the text  (optional, but helpful)
+* Click *create* to apply this YAML into the istio-system proejct (namespace).
 
 *We have copied the Secret used by OCP & made it available be used by OAI.*
 
