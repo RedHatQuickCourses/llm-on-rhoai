@@ -1,6 +1,4 @@
-= OpenShift AI Customization
-
-== Model Serving Runtimes
+= Custom Runtimes & Data Science Project Components
 
 A model-serving runtime provides integration with a specified model server and the model frameworks that it supports. By default, Red Hat OpenShift AI includes the following Model RunTimes:
 
@@ -20,19 +18,15 @@ This exercise will guide you through the broad steps necessary to deploy a custo
 While RHOAI supports the ability to add your own runtime, it is up to you to configure, adjust and maintain your custom runtimes.
 ====
 
-== Add The Ollama Custom Runtime
+== Adding The Ollama Custom Runtime
 
-. Log in to RHOAI with a user who is part of the RHOAI admin group, for this lab we will be using the admin account. 
+. Log in to RHOAI with a user who is part of the RHOAI admin group
 
-. In the RHOAI Console, Navigate to the Settings menu, then Serving Runtimes
+. Navigate to the Settings menu, then Serving Runtimes
 
-. Select the Add Serving Runtime button:
+. Click on the Add Serving Runtime button:
 
-. For the model serving platform runtime *Select: Single-Model Serving Platform.*
-
-.  For API protocol this runtime supports *Select: REST*
-
-. Click on Start from scratch in the window that opens up, paste the following YAML:
+. Click on Start from scratch and in the window that opens up, paste the following YAML:
 +
 ```yaml
 apiVersion: serving.kserve.io/v1alpha1
@@ -66,22 +60,24 @@ spec:
       name: any
 ```
 
-. After clicking the **Add** button at the bottom of the input area, we are  see the new Ollama Runtime in the list. We can re-order the list as needed (the order chosen here is the order in which the users will see these choices)
+. After clicking the **Add** button at the bottom of the input area, we are able to see the new Ollama Runtime in the list. We can re-order the list as needed (the order chosen here is the order in which the users will see these choices)
 
 
-== Create a Data Science Project 
+== Create Data Science Project 
 
-Navigate to & select the Data Science Projects section.
+Navigate to the Data Science Projects 
 
- . Select the create data science project button
+ * Select the create data science project button
 
- . Enter a name for your project, such as *ollama-model*.
+ * Enter a name for your project, such as ollama-model.
 
- . The resource name should be populated automatically
+ * The resource name should be populated automatically
 
- . Optionally add a description to the data science project
+ * Optionally add a description to the data science project
 
- . Select Create
+ * Click Create
+
+
 
 
 == Deploy MinIO as S3 Compatible Storage
@@ -98,11 +94,11 @@ This version of MinIO should not be used in production-grade environments. Also,
 === MinIO Deployment
 To Deploy MinIO, we will utilize the OpenShift Dashboard. 
 
- . Click on the Project Selection list dropdown, Select the Ollama-Model project or the data science project you created in the previous step. 
+ * Click on the Project Selection list dropdown, Select the Ollama-Model project;  the data science project you created in the previous step. 
 
- . Then Select the + (plus) icon from the top right of the dashboard.
+ * Then Select the + (plus) icon from the top right of the dashboard.
 
- .  In the new window, we will paste the following YAML file.  In the YAML below its recommended to change the default user name & password. 
+ * This will open a new window where you will paste the following YAML file.  In the YAML below its recommended to change the default user name & password. 
 
 
 ```yaml
@@ -269,58 +265,60 @@ spec:
     insecureEdgeTerminationPolicy: Redirect
 ```
 
-*This should finish in a few seconds.  Now it's time to deploy our storage buckets.*
-
+This should finish in a few seconds.  Now it's time to deploy our storage buckets.
 
 === MinIO Storage Bucket Creation
 
 From the OCP Dashboard:
 
- . Select Networking / Routes from the navigation menu.
+ * Select Workloads / Pods from the navigation menu.
+ * Click on the minio pod, which should be only pod running the *ollama-model project*. 
+ ** ( ollama-model project or name used fort the Data Science Project created)
  
- . This will display two routes, one for the UI & another for the API.
+ * Then Select the Routes from the Navigation menu.
+ * This will display two routes, one for the UI & another for the API.
 
- . For the first step select the UI route, and paste it in a browser Window.
+  * For the first step select the UI route, and paste it in a browser Window.
   
- . This window opens the MinIO Dashboard, login with user/password combination you set, or the default listed in yaml file above.
+  * This window opens the MinIO Dashboard, login with user/password combination you set, or the default listed in yaml file above.
 
 Once logged into the MinIO Console:
 
-  . Click Create Bucket to get started.
+  * Click Create Bucket to get started.
 
-  . Create two Buckets: 
+  * Create two Buckets: 
 
-   ..  *models* 
+   ** one called *models* 
 
-   ..  *storage*
+   ** another called *storage*
 
 [NOTE]
   When serving a LLM or other model Openshift AI looks within a Folder, therefore we need at least one subdirectory under the Models Folder.  
 
- . Via the Navigation menu, *Select object browser*, Click on the Model Bucket.
- . From the models bucket page, click add path, and type *ollama* as the name of the sub-Folder or path.  
+ * Via the Navigation menu, *Select object browser*, Click on the Model Bucket.
+ * From the models bucket page, click add path, and type *ollama* as the name of the sub-Folder or path.  
 
 [IMPORTANT]
-In most cases to serve a model, the trained model would be uploaded into this sub-directory. *Ollama is a special case, as it can download and manage Several LLM models as part of the runtime.*  
+In most cases to serve a model, the trained model would be uploaded into this sub-directory. *Ollama is a special case, as it can download and manage Severql LLM models as part of the runtime.*  
 
- . We still need a file available in this folder for the model deployment workflow to succeed.
+ * We still need a file available in this folder for the model deployment workflow to succeed.
 
- . So we will copy an emptyfile.txt file to the ollama subdirectory.  You can download the file from https://github.com/rh-aiservices-bu/llm-on-openshift/tree/main/serving-runtimes/ollama_runtime[*this location*].  Or you can create your own file called emptyfile.txt and upload it.
+ * So we will copy an emptyfile.txt file to the ollama subdirectory.  You can download the file from this location.  Or you can create your own file called emptyfile.txt and upload it.
 
- . Once you have this file ready, upload it into the Ollama path in the model bucket, by clicking the upload button and selecting the file from your local desktop.
+ * Once you have this file ready, upload it into the Ollama path in the model bucket; by clicking the upload button and selecting the file from your local desktop.
 
-=== Create Data Connection 
+=== Create Data Connection using Minio Storage Buckets  
 
 Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the Ollama-model project. 
 
-. Select the Data Connection menu, followed by create data connection
-. Provide the following values:
-..  Name:  *models*
-..  Access Key: is the minio_root-user from YAML file
-..  Secret Key: is the minio_root_password from the YAML File
-..  Endpoint: is the Minio API URL from the Routes page in Openshift Dashboard
-..  Region: Is required for AWS storage & cannot be blank (no-region-minio)
-.. Bucket: is the Minio Storage bucket name: *models* 
+* Select the Data Connection menu, followed by create data connection
+* Provide the following values:
+**  Name:  *models*
+**  Access Key: is the minio_root-user from YAML file
+**  Secret Key: is the minio_root_password from the YAML File
+**  Endpoint: is the Minio API URL from the Routes page in Openshift Dashboard
+**  Region: Is required for AWS storage & cannot be blank (no-region-minio)
+*** Bucket: is the Minio Storage bucket name: *models* 
 
 Repeat for the Storage bucket, using *storage* for the name & bucket.
 
@@ -329,22 +327,22 @@ Repeat for the Storage bucket, using *storage* for the name & bucket.
 
 Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the Ollama-model project.  
 
- . Select the WorkBench button, then create workbench
+ * Select the WorkBench button, then create workbench
 
- .. Name:  `ollama-model`
+ * Name:  ollama-model
 
- .. Notebook Image:  `Minimal Python`
+ * Notebook Image:  Minimal Python
 
- .. Leave the remianing options default
+ * Leave the remianing options default
 
- .. Optionally, scroll to the bottom, check the `Use data connection box`
+ * Optionally, scroll to the bottom, check the Use data connection box
  
- .. Select *storage* from the dropdown to attach the storage bucket to the workbench.  
+ ** Select *storage* from the dropdown to attach the storage bucket to the workbench.  
 
- . Select the Create Workbench option.
+ * Select the Create Workbench option.
 
 [NOTE]
-Depending on the notebook image selected, it can take between 2-20 minutes for the container image to be fully deployed. The Open Link will be available when our container is fully deployed.  
+Depending on the notebook image selected, it can take between 2-20 minutes for the container image to be fully deployed. The Open Link will be available when you container is fully deployed.  
 
 
 == Creating The Model Server
@@ -355,15 +353,15 @@ From the ollama-model WorkBench Dashboard in the ollama-model project,  specify 
 *Create the model server with the following values:*
 
 --
- .. Model name: `Ollama-Mistral`
- .. Serving Runtime: `Ollama`
- .. Model framework: `Any`
- .. Model Server Size: `Medium`
- .. Model location data connection: `models`
- .. Model location path: `/ollama`
+ * Model name: `Ollama-Mistral`
+ * Serving Runtime: `Ollama`
+ * Model framework: `Any`
+ * Model Server Size: `Medium`
+ * Model location data connection: `models`
+ * Model location path: `/ollama`
 
 
-After clicking the **Deploy** button at the bottom of the form, the model is added to our **Models & Model Server list**.  When the model is avialable the inference endpoint will populate & the status will indicate a green checkmark.
+After clicking the **Deploy** button at the bottom of the form, we see the model added to our **Models & Model Server list**.  When the model is avialable the inference endpoint will populate & the status will indicate a green checkmark.
 
 We are now ready to interact with our newly deployed LLM Model.  Join me in Section 2 to explore Mistral running on OpenShift AI using Jupyter Notebooks. 
 

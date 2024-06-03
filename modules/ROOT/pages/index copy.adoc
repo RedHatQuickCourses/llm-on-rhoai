@@ -1,0 +1,10 @@
+= Serving LLM Models on OpenShift AI
+:navtitle: Home
+
+== Introduction
+
+Welcome to this quick course on Serving LLM Models on Red Hat OpenShift AI:
+
+The objective is to experience the entire process of Serving the Mistral 7B Large Language Model, starting with a Openshift Container Cluster version 4.15.  
+
+From this point,  you will need to install the Operators to successfully configuire OpenShift AI. Once operational, you will to add the Ollama Model Serving Runtime, create a Data Science Project, Deploy S3 compatible Storage, Setup Data Connections, create a workbench, Use the Single Serving Model Platform to host the Ollama framework, configuire a Mistral Model, then work through a Jupyter Notebook to test your models Serving Performance. 

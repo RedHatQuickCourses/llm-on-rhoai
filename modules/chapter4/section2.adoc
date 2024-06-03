@@ -1,0 +1,29 @@
+= Installing Red{nbsp}Hat OpenShift AI Using the Web Console
+
+*Red{nbsp}Hat OpenShift AI* is available as an operator via the OpenShift Operator Hub.  You will install the *Red{nbsp}Hat OpenShift AI operator* and dependencies using the OpenShift web console in this section.
+
+== Lab: Installation of Red{nbsp}Hat OpenShift AI
+
+IMPORTANT: The installation requires a user with the _cluster-admin_ role
+
+. Login to the Red Hat OpenShift using a user which has the _cluster-admin_ role assigned.
+
+. Navigate to **Operators** -> **OperatorHub** and search for each of the following Operators individually.  Click on the button or tile for each. In the pop up window that opens, ensure you select the latest version in the *stable* channel and click on **Install** to open the operator's installation view. For this lab you can skip the installation of the optional operators
+
+ * Web Terminal 
+
+ * Red Hat OpenShift Serverless 
+
+ * Red Hat OpenShift Service Mesh
+
+ * Red Hat OpenShift Pipelines 
+
+ * GPU Support
+
+ **  Node Feature Discovery Operator (optional)
+
+ **  NVIDIA GPU Operator (optional)
+
+[TIP]
+ 
+ Installing these Operators prior to the installation of OpenShift AI in my experience has made a difference in OpenShift AI acknowledging the availability of these components and adjusting the initial configuration to shift management of these components to OpenShift AI. 

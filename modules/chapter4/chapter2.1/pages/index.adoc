@@ -1,0 +1,6 @@
+= Chapter 2
+
+Completed the installation of OpenShift AI on our OpenShift Container Cluster.
+
+Moving into Uses the features of OpenShift AI to Setup the environment to Host & interact with our LLM Model. 
+

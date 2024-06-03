@@ -1,6 +1,6 @@
 site:
-  title: Placeholder Course Title
-  start_page: placeholder-course-name::index.adoc
+  title: Serving LLM Models on OpenShift AI
+  start_page: llm-model-serving::index.adoc
 
 content:
   sources:
