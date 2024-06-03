@@ -331,13 +331,13 @@ Navigate to the Data Science Project section of the OpenShift AI Console /Dashbo
 
  . Select the WorkBench button, then create workbench
 
- .. Name:  ollama-model
+ .. Name:  `ollama-model`
 
- .. Notebook Image:  Minimal Python
+ .. Notebook Image:  `Minimal Python`
 
  .. Leave the remianing options default
 
- .. Optionally, scroll to the bottom, check the Use data connection box
+ .. Optionally, scroll to the bottom, check the `Use data connection box`
  
  .. Select *storage* from the dropdown to attach the storage bucket to the workbench.  
 

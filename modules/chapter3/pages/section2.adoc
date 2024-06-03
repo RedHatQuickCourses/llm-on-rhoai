@@ -45,20 +45,19 @@ Before we continue we need to perform the following additional step. As mentione
 
 We will need to obtain the endpoint from the OpenShift AI model serving console. I usually just paste the text below into a cell in the Jupyter Notebook and paste the url in the code block from there.
 
-```yaml
+[source, yaml]
+----
 curl https://your-endpoint/api/pull \
     -k \
     -H "Content-Type: application/json" \
     -d '{"name": "mistral"}'
+----
 
-
-```
-. Next copy the entire code snippet, and open the OpenShift Dashboard.
-. At the top right of the dashboard, locate the ">_" and select it. 
-. This will open the terminal window at the bottom of the dashboard.
-. Click on the Start button in the terminal window, wait for the bash..$ prompt to appear
-. Past the modified code block into the window and press enter.
-
+ . Next copy the entire code snippet, and open the OpenShift Dashboard.
+ . At the top right of the dashboard, locate the ">_" and select it. 
+ . This will open the terminal window at the bottom of the dashboard.
+ . Click on the Start button in the terminal window, wait for the bash..$ prompt to appear
+ . Past the modified code block into the window and press enter.
 
 The message:  *status: pulling manifest* should appear.  This begins the model downloading process.
 
