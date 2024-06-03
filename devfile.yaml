@@ -1,6 +1,6 @@
 schemaVersion: 2.1.0
 metadata:
-  name: llm-model-serving-quick-course
+  name: llm-on-rhoai-quick-course
   displayName: Serving LLM Models on OpenShift AI
   description: LLM Model Serving Quick Course published using Antora
   icon: https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg
@@ -12,7 +12,7 @@ metadata:
   language: JavaScript
   version: 2.1.1
 starterProjects:
-  - name: llm-model-serving-quick-course
+  - name: llm-on-rhoai-quick-course
     git:
       remotes:
         origin: 'https://github.com/RedHatTraining/llm-model-serving-quick-course.git'

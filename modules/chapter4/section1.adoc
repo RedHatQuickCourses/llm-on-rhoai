@@ -1,51 +1,50 @@
-= Section 1
-# Ollama Runtime
+= Model Serving
 
-The [Ollama](https://github.com/ollama/ollama) runtime can be used with Open Data Hub and OpenShift AI Single-Model Serving stack to serve Large Language Models (LLMs) as an alternative to Caikit+TGIS or standalone TGIS. Currently supported models are listed [here](https://ollama.com/library).
-
-Note that as this runtime is specifically built for CPU only (even with a GPU it won't use it).
-
-## Installation
-
-You must first make sure that you have properly installed the necessary component of the Single-Model Serving stack, as documented [here](https://access.redhat.com/documentation/en-us/red_hat_openshift_ai_self-managed/2-latest/html/serving_models/serving-large-models_serving-large-models).
-
-Once the stack is installed, adding the runtime is pretty straightforward:
-
-- As an admin, in the OpenShift AI Dashboard, open the menu `Settings -> Serving runtimes`.
-- Click on `Add serving runtime`.
-- For the type of model serving platforms this runtime supports, select `Single model serving platform`.
-- Upload the file `ollama-runtime.yaml` from the current folder, or click `Start from scratch` and copy/paste its content.
-
-The runtime is now available when deploying a model.
-
-## Model Deployment
-
-This runtime can be used in almost the same way as the out of the box ones. A small adjustment is necessary because Ollama downloads the models directly when instructed to (populating the models on the object storage would be cumbersome and not really necessary). But as KServer will try to copy a model from object storage anyway, we have to trick it a little bit...
-
-- Copy the file `emptyfile` to an object store bucket. In fact it can be any file, as long as the "folder" in the bucket is not empty...
-- Deploy the "model" from the Dashboard. Make sure you have enough RAM/CPU to run the model(s) you want.
-- At this stage, what is deployed is only the Ollama server itself, and you get an endpoint address.
-- Download the model you want by querying the endpoint (replace the address with the one from your endpoint, as well as the model name):
-
-    
-    curl https://your-endpoint/api/pull \
-        -k \
-        -H "Content-Type: application/json" \
-        -d '{"name": "mistral"}'
+Why Ollama -  It's unique value is that it makes installing and running LLMs very simple, even for non-technical users.  Reduces the resources requirement for many models by >50%, and also the dependency of a GPU with excellent performance in my opinion.
 
 
-## Usage
+== Learn by Doing
 
-You can now query the model using curl like this:
+In this quickcourse, there is one goal. Deploy an LLM in OpenShift AI, then utilize Jupyter Notebooks to query said LLM.   
 
-```yaml
-curl https://your-endpoint/api/generate \
-    -k \
-    -H "Content-Type: application/json" \
-    -d '{
-    "model": "mistral",
-    "prompt":"Why is the sky blue?"
-    }'
-```
+Along the way, we'll discuss personas or roles that would perform these at our Customers. 
 
-You can also use the notebook example [here](../../examples/notebooks/langchain/Langchain-Ollama-Prompt-memory.ipynb). Beware, you will have adaptations to do if you're using self-signed certificates, which is the default for Single Stack Serving. More information [here](https://ai-on-openshift.io/odh-rhoai/single-stack-serving-certificate/)
+For example, you don't get to start with an OpenShift AI Platform, instead you will start with an OpenShift Container Cluster.  In the Section Two of this course, together we will tackle the challenges of upgrading our OCP Cluster to host our OpenShift AI Platform. 
+
+Why should this matter to you,  it will provided an solid overview of the components needed, will allow you to explain the difficulty level of installing OpenShift AI, and will give you the experience to better understand what value each component adds to the Mix. 
+
+There are several times that tasks must be performed in OCP related to the operations of the OPenShift AI Platform, so it's best to be familar with the both Dashboards.  
+
+While the actuall installation can performed in a few minutes, there is an advanced setup that we need to perform to solve an issue with Cluster Security Certificates.   Most organizations will run their own TLS certifcates, rather than use the self-generated certificates in the cluster. 
+
+
+....
+ The reason we need to perform this porition is that the Original OpenShift Container CLuster created Self Signed Certificates upon deployment.  When we install OpenShift AI, it will also create a set of certificates for deploying resources.  Well, when we expose resources externally, they use the OCP cluster certificates, which causes a mismatch when we try to connect remotely.  So instead of having two different sets of certificates, we are going to use the OCP cluster certificates for the OpenShift AI cluster, simipling connecting to the running model.
+....
+
+
+
+1. Once we complete the OpenShift AI setup, which should take about 15-20 minutes, the next step is to Launch OpenShift AI.  
+
+We will then add the Ollama Model Serving Runtime .Yaml file as an additional Single Model Serving Option.  
+
+1. Moving onto the next step, we will create our first Data Science Project in the OpenShift AI platform.  This will provide an isolated workspace for our resources.  
+
+For Step 4 we need external storage, or remotely accessible storage via an API in order to retrive the LLM model file.   We will use MinIO for this purpose. We will deploy another .YAML file in the Data Science Project we just created.   
+
+Next we will create storage buckets, update the file needed by the Ollama model to our new bucket in a sub-folder
+
+Once that is complete we head back to our Project, and create a new workbench, will deploy or UI interface, which will be a jupyter notebook. 
+
+Once that is complete, we can finally launch our Ollma Single Model Server. 
+
+Then we will need to configuire the model to be hosted by our Ollama framework which will be Mistral 7B.
+
+Once that is complete, we can add git repository to the Jupyter notebook and interact with our model using the LangChain library.
+
+The last step is for you to interact with your new LLM model, hosted in OpenShift AI.  You can query the model with your questions, to determine how good it is.  
+
+Then if you up to the Challenge - Delete the model, and redeploy the Ollama fRamework and deploy a different model, perhaps Llama2, or Lava and compare the performance of the different models.  You'll be on your own for this part, but I know you got this!
+
+
+
