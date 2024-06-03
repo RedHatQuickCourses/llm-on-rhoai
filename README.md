@@ -75,7 +75,7 @@ To add a new section under a chapter create an entry in the *modules/CHAPTER/nav
 
 11. Wait for a few minutes while the automated GitHub action publishes your changes ot the production GitHub pages website.
 
-12. Verify that your changes have been published to the production GitHub pages website at https://redhatquickcourses.github.io/rhods-deploy
+12. Verify that your changes have been published to the production GitHub pages website at https://redhatquickcourses.github.io/llm-on-rhoai
 
 # Problems and Feedback
 If you run into any issues, report bugs/suggestions/improvements about this course here - https://github.com/RedHatQuickCourses/llm-model-serving/issues
