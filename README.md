@@ -1,8 +1,10 @@
 # Serving LLM Models on OpenShift AI
 
-This is an advanced course on Serving a Large Language Model (LLM) using OpenShift AI. This course is a lab walkthrough starting with OpenShift Container Cluster.  You will need to install the Operators to successfully configuire OPenShift AI. Once operational, you will to add the Ollama Model Serving Runtime, create a Data Science Project, Deploy S3 compatible Storage, Setup Data Connections, create a workbench, Use the Single Serving Model Platform to host the Ollama framework, configuire a Mistral Model, then work through a Jupyter Notebook to test your models Performance. 
+This is an intermediate course on Serving a Large Language Model (LLM) using OpenShift AI. This course is a lab walkthrough starting with OpenShift Container Cluster.  
 
- Creating Course Content
+We will need to install the Operators to successfully configuire OpenShift AI. Once RHOAI is ooperational, we will to add the Ollama Model Serving Runtime, create a Data Science Project, Deploy S3 compatible Storage, Setup Data Connections, create a workbench, Use the Single Serving Model Platform to host the Ollama framework, configuire a Mistral Model, then work through a Jupyter Notebook to test our models performance. 
+
+== Creating Course Content
 
 We use a system called Antora (https://antora.org) to publish courses. Antora expects the files and folders in a source repository to be arranged in a certain opinionated way to simplify the process of writing course content using asciidoc, and then converting the asciidoc source to HTML.
 
@@ -75,7 +77,7 @@ To add a new section under a chapter create an entry in the *modules/CHAPTER/nav
 
 11. Wait for a few minutes while the automated GitHub action publishes your changes ot the production GitHub pages website.
 
-12. Verify that your changes have been published to the production GitHub pages website at https://redhatquickcourses.github.io/llm-on-rhoai
+12. Verify that your changes have been published to the production GitHub pages website at https://github.com/RedHatQuickCourses/llm-on-rhoai
 
 # Problems and Feedback
-If you run into any issues, report bugs/suggestions/improvements about this course here - https://github.com/RedHatQuickCourses/llm-model-serving/issues
+If you run into any issues, report bugs/suggestions/improvements about this course here - https://github.com/RedHatQuickCourses/llm-on-rhoai/issues
