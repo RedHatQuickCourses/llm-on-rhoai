@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Jupyter Notebooks &amp; Mistral LLM Model Setup :: Serving LLM Models on OpenShift AI</title>
+    <link rel="prev" href="section1.html">
+    <link rel="next" href="../appendix/appendix.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Serving LLM Models on OpenShift AI</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/changeme/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="llm-model-serving" data-version="1.01">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Serving LLM Models on OpenShift AI</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../chapter1/index.html">Technical side of LLMs</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../chapter2/index.html">OpenShift AI Initilization</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/section1.html">Installing Red&#160;Hat OpenShift AI Using the Web Console</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/section2.html">Modifying the OpenShift AI TLS Certificate</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">OpenShift AI Configuration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section1.html">OpenShift AI Customization</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="section2.html">Jupyter Notebooks &amp; Mistral LLM Model Setup</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../appendix/appendix.html">Appendix A</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Serving LLM Models on OpenShift AI</span>
+    <span class="version">1.01</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Serving LLM Models on OpenShift AI</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.01</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Serving LLM Models on OpenShift AI</a></li>
+    <li><a href="index.html">OpenShift AI Configuration</a></li>
+    <li><a href="section2.html">Jupyter Notebooks &amp; Mistral LLM Model Setup</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Jupyter Notebooks &amp; Mistral LLM Model Setup</h1>
+<div class="sect1">
+<h2 id="_open_the_jupyter_notebook"><a class="anchor" href="#_open_the_jupyter_notebook"></a>Open the Jupyter Notebook</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>From the OpenShift AI ollama-model workbench dashboard,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Select the Open link to the right of the status section; When the new window opens, use the OpenShift admin user &amp; password to login to the Notebook.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>click <strong>Allow selected permissions</strong> button to complete login to the notebook.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <strong>OPEN</strong> link for the notebook is grayed out, the notebook container is still starting, this process can take a few minutes &amp; up to 20+ minutes depending on the notebook image we opt&#8217;d to choose.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_inside_the_jupyter_notebook"><a class="anchor" href="#_inside_the_jupyter_notebook"></a>Inside the Jupyter Notebook</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Clone the notebook file to interact with the Ollama Framework from this location: <a href="https://github.com/rh-aiservices-bu/llm-on-openshift.git" class="bare">https://github.com/rh-aiservices-bu/llm-on-openshift.git</a></p>
+</div>
+<div class="paragraph">
+<p>Navigate to the llm-on-openshift/examples/notebooks/langchain folder:</p>
+</div>
+<div class="paragraph">
+<p>Then open the file: <em>Langchain-Ollama-Prompt-memory.ipynb</em></p>
+</div>
+<div class="paragraph">
+<p>Explore the notebook then continue.</p>
+</div>
+<div class="sect2">
+<h3 id="_update_the_inference_endpoint"><a class="anchor" href="#_update_the_inference_endpoint"></a>Update the Inference Endpoint</h3>
+<div class="paragraph">
+<p>Head back to the RHOAI workbench dashboard &amp; copy the interence endpoint from our ollama-mistral model.</p>
+</div>
+<div class="paragraph">
+<p>Return the Jupyter Notebook Environment,</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Paste the inference endpoint into the Cell labeled interfence_server_url = <strong>"replace with your own inference address"</strong></p>
+</li>
+<li>
+<p>We can now start executing the code in the cells, starting with the set the inference server url cell.</p>
+</li>
+<li>
+<p>Next we run the second cell: !pip install -q langchain==0.1.14 ; there is a notice to update pip, just ignore and continue.</p>
+</li>
+<li>
+<p>The third cell imports the langchain components that provide the libraries and programming files to interact with our LLM model.</p>
+</li>
+<li>
+<p>The fourth cell, place our first call to the Ollama-Mistral Framework Served by OpenShift AI.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Before we continue we need to perform the following additional step. As mentioned, The Ollama Model Runtime we launched in OpenShift AI is a Framework that can host multiple LLM Models.  It is currently running but is waiting for the command to instruct it to download Model to Serve.  The following command needs to run from the OpenShift Dashboard.  We are going to use the web_terminal operator to perform this next step.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_activating_the_mistral_model_in_ollama"><a class="anchor" href="#_activating_the_mistral_model_in_ollama"></a>Activating the Mistral Model in Ollama</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We will need to obtain the endpoint from the OpenShift AI model serving console. I usually just paste the text below into a cell in the Jupyter Notebook and paste the url in the code block from there.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">curl https://your-endpoint/api/pull \
+    -k \
+    -H "Content-Type: application/json" \
+    -d '{"name": "mistral"}'</code></pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Next copy the entire code snippet, and open the OpenShift Dashboard.</p>
+</li>
+<li>
+<p>At the top right of the dashboard, locate the "&gt;_" and select it.</p>
+</li>
+<li>
+<p>This will open the terminal window at the bottom of the dashboard.</p>
+</li>
+<li>
+<p>Click on the Start button in the terminal window, wait for the bash..$ prompt to appear</p>
+</li>
+<li>
+<p>Past the modified code block into the window and press enter.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The message:  <strong>status: pulling manifest</strong> should appear.  This begins the model downloading process.</p>
+</div>
+<div class="paragraph">
+<p>Once the download completes, the <strong>status: success:</strong> message appears.  We can now return to the Jupyter Notebook Tab in the browser and proceed.</p>
+</div>
+<div class="sect2">
+<h3 id="_create_the_prompt"><a class="anchor" href="#_create_the_prompt"></a>Create the Prompt</h3>
+<div class="paragraph">
+<p>This cell sets the <strong>system message</strong> portion of the query to our model.  Normally we don&#8217;t get the see this part of the query.  This message details how the model should act / respond / and consider our questions.  This adds checks to valdiate the information is best as possible, and to explain answers in detail.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_memory_for_the_conversation"><a class="anchor" href="#_memory_for_the_conversation"></a>Memory for the conversation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Keeps track of the conversation, this way history of the chat are also sent along with new chat information keeping the context for future questions.</p>
+</div>
+<div class="paragraph">
+<p>The next cell tracks the conversation and prints it to the Notebook output window so we can experience the full conversation list.</p>
+</div>
+<div class="sect2">
+<h3 id="_first_input_to_our_llm"><a class="anchor" href="#_first_input_to_our_llm"></a>First input to our LLM</h3>
+<div class="paragraph">
+<p>The Notebooks first input to our model askes it to describe Paris in 100 words or less.</p>
+</div>
+<div class="paragraph">
+<p>In green text is the window is the setup message that is sent along with the single sentence question to desctibe to the model how to consider and respond to the question.</p>
+</div>
+<div class="paragraph">
+<p>It takes ~12 seconds for the model to respong with the first word of the reply, and the final word is printed to the screen ~30 seconds after the request was started.</p>
+</div>
+<div class="paragraph">
+<p>The responce answered the question in a well considered and informated paragraph that less than 100 words in length</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_second_input"><a class="anchor" href="#_second_input"></a>Second Input</h3>
+<div class="paragraph">
+<p>Notice that the Second input - Is there a River, does not specify where the location is that might have a River.  because the conversation history is passed with the second input, there is not need to specify any additional informaiton.</p>
+</div>
+<div class="paragraph">
+<p>The total time to first word took ~14 seconds this time, just a bit longr due the orginal information being sent.  The time for the entire reponse to be printed to the screen just took over 4 seoncds.</p>
+</div>
+<div class="paragraph">
+<p>Overall our Model is performing well without a GPU and in a container limited to 4 cpus &amp; 10Gb of memory.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_second_example_prompt"><a class="anchor" href="#_second_example_prompt"></a>Second Example Prompt</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Similar to the previous example, except we use the City of London, and run a cell to remove the verbose text reguarding what is sent or recieved apart from the another from model.</p>
+</div>
+<div class="paragraph">
+<p>There is no change to memory setting, but go ahead and evalute where the second input; is there a river is answer correctly.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_experimentation_with_model"><a class="anchor" href="#_experimentation_with_model"></a>Experimentation with Model</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Add a few new cells to the Notebooks</p>
+</div>
+<div class="paragraph">
+<p>Experiment with clearing the memory statement, then asking the river quetsion again.  Or perhaps copy one of the input statements and add your own question for the model.</p>
+</div>
+<div class="paragraph">
+<p>Try not clearing the memory and asking a few questions.</p>
+</div>
+<div class="paragraph">
+<p>You have successfully deployed a Large Language Model, now test the information that it has available and find out what is doesn&#8217;t know.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_delete_the_environment"><a class="anchor" href="#_delete_the_environment"></a>Delete the Environment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once you finished experimenting with questions, make you head back to the Red Hat Demo Platform and delete the Openshift Container Platform Cluster.</p>
+</div>
+<div class="paragraph">
+<p>You don&#8217;t have to remove any of the resources, deleting the environment will remove any resources created during this lesson.</p>
+</div>
+<div class="sect2">
+<h3 id="_leave_feedback"><a class="anchor" href="#_leave_feedback"></a>Leave Feedback</h3>
+<div class="paragraph">
+<p>If you enjoyed this walkthrough, please sent the team a note.
+If you have suggestions to make it better or clarify a point, please send the team a note.</p>
+</div>
+<div class="paragraph">
+<p>Until the next time,  Keep being Awesome!</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="section1.html">OpenShift AI Customization</a></span>
+  <span class="next"><a href="../appendix/appendix.html">Appendix A</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
