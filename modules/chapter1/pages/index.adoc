@@ -2,41 +2,16 @@
 
 
 [NOTE]
-This segment of the course provides context to know & analogies to guide us to comprehend the purpose of guided lab in the next section.  Feel free to skip ahead if you just want to get started.
+This unit of the journey provides context around the technologies we encounter & a few analogies to facilitate understanding the purpose of guided lab in the next section.  Feel free to skip ahead if you just want to get started.
 
 === Why this technical course ? 
 
-Previously, read a post on LinkenIn and felt it summed up the why quite nicely.
+A Formula One Driver doesn't need to know the how to build an engine to be an F1 champion. However, she/he needs to have a *mechanical sympathy* which is understanding of car's mechanics to drive it effectively and get the best out it.
 
-It described the basic idea that a Formula One Driver doesn't need to know the how to build an engine to be an F1 champion. However, she/he needs to have a *mechanical sympathy* which is understanding of car's mechanics to drive it effectively and get the best out it.
-
-The same applies to AI, we don't need to be AI experts to harness the power of large language models but we to develop a certain level of "mechanical sympathy" with how these Models are Selected, Operationized, Served, Infered from, and kept up to date, to work with AI in harmony. Not just as users, but as collaborators who understand the underlying mechanics to communicate with clients, partners, and co-workers effectively.
-
-It's not just about the Model itself, it's about the platform that empowers us to create trushtworthy AI applications and guides us in making informed choices. 
+The same applies to AI, we don't need to be AI experts to harness the power of large language models but we have to develop a certain level of *"technological awareness"* with how LLM Models are Trained, Selected, Operationalized, Delivered, Infered from, Fined-Tuned, Augmented and kept up-to-date. Not just as users, but as aficionados who understand the underlying components to effectively communicate with clients, partners, and co-workers. 
 
 The true power lies in the platform that enables us to harness a diverse range of AI models, tools, infrastructure and operationalize our ML projects.
 
 That platform, *OpenShift AI* is what we learn to create, configure, and utilize to Serve LLM Models in this quick course.
 
-
-=== The Ollama Model Framework
-
-LLMs - Large Language Models (LLMs) can generate new stories, summarize texts, and even performing advanced tasks like reasoning and problem solving, which is not only impressive but also remarkable due to their accessibility and easy integration into applications.
-
-There are a lot of popular LLMs, Nonetheless, their operation remains the same: users provide instructions or tasks in natural language, and the LLM generates a response based on what the model "thinks" could be the continuation of the prompt.
-
-Ollama is not an LLM Model - Ollama is a relatively new but powerful open-source framework designed for serving machine learning models. It's designed to be efficient, scalable, and easy to use, making it an attractive option for developers and organizations looking to deploy their AI models into production. 
-
-==== How does Ollama work?
-
-
-*At its core, Ollama simplifies the process of downloading, installing, and interacting with a wide range of LLMs, empowering users to explore their capabilities without the need for extensive technical expertise or reliance on cloud-based platforms.
-
-In this course, we will focus on single LLM, Mistral. However, with the understanding of the Ollama Framework, we will be able to work with a variety of large language models utilizing the exact same configuration.  
-
-You be able to switch models in minutes, all running on the same platform.  This will enable you test, compare, and evalute multiple models with the skills gained in the course.
-
-*Experimentation and Learning*
-
-Ollama provides a powerful platform for experimentation and learning, allowing users to explore the capabilities and limitations of different LLMs, understand their strengths and weaknesses, and develop skills in prompt engineering and LLM interaction. This hands-on approach fosters a deeper understanding of AI technology and empowers users to push the boundaries of what’s possible.*
 

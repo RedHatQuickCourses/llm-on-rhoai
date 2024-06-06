@@ -1,2 +1,57 @@
-= Follow up Story
+= Technology Components
 
+== Kubernetes & OpenShift
+
+OpenShift builds upon Kubernetes by providing an enhanced platform with additional capabilities. It simplifies the deployment and management of Kubernetes clusters while adding enterprise features, developer tools, and security enhancements.
+
+In addition, Openshift provides a Graphic User Interface for Kubernetes. Openshift AI runs on Openshift, therefore, the engine under the hood of both products is Kubernetes.  
+
+Most workloads are deployed in kubernetes via YAML files. A Kubernetes Deployment YAML file is a configuration file written in YAML (YAML Ain't Markup Language) that defines the desired state of a Kubernetes Deployment. These YAML file are used to create, update, or delete Deployments in Kubernetes / OpenShift clusters.
+
+Don’t worry about needing to know how to write these files. That's what OpenShift & OpenShift AI will take care of for us.  In this course,  we will just need to select the options we want in the UI. OpenShift + OpenShift AI will take care of creating the YAML deployment files. 
+
+We will have to perform a few YAML file copy and paste operations,  instructions are provided in the course. 
+
+Just know, YAML files create resources in the Kubernetes platform directly.  We primarily use the OpenShift AI UI to perform these tasks to deliver our LLM.
+
+== Large Language Models
+
+LLMs - Large Language Models (LLMs) can generate new stories, summarize texts, and even perform advanced tasks like reasoning and problem solving, which is not only impressive but also remarkable due to their accessibility and easy integration into applications.
+
+As you probably already heard,  training large language models is expensive, time consuming, and most importantly requires a vast amount of data fed into the Model.
+
+The common outcome from this training is a Foundation model:  this is an LLM designed to generate and understand human-like text across a wide range of use cases.
+
+The key to this powerful language processing architecture, *is the Transformer!* A helpful definition of a *Transformer* is a set of neural networks that consist of an encoder and a decoder with self-attention capabilities.  The Transformer was created by Google and started as a language translation algorithm.  It analyzes relationships between words in text, which crucial for LLMs to understand and generate language.
+
+This is how LLMs are able to predict the next words, by using the transformer neural network & attention mechanism to focus in on keywords to determine context. Then use that context and _knowledge_ from all the data ingested to predict the next word after a sequence of words. 
+
+=== Modifications to LLMs
+
+As mentioned above, LLMs are normally large, require Graphics Cards, and costly compute resources to load the model into memory.  
+
+However, there are  techniques for compressing large LLM models, making them smaller and faster to run on devices with limited resources.
+
+ * Quantization reduces the precision of numerical representations in large language models to make them more memory-efficient during deployment.  
+
+ * Reducing the precision of LLM parameters to save computational resources without sacrificing performance. Trimming surplus connections or parameters to make LLMs smaller and faster yet performant.
+
+In this course, we will be using a quantized version of the Mistral Large Language Model.  Instead of requiring 24Gb of memory and Graphics processing unit to simulate the neural network, we are going to run our model with  4 CPUs and 8GB of ram, burstable to 8 CPU with 10Gb ram max.
+
+[NOTE]
+https://www.redhat.com/en/topics/ai/what-is-instructlab[*InstructLabs*]- runs locally on laptops uses this same type of quantized LLMs, Both the Granite & Mixtral Large Language Models are reduced in precision to operate on a laptop.
+
+== The Ollama Model Framework
+
+There are hundreds of popular LLMs, nonetheless, their operation remains the same: users provide instructions or tasks in natural language, and the LLM generates a response based on what the model "thinks" could be the continuation of the prompt.
+
+Ollama is not an LLM Model - Ollama is a relatively new but powerful open-source framework designed for serving machine learning models. It's designed to be efficient, scalable, and easy to use; making it an attractive option for developers and organizations looking to deploy their AI models into production. 
+
+==== How does Ollama work?
+
+
+At its core, Ollama simplifies the process of downloading, installing, and interacting with a wide range of LLMs, empowering users to explore their capabilities without the need for extensive technical expertise or reliance on cloud-based platforms.
+
+In this course, we will focus on single LLM, Mistral, run on the Ollama Framework. However, with the understanding of the Ollama Framework, we will be able to work with a variety of large language models utilizing the exact same configuration.  
+
+You will be able to switch models in minutes, all running on the same platform.  This will enable you test, compare, and evalute multiple models with the skills gained in the course.

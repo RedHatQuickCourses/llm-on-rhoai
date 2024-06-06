@@ -11,7 +11,7 @@ For information about OpenShift AI as self-managed software on your OpenShift cl
 
 In this course we cover installation of *Red Hat OpenShift AI self-managed* using the OpenShift Web Console.
 
-== General Information about Installation   
+== Applicable Operators   
 
 
 [INFO]
@@ -19,11 +19,7 @@ In this course we cover installation of *Red Hat OpenShift AI self-managed* usin
 The product name has been recently changed to *Red{nbsp}Hat OpenShift AI (RHOAI)* (old name *Red{nbsp}Hat OpenShift Data Science*). In this course, most references to the product use the new name. However, references to some UI elements might still use the previous name.
 ====
 
-In addition to the *Red{nbsp}Hat OpenShift AI* Operator there are some other operators that you may need to install depending on which features and components of *Red{nbsp}Hat OpenShift AI* you want to install and use.
-
-
-https://www.redhat.com/en/technologies/cloud-computing/openshift/pipelines[Red{nbsp}Hat OpenShift Pipelines Operator]::
-The *Red{nbsp}Hat OpenShift Pipelines Operator* is required if you want to install the  *Red{nbsp}Hat OpenShift AI Pipelines* component.
+In addition to the *Red{nbsp}Hat OpenShift AI* Operator there are additional operators that you may need to install depending on which features and components of *Red{nbsp}Hat OpenShift AI* you want to utilize.
 
 
 [NOTE]
@@ -36,6 +32,10 @@ The *OpenShift Serveless Operator* is a prerequisite for the *Single Model Servi
 
 https://docs.openshift.com/container-platform/latest/hardware_enablement/psap-node-feature-discovery-operator.html[OpenShift Service Mesh Operator]::
 The *OpenShift Service Mesh Operator* is a prerequisite for the *Single Model Serving Platform*.
+
+https://www.redhat.com/en/technologies/cloud-computing/openshift/pipelines[Red{nbsp}Hat OpenShift Pipelines Operator]::
+The *Red{nbsp}Hat OpenShift Pipelines Operator* is a prerequisite for the *Single Model Serving Platform*.  
+
 
 
 [NOTE]

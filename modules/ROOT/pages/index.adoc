@@ -1,9 +1,18 @@
 = Serving LLM Models on OpenShift AI
 :navtitle: Home
 
-Welcome to this Quick course on _Deploying an LLM using OpenShift AI_. This is the first of a set of advanced courses about Red Hat OpenShift AI:
+Welcome to this quick course on _Serving an LLM using OpenShift AI_. 
 
-IMPORTANT: The hands-on labs in this course were created and tested with RHOAI v2.9.1. Labs should mostly work without any changes in minor dot release upgrades of the product. Please open issues in this repository if you face any issue.
+This program was designed to guide you through the process of installing an OpenShift AI Platform using an OpenShift Container Platform Web Console UI.  We get hands-on experience in each component needed to enable a RHOAI Platform using an Openshift Container Platform Cluster. 
+
+Once we have an operational OpenShift AI Platform. We will login and begin the process of configuration of: Model Runtimes, Data Science Projects, Data connections, & finally use a jupyter notebook to infer the answers to easy questions. 
+
+There will be some challenges along the way, all designed to teach us about a component, or give us the knowledge utilizing OpenShift AI and hosting an Large Language Model. 
+
+If you're ready, let’s get started !
+
+
+IMPORTANT: The hands-on labs in this course were created and tested with RHOAI v2.9.1 & later. Labs will work without any changes in minor dot release upgrades of the product. Please open issues in this repository if you face any issue.
 
 
 == Authors
@@ -18,37 +27,38 @@ The PTL team acknowledges the valuable contributions of the following Red Hat as
 
 == Classroom Environment
 
-This introductory course has a few, simple hands-on labs. You will use the Base RHOAI on AWS catalog item in the Red Hat Demo Platform (RHDP) to run the hands-on exercises in this course.
+We will use the https://demo.redhat.com/catalog?item=babylon-catalog-prod%2Fopenshift-cnv.ocpmulti-wksp-cnv.prod[*Red Hat OpenShift Container Platform Cluster*] catalog item in the Red Hat Demo Platform (RHDP) to run the hands-on exercises in this course.
 
-This course will utlize the *Red Hat OpenShift Container Platform Cluster*.
+[TIP]
+If you are planning on starting this course now, go ahead & launch the workshop now. It takes <10 minutes to provision, which is just enough time to finish the introduction section. 
 
 When ordering this catalog item in RHDP:
 
-  * Select Practice/Enablement for the Activity field
+  . Select Practice/Enablement for the Activity field
 
-  * Select Learning about the Product for the Purpose field
+  . Select Learning about the Product for the Purpose field
 
-  * Enter Learning RHOAI in the Salesforce ID field
+  . Enter Learning RHOAI in the Salesforce ID field
 
-  * Scroll to the bottom, check the box to confirm acceptance of terms and conditions
+  . Scroll to the bottom, check the box to confirm acceptance of terms and conditions
 
-  * Click order
+  . Click order
 
-For Red Hat partners who do not have access to RHDP, provision an environment using the Red Hat Hybrid Cloud Console. Unfortunately, the labs will NOT work on the trial sandbox environment. You need to provision an OpenShift AI cluster on-premises, or in the supported cloud environments by following the product documentation at Product Documentation for Red Hat OpenShift AI 2024.
+For Red Hat partners who do not have access to RHDP, provision an environment using the Red Hat Hybrid Cloud Console. Unfortunately, the labs will NOT work on the trial sandbox environment. You need to provision an OpenShift AI cluster on-premises, or in the supported cloud environments by following the product documentation at https://access.redhat.com/documentation/en-us/red_hat_openshift_ai_self-managed/2.9/html/installing_and_uninstalling_openshift_ai_self-managed/index[Product Documentation for Red Hat OpenShift AI 2024].
 
 == Prerequisites
 
-For this course, basic experience with Red Hat OpenShift is recommended but is not mandatory.  
+ * Basic experience with Red Hat OpenShift Container Platform is recommended but is not mandatory.  
 
-You will encounter & modify code segments, deploy resources using Yaml files, and have to modify launch configurations, but you will not have to write code.
+* We will encounter & modify code segments, deploy resources using YAML files, & modify launch configurations; but we will not have to write code.
 
 == Objectives
 
-The overall objectives of this introductory course include:
+The overall objectives of this course include:
 
  * Familiarize utilizing Red Hat OpenShift AI to Serve & Interact with an LLM.
 
- * Installing Red Hat OpenShift AI Operator & Dependencies
+ * Installing Red Hat OpenShift AI Operators & Dependencies
 
  * Add a custom Model Serving Runtime
 
