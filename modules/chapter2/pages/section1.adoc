@@ -6,6 +6,8 @@
 
 IMPORTANT: The installation requires a user with the _cluster-admin_ role
 
+This exercise uses the Red Hat Demo Platform; specifically the OpenShift Container Cluster Platform Resource.  If you haven't alreayd your need to launch the lab environment before continuing. 
+
 . Login to the Red Hat OpenShift using a user which has the _cluster-admin_ role assigned.
 
 . Navigate to **Operators** -> **OperatorHub** and search for each of the following Operators individually.  Click on the button or tile for each. In the pop up window that opens, ensure you select the latest version in the *stable* channel and click on **Install** to open the operator's installation view. For this lab you can skip the installation of the optional operators
