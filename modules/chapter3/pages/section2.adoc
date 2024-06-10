@@ -2,14 +2,14 @@
 
 == Open the Jupyter Notebook
 
-From the OpenShift AI ollama-model workbench dashboard,
+From the OpenShift AI ollama-model workbench dashboard:
 
-* Select the Open link to the right of the status section; When the new window opens, use the OpenShift admin user & password to login to the Notebook. 
+* Select the Open link to the right of the status section. When the new window opens, use the OpenShift admin user & password to login to the Notebook. 
 
-click *Allow selected permissions* button to complete login to the notebook.
+* Click *Allow selected permissions* button to complete login to the notebook.
 
 [NOTE]
-If the *OPEN* link for the notebook is grayed out, the notebook container is still starting, this process can take a few minutes & up to 20+ minutes depending on the notebook image we opt'd to choose.
+If the *OPEN* link for the notebook is grayed out, the notebook container is still starting. This process can take a few minutes & up to 20+ minutes depending on the notebook image we opted to choose.
 
 
 == Inside the Jupyter Notebook
@@ -20,26 +20,26 @@ Navigate to the llm-on-openshift/examples/notebooks/langchain folder:
 
 Then open the file: _Langchain-Ollama-Prompt-memory.ipynb_
 
-Explore the notebook then continue.
+Explore the notebook, and then continue.
 
 === Update the Inference Endpoint
 
 Head back to the RHOAI workbench dashboard & copy the interence endpoint from our ollama-mistral model.
 
-Return the Jupyter Notebook Environment, 
+Return the Jupyter Notebook Environment:
 
  . Paste the inference endpoint into the Cell labeled interfence_server_url = *"replace with your own inference address"*
 
- . We can now start executing the code in the cells, starting with the set the inference server url cell. 
+ . We can now start executing the code in the cells, starting with the set the inference server URL cell. 
 
  . Next we run the second cell: !pip install -q langchain==0.1.14 ; there is a notice to update pip, just ignore and continue. 
 
  . The third cell imports the langchain components that provide the libraries and programming files to interact with our LLM model.
 
- . The fourth cell, place our first call to the Ollama-Mistral Framework Served by OpenShift AI. 
+ . In the fourth cell, place our first call to the Ollama-Mistral Framework Served by OpenShift AI. 
 
 [WARNING]
-Before we continue we need to perform the following additional step. As mentioned, The Ollama Model Runtime we launched in OpenShift AI is a Framework that can host multiple LLM Models.  It is currently running but is waiting for the command to instruct it to download Model to Serve.  The following command needs to run from the OpenShift Dashboard.  We are going to use the web_terminal operator to perform this next step. 
+Before we continue, we need to perform the following additional step. As mentioned, The Ollama Model Runtime we launched in OpenShift AI is a Framework that can host multiple LLM Models.  It is currently running but is waiting for the command to instruct it to download Model to Serve.  The following command needs to run from the OpenShift Dashboard.  We are going to use the web_terminal operator to perform this next step. 
 
 == Activating the Mistral Model in Ollama
 
@@ -65,11 +65,11 @@ Once the download completes, the *status: success:* message appears.  We can now
 
 === Create the Prompt
 
-This cell sets the *system message* portion of the query to our model.  Normally we don't get the see this part of the query.  This message details how the model should act / respond / and consider our questions.  This adds checks to valdiate the information is best as possible, and to explain answers in detail.
+This cell sets the *system message* portion of the query to our model.  Normally, we don't get the see this part of the query.  This message details how the model should act, respond, and consider our questions.  It adds checks to valdiate the information is best as possible, and to explain answers in detail.
 
 == Memory for the conversation
 
-Keeps track of the conversation, this way history of the chat are also sent along with new chat information keeping the context for future questions.
+This cell keeps track of the conversation, this way history of the chat are also sent along with new chat information, keeping the context for future questions.
 
 The next cell tracks the conversation and prints it to the Notebook output window so we can experience the full conversation list. 
 
@@ -77,31 +77,31 @@ The next cell tracks the conversation and prints it to the Notebook output windo
 
 The Notebooks first input to our model askes it to describe Paris in 100 words or less. 
 
-In green text is the window is the setup message that is sent along with the single sentence question to desctibe to the model how to consider and respond to the question.
+In green text is the window, there is the setup message that is sent along with the single sentence question to desctibe to the model how to consider and respond to the question.
 
-It takes ~12 seconds for the model to respong with the first word of the reply, and the final word is printed to the screen ~30 seconds after the request was started.
+It takes  approximately 12 seconds for the model to respond with the first word of the reply, and the final word is printed to the screen approximately 30 seconds after the request was started.
 
-The responce answered the question in a well considered and informated paragraph that less than 100 words in length
+The responce answered the question in a well-considered and informated paragraph that is less than 100 words in length.
 
 === Second Input
 
-Notice that the Second input - Is there a River, does not specify where the location is that might have a River.  because the conversation history is passed with the second input, there is not need to specify any additional informaiton.
+Notice that the Second input - "Is there a River" - does not specify where the location is that might have a River.  Because the conversation history is passed with the second input, there is not need to specify any additional informaiton.
 
-The total time to first word took ~14 seconds this time, just a bit longr due the orginal information being sent.  The time for the entire reponse to be printed to the screen just took over 4 seoncds.
+The total time to first word took approximately 14 seconds this time, just a bit longer due the orginal information being sent.  The time for the entire reponse to be printed to the screen just took over 4 seoncds.
 
 Overall our Model is performing well without a GPU and in a container limited to 4 cpus & 10Gb of memory.
 
 == Second Example Prompt
 
-Similar to the previous example, except we use the City of London, and run a cell to remove the verbose text reguarding what is sent or recieved apart from the another from model.
+Similar to the previous example, except we use the City of London, and run a cell to remove the verbose text reguarding what is sent or recieved apart from the answer from the model.
 
-There is no change to memory setting, but go ahead and evalute where the second input; is there a river is answer correctly.
+There is no change to memory setting, but go ahead and evalute where the second input; "Is there a river?" is answer correctly.
 
 == Experimentation with Model 
 
-Add a few new cells to the Notebooks
+Add a few new cells to the Notebook.
 
-Experiment with clearing the memory statement, then asking the river quetsion again.  Or perhaps copy one of the input statements and add your own question for the model. 
+Experiment with clearing the memory statement, then asking the river question again.  Or perhaps copy one of the input statements and add your own question for the model. 
 
 Try not clearing the memory and asking a few questions.
 
@@ -110,13 +110,13 @@ You have successfully deployed a Large Language Model, now test the information 
 
 == Delete the Environment
 
-Once you finished experimenting with questions, make you head back to the Red Hat Demo Platform and delete the Openshift Container Platform Cluster.
+Once you finished experimenting with questions, make sure you head back to the Red Hat Demo Platform and delete the Openshift Container Platform Cluster.
 
-You don't have to remove any of the resources, deleting the environment will remove any resources created during this lesson.
+You don't have to remove any of the resources; deleting the environment will remove any resources created during this lesson.
 
 === Leave Feedback
 
-If you enjoyed this walkthrough, please sent the team a note.
+If you enjoyed this walkthrough, please send the team a note.
 If you have suggestions to make it better or clarify a point, please send the team a note.
 
 Until the next time,  Keep being Awesome!

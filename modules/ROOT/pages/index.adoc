@@ -1,7 +1,7 @@
 = Serving LLM Models on OpenShift AI
 :navtitle: Home
 
-Welcome to this Quick course on _Deploying an LLM using OpenShift AI_. This is the first of a set of advanced courses about Red Hat OpenShift AI:
+Welcome to this Quick course on _Deploying an LLM using OpenShift AI_. This is the first of a set of advanced courses about Red Hat OpenShift AI.
 
 IMPORTANT: The hands-on labs in this course were created and tested with RHOAI v2.9.1. Labs should mostly work without any changes in minor dot release upgrades of the product. Please open issues in this repository if you face any issue.
 
@@ -30,7 +30,7 @@ When ordering this catalog item in RHDP:
 
   * Enter Learning RHOAI in the Salesforce ID field
 
-  * Scroll to the bottom, check the box to confirm acceptance of terms and conditions
+  * Scroll to the bottom, and check the box to confirm acceptance of terms and conditions
 
   * Click order
 
@@ -48,7 +48,7 @@ The overall objectives of this introductory course include:
 
  * Familiarize utilizing Red Hat OpenShift AI to Serve & Interact with an LLM.
 
- * Installing Red Hat OpenShift AI Operator & Dependencies
+ * Install Red Hat OpenShift AI Operator & Dependencies
 
  * Add a custom Model Serving Runtime
 
