@@ -139,7 +139,7 @@
 <h2 id="_model_serving_runtimes"><a class="anchor" href="#_model_serving_runtimes"></a>Model Serving Runtimes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A model-serving runtime provides integration with a specified model server and the model frameworks that it supports. By default, Red Hat OpenShift AI includes the following Model RunTimes:</p>
+<p>A model-serving runtime provides integration with a specified model server and the model frameworks that it supports. By default, Red Hat OpenShift AI includes the following Model Run Times:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -150,12 +150,12 @@
 <p>Caikit TGIS for KServe</p>
 </li>
 <li>
-<p>TGIS Standalong for KServe</p>
+<p>TGIS Standalone for KServe</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>However, if these runtime do not meet your needs (it doesn’t support a particular model framework, for example), you might want to add your own custom runtimes.</p>
+<p>However, if these runtime do not meet your needs (it they don&#8217;t support a particular model framework, for example), you might want to add your own custom runtimes.</p>
 </div>
 <div class="paragraph">
 <p>As an administrator, you can use the OpenShift AI interface to add and enable custom model-serving runtimes. You can then choose from your enabled runtimes when you create a new model server.</p>
@@ -171,7 +171,7 @@
 </td>
 <td class="content">
 <div class="paragraph">
-<p>While RHOAI supports the ability to add your own runtime, it is up to you to configure, adjust and maintain your custom runtimes.</p>
+<p>While RHOAI supports the ability to add your own runtime, it is up to you to configure, adjust, and maintain your custom runtimes.</p>
 </div>
 </td>
 </tr>
@@ -188,16 +188,16 @@
 <p>Log in to RHOAI with a user who is part of the RHOAI admin group, for this lab we will be using the admin account.</p>
 </li>
 <li>
-<p>In the RHOAI Console, Navigate to the Settings menu, then Serving Runtimes</p>
+<p>In the RHOAI Console, Navigate to the Settings menu, then select Serving Runtimes</p>
 </li>
 <li>
 <p>Select the Add Serving Runtime button:</p>
 </li>
 <li>
-<p>For the model serving platform runtime <strong>Select: Single-Model Serving Platform.</strong></p>
+<p>For the model serving platform runtime, <strong>select: Single-Model Serving Platform.</strong></p>
 </li>
 <li>
-<p>For API protocol this runtime supports <strong>Select: REST</strong></p>
+<p>For API protocol this runtime supports, <strong>select: REST</strong></p>
 </li>
 <li>
 <p>Click on Start from scratch in the window that opens up, paste the following YAML:</p>
@@ -236,7 +236,7 @@ spec:
 </div>
 </li>
 <li>
-<p>After clicking the <strong>Add</strong> button at the bottom of the input area, we are  see the new Ollama Runtime in the list. We can re-order the list as needed (the order chosen here is the order in which the users will see these choices)</p>
+<p>After clicking the <strong>Add</strong> button at the bottom of the input area, you will see the new Ollama Runtime in the list. We can re-order the list as needed (the order chosen here is the order in which the users will see these choices).</p>
 </li>
 </ol>
 </div>
@@ -251,19 +251,19 @@ spec:
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Select the create data science project button</p>
+<p>Select the create data science project button.</p>
 </li>
 <li>
 <p>Enter a name for your project, such as <strong>ollama-model</strong>.</p>
 </li>
 <li>
-<p>The resource name should be populated automatically</p>
+<p>The resource name should be populated automatically.</p>
 </li>
 <li>
-<p>Optionally add a description to the data science project</p>
+<p>Optionally add a description to the data science project.</p>
 </li>
 <li>
-<p>Select Create</p>
+<p>Select Create.</p>
 </li>
 </ol>
 </div>
@@ -275,7 +275,7 @@ spec:
 <div class="sect2">
 <h3 id="_minio_overview"><a class="anchor" href="#_minio_overview"></a>MinIO overview</h3>
 <div class="paragraph">
-<p><strong>MinIO</strong> is a high-performance, S3 compatible object store. It can be deployed on a wide variety of platforms, and it comes in multiple flavors.</p>
+<p><strong>MinIO</strong> is a high-performance, S3-compatible object store. It can be deployed on a wide variety of platforms, and it comes in multiple flavors.</p>
 </div>
 <div class="paragraph">
 <p>This segment describes a very quick way of deploying the community version of MinIO in order to quickly setup a fully standalone Object Store, in an OpenShift Cluster. This can then be used for various prototyping tasks that require Object Storage.</p>
@@ -287,7 +287,7 @@ spec:
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-This version of MinIO should not be used in production-grade environments. Also, MinIO is not included in RHOAI, and Red Hat does not provide support for MinIO.
+This version of MinIO should not be used in production-grade environments. Aditionally, MinIO is not included in RHOAI, and Red Hat does not provide support for MinIO.
 </td>
 </tr>
 </table>
@@ -301,7 +301,7 @@ This version of MinIO should not be used in production-grade environments. Also,
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Click on the Project Selection list dropdown, Select the Ollama-Model project or the data science project you created in the previous step.</p>
+<p>Click on the Project Selection list dropdown and select the Ollama-Model project or the data science project you created in the previous step.</p>
 </li>
 <li>
 <p>Then Select the + (plus) icon from the top right of the dashboard.</p>
@@ -494,10 +494,10 @@ spec:
 <p>This will display two routes, one for the UI &amp; another for the API.</p>
 </li>
 <li>
-<p>For the first step select the UI route, and paste it in a browser Window.</p>
+<p>For the first step, select the UI route and paste it in a browser Window.</p>
 </li>
 <li>
-<p>This window opens the MinIO Dashboard, login with user/password combination you set, or the default listed in yaml file above.</p>
+<p>This window opens the MinIO Dashboard. Log in with user/password combination you set, or the default listed in yaml file above.</p>
 </li>
 </ol>
 </div>
@@ -531,7 +531,7 @@ spec:
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-  When serving a LLM or other model Openshift AI looks within a Folder, therefore we need at least one subdirectory under the Models Folder.
+  When serving an LLM or other model, Openshift AI looks within a Folder. Therefore, we need at least one subdirectory under the Models Folder.
 </td>
 </tr>
 </table>
@@ -539,10 +539,10 @@ spec:
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Via the Navigation menu, <strong>Select object browser</strong>, Click on the Model Bucket.</p>
+<p>Via the Navigation menu, <strong>select object browser</strong>, then click on the Model Bucket.</p>
 </li>
 <li>
-<p>From the models bucket page, click add path, and type <strong>ollama</strong> as the name of the sub-Folder or path.</p>
+<p>From the models bucket page, click add path, and type <strong>ollama</strong> as the name of the sub-folder or path.</p>
 </li>
 </ol>
 </div>
@@ -553,7 +553,7 @@ spec:
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-In most cases to serve a model, the trained model would be uploaded into this sub-directory. <strong>Ollama is a special case, as it can download and manage Several LLM models as part of the runtime.</strong>
+In most cases, to serve a model, the trained model would be uploaded into this sub-directory. <strong>However, Ollama is a special case, as it can download and manage Several LLM models as part of the runtime.</strong>
 </td>
 </tr>
 </table>
@@ -564,10 +564,10 @@ In most cases to serve a model, the trained model would be uploaded into this su
 <p>We still need a file available in this folder for the model deployment workflow to succeed.</p>
 </li>
 <li>
-<p>So we will copy an emptyfile.txt file to the ollama subdirectory.  You can download the file from <a href="https://github.com/rh-aiservices-bu/llm-on-openshift/tree/main/serving-runtimes/ollama_runtime"><strong>this location</strong></a>.  Or you can create your own file called emptyfile.txt and upload it.</p>
+<p>So we will copy an <strong>emptyfile.txt</strong> file to the ollama subdirectory. You can download the file from <a href="https://github.com/rh-aiservices-bu/llm-on-openshift/tree/main/serving-runtimes/ollama_runtime"><strong>this location</strong></a>. Alternatively, you can create your own file called emptyfile.txt and upload it.</p>
 </li>
 <li>
-<p>Once you have this file ready, upload it into the Ollama path in the model bucket, by clicking the upload button and selecting the file from your local desktop.</p>
+<p>Once you have this file ready, upload it into the Ollama path in the model bucket by clicking the upload button and selecting the file from your local desktop.</p>
 </li>
 </ol>
 </div>
@@ -590,19 +590,19 @@ In most cases to serve a model, the trained model would be uploaded into this su
 <p>Name:  <strong>models</strong></p>
 </li>
 <li>
-<p>Access Key: is the minio_root-user from YAML file</p>
+<p>Access Key: use the minio_root-user from YAML file</p>
 </li>
 <li>
-<p>Secret Key: is the minio_root_password from the YAML File</p>
+<p>Secret Key: use the minio_root_password from the YAML File</p>
 </li>
 <li>
-<p>Endpoint: is the Minio API URL from the Routes page in Openshift Dashboard</p>
+<p>Endpoint: use the Minio API URL from the Routes page in Openshift Dashboard</p>
 </li>
 <li>
-<p>Region: Is required for AWS storage &amp; cannot be blank (no-region-minio)</p>
+<p>Region: This is required for AWS storage &amp; cannot be blank (no-region-minio)</p>
 </li>
 <li>
-<p>Bucket: is the Minio Storage bucket name: <strong>models</strong></p>
+<p>Bucket: use the Minio Storage bucket name: <strong>models</strong></p>
 </li>
 </ol>
 </div>
@@ -610,7 +610,7 @@ In most cases to serve a model, the trained model would be uploaded into this su
 </ol>
 </div>
 <div class="paragraph">
-<p>Repeat for the Storage bucket, using <strong>storage</strong> for the name &amp; bucket.</p>
+<p>Repeat the same process for the Storage bucket, using <strong>storage</strong> for the name &amp; bucket.</p>
 </div>
 </div>
 </div>
@@ -624,7 +624,7 @@ In most cases to serve a model, the trained model would be uploaded into this su
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Select the WorkBench button, then create workbench</p>
+<p>Select the WorkBench button, then click create workbench</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -634,10 +634,10 @@ In most cases to serve a model, the trained model would be uploaded into this su
 <p>Notebook Image:  <code>Minimal Python</code></p>
 </li>
 <li>
-<p>Leave the remianing options default</p>
+<p>Leave the remianing options default.</p>
 </li>
 <li>
-<p>Optionally, scroll to the bottom, check the <code>Use data connection box</code></p>
+<p>Optionally, scroll to the bottom, check the <code>Use data connection box</code>.</p>
 </li>
 <li>
 <p>Select <strong>storage</strong> from the dropdown to attach the storage bucket to the workbench.</p>
@@ -668,7 +668,7 @@ Depending on the notebook image selected, it can take between 2-20 minutes for t
 <h2 id="_creating_the_model_server"><a class="anchor" href="#_creating_the_model_server"></a>Creating The Model Server</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>From the ollama-model WorkBench Dashboard in the ollama-model project,  specify the <strong>Models</strong> section, and select Deploy Model from the <strong>Single Model Serving Platform Button</strong>.</p>
+<p>From the ollama-model WorkBench Dashboard in the ollama-model project, navigate to the <strong>Models</strong> section, and select Deploy Model from the <strong>Single Model Serving Platform Button</strong>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Create the model server with the following values:</strong></p>
@@ -698,7 +698,7 @@ Depending on the notebook image selected, it can take between 2-20 minutes for t
 </ol>
 </div>
 <div class="paragraph">
-<p>After clicking the <strong>Deploy</strong> button at the bottom of the form, the model is added to our <strong>Models &amp; Model Server list</strong>.  When the model is avialable the inference endpoint will populate &amp; the status will indicate a green checkmark.</p>
+<p>After clicking the <strong>Deploy</strong> button at the bottom of the form, the model is added to our <strong>Models &amp; Model Server list</strong>.  When the model is available, the inference endpoint will populate &amp; the status will indicate a green checkmark.</p>
 </div>
 <div class="paragraph">
 <p>We are now ready to interact with our newly deployed LLM Model.  Join me in Section 2 to explore Mistral running on OpenShift AI using Jupyter Notebooks.</p>
