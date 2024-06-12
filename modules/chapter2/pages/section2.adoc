@@ -25,7 +25,7 @@ The content of the Secret (data) should contain two items, *tls.cert* and *tls.k
     . From the Project dropdown, toggle the *show default projects* radial button to on. 
     . Select the *openshift-ingress* project from the list. 
 
-image::openshiftingress_project.png[]
+image::openshiftingress_project.png[width=640]
 
     . Locate the file named *ingress-certs-(XX-XX-2024)*, type should be *Opaque*
     . Click on the filename to open the secret, Select the *YAML Tab*
@@ -51,7 +51,7 @@ tls.key: >-
     LS0tLS1CRUd...
 type: kubernetes.io/tls
 ```
-image::createsecret.png[]
+image::createsecret.png[width=640]
 
 
 * Copy the name of the secret from line 4, just the name  (optional, but helpful)
@@ -86,11 +86,11 @@ serving:
     managementState: Managed
     name: knative-serving
 ```
-image::dcsyamlfile.png[]
+image::dcsyamlfile.png[width=640]
 
 Once you have made those changes to the YAML file, *Click Create* to Deploy the Data Science Cluster.  
 
-image::createDSC.png[]
+image::createDSC.png[width=640]
 
 Single Model Serve Platform will now be deployed / expose ingress connections with the same certificate as OpenShift Routes. Endpoints will be accessible using TLS without having to ignore error messages or create special configurations.
 
