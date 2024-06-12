@@ -1,7 +1,10 @@
 = Serving LLM Models on OpenShift AI
 :navtitle: Home
 
-Welcome to this Quick course on _Deploying an LLM using OpenShift AI_. 
+
+video::intro_v4.mp4[width=800,start=60,opts=autoplay]
+
+Welcome to this quick course on _Serving an LLM using OpenShift AI_. 
 
 This program was designed to guide you through the process of installing an OpenShift AI Platform using an OpenShift Container Platform Web Console UI.  We get hands-on experience in each component needed to enable a RHOAI Platform using an Openshift Container Platform Cluster. 
 
@@ -19,11 +22,15 @@ IMPORTANT: The hands-on labs in this course were created and tested with RHOAI v
 
 The PTL team acknowledges the valuable contributions of the following Red Hat associates:
 
-*Christopher Nuland
+* Christopher Nuland
 
-*Vijay Chebolu & Team
+ * Vijay Chebolu
 
-*Karlos Knox
+ * Noel O'Conner
+
+ * Hunter Gerlach
+
+ * Karlos Knox
 
 == Classroom Environment
 
@@ -56,16 +63,16 @@ For Red Hat partners who do not have access to RHDP, provision an environment us
 
 The overall objectives of this course include:
 
- * Familiarize utilizing Red Hat OpenShift AI to Serve & Interact with an LLM.
+ * Utilize Red Hat OpenShift AI to serve & interact with an LLM
 
- * Install Red Hat OpenShift AI Operators & Dependencies
+ * Install Red Hat OpenShift AI operators & dependencies
 
- * Add a custom Model Serving Runtime
+ * Add a custom model serving runtime
 
  * Create a data science project, workbench & data connections
 
- * Load an LLM model into the Ollama Runtime Framework
+ * Load an LLM model into the Ollama runtime framework
 
- * Import (from Git repositories), interact with LLM model via a Jupyter Notebook
+ * Import (from git repositories), interact with LLM model via a Jupyter Notebooks
 
  * Experiment with the Mistral LLM
