@@ -65,8 +65,9 @@ spec:
     - autoSelect: true
       name: any
 ```
+image::serving_runtime.png[width=640]
 
-. After clicking the **Add** button at the bottom of the input area, you will see the new Ollama Runtime in the list. We can re-order the list as needed (the order chosen here is the order in which the users will see these choices).
+. After clicking the **Create** button at the bottom of the input area, you will see the new Ollama Runtime in the list. We can re-order the list as needed (the order chosen here is the order in which the users will see these choices).
 
 
 == Create a Data Science Project 
@@ -83,6 +84,7 @@ Navigate to & select the Data Science Projects section.
 
  . Select Create.
 
+image::dsp_create.png[width=640]
 
 == Deploy MinIO as S3 Compatible Storage
 
@@ -101,6 +103,8 @@ To Deploy MinIO, we will utilize the OpenShift Dashboard.
  . Click on the Project Selection list dropdown and select the Ollama-Model project or the data science project you created in the previous step. 
 
  . Then Select the + (plus) icon from the top right of the dashboard.
+
+image::minio2.png[width=640]
 
  .  In the new window, we will paste the following YAML file.  In the YAML below its recommended to change the default user name & password. 
 
@@ -322,12 +326,16 @@ Navigate to the Data Science Project section of the OpenShift AI Console /Dashbo
 ..  Region: This is required for AWS storage & cannot be blank (no-region-minio)
 .. Bucket: use the Minio Storage bucket name: *models* 
 
+image::dataconnection_models.png[width=800]
+
 Repeat the same process for the Storage bucket, using *storage* for the name & bucket.
 
 
 == Creating a WorkBench 
 
 Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the Ollama-model project.  
+
+image::create_workbench.png[width=800]
 
  . Select the WorkBench button, then click create workbench
 
@@ -351,6 +359,7 @@ Depending on the notebook image selected, it can take between 2-20 minutes for t
 
 From the ollama-model WorkBench Dashboard in the ollama-model project, navigate to the **Models** section, and select Deploy Model from the **Single Model Serving Platform Button**.
 
+image::deploy_model_2.png[width=800]
 
 *Create the model server with the following values:*
 
