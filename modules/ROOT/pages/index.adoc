@@ -1,6 +1,8 @@
 = Serving LLM Models on OpenShift AI
 :navtitle: Home
 
+video::intro_v4.mp4[width=800,start=60,opts=autoplay]
+
 Welcome to this quick course on _Serving an LLM using OpenShift AI_. 
 
 This program was designed to guide you through the process of installing an OpenShift AI Platform using an OpenShift Container Platform Web Console UI.  We get hands-on experience in each component needed to enable a RHOAI Platform using an Openshift Container Platform Cluster. 
