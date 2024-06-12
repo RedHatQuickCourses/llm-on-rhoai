@@ -34,7 +34,7 @@ This exercise uses the Red Hat Demo Platform; specifically the OpenShift Contain
 
 * Navigate to **Operators** -> **OperatorHub** and search for *OpenShift AI*.
 
-image::openshiftai_operator.png[]
+image::openshiftai_operator.png[width=640]
 
 . Click on the `Red{nbsp}Hat OpenShift AI` operator. In the pop up window that opens, ensure you select the latest version in the *stable* channel and click on **Install** to open the operator's installation view.
 +
