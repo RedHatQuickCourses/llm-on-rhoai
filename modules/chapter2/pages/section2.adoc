@@ -24,6 +24,9 @@ The content of the Secret (data) should contain two items, *tls.cert* and *tls.k
     . In the Navigation pane on the left, click on the *Workloads* section, then *Secrets* under Workloads.
     . From the Project dropdown, toggle the *show default projects* radial button to on. 
     . Select the *openshift-ingress* project from the list. 
+
+image::openshiftingress_project.png[]
+
     . Locate the file named *ingress-certs-(XX-XX-2024)*, type should be *Opaque*
     . Click on the filename to open the secret, Select the *YAML Tab*
     . Copy all the text from the window, insure you scroll down.  (CTL-A should work).
@@ -48,8 +51,10 @@ tls.key: >-
     LS0tLS1CRUd...
 type: kubernetes.io/tls
 ```
+image::createsecret.png[]
 
-* Copy the Name in red portion of the text  (optional, but helpful)
+
+* Copy the name of the secret from line 4, just the name  (optional, but helpful)
 * Click *create* to apply this YAML into the istio-system proejct (namespace).
 
 *We have copied the Secret used by OCP & made it available be used by OAI.*
@@ -81,12 +86,15 @@ serving:
     managementState: Managed
     name: knative-serving
 ```
+image::dcsyamlfile.png[]
 
 Once you have made those changes to the YAML file, *Click Create* to Deploy the Data Science Cluster.  
 
+image::createDSC.png[]
+
 Single Model Serve Platform will now be deployed / expose ingress connections with the same certificate as OpenShift Routes. Endpoints will be accessible using TLS without having to ignore error messages or create special configurations.
 
-== Epilogue
+== OpenShift AI install summary
 
 Congradulations, you have successful completed the installation of OpenShift AI on an OpenShift Container Cluster. OpenShift AI is now running as new Dashboard!
 

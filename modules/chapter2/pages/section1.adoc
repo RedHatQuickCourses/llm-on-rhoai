@@ -32,7 +32,9 @@ This exercise uses the Red Hat Demo Platform; specifically the OpenShift Contain
  
  Installing these Operators prior to the installation of the OpenShift AI Operator in my experience has made a difference in OpenShift AI acknowledging the availability of these components and adjusting the initial configuration to shift management of these components to OpenShift AI. 
 
-. Navigate to **Operators** -> **OperatorHub** and search for *OpenShift AI*.
+* Navigate to **Operators** -> **OperatorHub** and search for *OpenShift AI*.
+
+image::openshiftai_operator.png[]
 
 . Click on the `Red{nbsp}Hat OpenShift AI` operator. In the pop up window that opens, ensure you select the latest version in the *stable* channel and click on **Install** to open the operator's installation view.
 +
