@@ -10,7 +10,7 @@ This exercise uses the Red Hat Demo Platform; specifically the OpenShift Contain
 
 . Login to the Red Hat OpenShift using a user which has the _cluster-admin_ role assigned.
 
-. Navigate to **Operators** -> **OperatorHub** and search for each of the following Operators individually.  Click on the button or tile for each. In the pop up window that opens, ensure you select the latest version in the *stable* channel and click on **Install** to open the operator's installation view. For this lab you can skip the installation of the optional operators
+. Navigate to **Operators** -> **OperatorHub** and search for each of the following Operators individually.  Click on the button or tile for each. In the pop up window that opens, ensure you select the latest version in the *stable* channel and click on **Install** to open the operator's installation view. For this lab you can skip the installation of the optional operators.
 
 [*] You do not have to wait for the previous Operator to complete before installing the next. For this lab you can skip the installation of the optional operators as there is no GPU.
 
@@ -44,4 +44,4 @@ image::openshiftai_operator.png[]
 . The operator Installation progress window will pop up. The installation may take a couple of minutes.
 
 
-WARNING: Do proceed with the installation past this point.  In order to access the LLM remotely; There will be some modifcations to the Data Science Cluster YAML file prior to completing the installation of Red Hat OpenShift AI.   
+WARNING: Do not proceed with the installation past this point.  In order to access the LLM remotely; you will need to make some modifcations to the Data Science Cluster YAML file prior to completing the installation of Red Hat OpenShift AI.   

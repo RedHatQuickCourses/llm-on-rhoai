@@ -2,13 +2,13 @@
 
 == Model Serving Runtimes
 
-A model-serving runtime provides integration with a specified model server and the model frameworks that it supports. By default, Red Hat OpenShift AI includes the following Model RunTimes:
+A model-serving runtime provides integration with a specified model server and the model frameworks that it supports. By default, Red Hat OpenShift AI includes the following Model Run Times:
 
  * OpenVINO Model Server runtime.
  * Caikit TGIS for KServe
- * TGIS Standalong for KServe 
+ * TGIS Standalone for KServe 
  
-However, if these runtime do not meet your needs (it doesn’t support a particular model framework, for example), you might want to add your own custom runtimes.
+However, if these runtime do not meet your needs (it they don't support a particular model framework, for example), you might want to add your own custom runtimes.
 
 As an administrator, you can use the OpenShift AI interface to add and enable custom model-serving runtimes. You can then choose from your enabled runtimes when you create a new model server.
 
@@ -17,20 +17,20 @@ This exercise will guide you through the broad steps necessary to deploy a custo
 
 [NOTE]
 ====
-While RHOAI supports the ability to add your own runtime, it is up to you to configure, adjust and maintain your custom runtimes.
+While RHOAI supports the ability to add your own runtime, it is up to you to configure, adjust, and maintain your custom runtimes.
 ====
 
 == Add The Ollama Custom Runtime
 
 . Log in to RHOAI with a user who is part of the RHOAI admin group, for this lab we will be using the admin account. 
 
-. In the RHOAI Console, Navigate to the Settings menu, then Serving Runtimes
+. In the RHOAI Console, Navigate to the Settings menu, then select Serving Runtimes
 
 . Select the Add Serving Runtime button:
 
-. For the model serving platform runtime *Select: Single-Model Serving Platform.*
+. For the model serving platform runtime, *select: Single-Model Serving Platform.*
 
-.  For API protocol this runtime supports *Select: REST*
+.  For API protocol this runtime supports, *select: REST*
 
 . Click on Start from scratch in the window that opens up, paste the following YAML:
 +
@@ -66,39 +66,39 @@ spec:
       name: any
 ```
 
-. After clicking the **Add** button at the bottom of the input area, we are  see the new Ollama Runtime in the list. We can re-order the list as needed (the order chosen here is the order in which the users will see these choices)
+. After clicking the **Add** button at the bottom of the input area, you will see the new Ollama Runtime in the list. We can re-order the list as needed (the order chosen here is the order in which the users will see these choices).
 
 
 == Create a Data Science Project 
 
 Navigate to & select the Data Science Projects section.
 
- . Select the create data science project button
+ . Select the create data science project button.
 
  . Enter a name for your project, such as *ollama-model*.
 
- . The resource name should be populated automatically
+ . The resource name should be populated automatically.
 
- . Optionally add a description to the data science project
+ . Optionally add a description to the data science project.
 
- . Select Create
+ . Select Create.
 
 
 == Deploy MinIO as S3 Compatible Storage
 
 === MinIO overview
 
-*MinIO* is a high-performance, S3 compatible object store. It can be deployed on a wide variety of platforms, and it comes in multiple flavors.
+*MinIO* is a high-performance, S3-compatible object store. It can be deployed on a wide variety of platforms, and it comes in multiple flavors.
 
 This segment describes a very quick way of deploying the community version of MinIO in order to quickly setup a fully standalone Object Store, in an OpenShift Cluster. This can then be used for various prototyping tasks that require Object Storage.
 
 [WARNING]
-This version of MinIO should not be used in production-grade environments. Also, MinIO is not included in RHOAI, and Red Hat does not provide support for MinIO.
+This version of MinIO should not be used in production-grade environments. Aditionally, MinIO is not included in RHOAI, and Red Hat does not provide support for MinIO.
 
 === MinIO Deployment
 To Deploy MinIO, we will utilize the OpenShift Dashboard. 
 
- . Click on the Project Selection list dropdown, Select the Ollama-Model project or the data science project you created in the previous step. 
+ . Click on the Project Selection list dropdown and select the Ollama-Model project or the data science project you created in the previous step. 
 
  . Then Select the + (plus) icon from the top right of the dashboard.
 
@@ -280,9 +280,9 @@ From the OCP Dashboard:
  
  . This will display two routes, one for the UI & another for the API.
 
- . For the first step select the UI route, and paste it in a browser Window.
+ . For the first step, select the UI route and paste it in a browser Window.
   
- . This window opens the MinIO Dashboard, login with user/password combination you set, or the default listed in yaml file above.
+ . This window opens the MinIO Dashboard. Log in with user/password combination you set, or the default listed in yaml file above.
 
 Once logged into the MinIO Console:
 
@@ -295,19 +295,19 @@ Once logged into the MinIO Console:
    ..  *storage*
 
 [NOTE]
-  When serving a LLM or other model Openshift AI looks within a Folder, therefore we need at least one subdirectory under the Models Folder.  
+  When serving an LLM or other model, Openshift AI looks within a Folder. Therefore, we need at least one subdirectory under the Models Folder.  
 
- . Via the Navigation menu, *Select object browser*, Click on the Model Bucket.
- . From the models bucket page, click add path, and type *ollama* as the name of the sub-Folder or path.  
+ . Via the Navigation menu, *select object browser*, then click on the Model Bucket.
+ . From the models bucket page, click add path, and type *ollama* as the name of the sub-folder or path.  
 
 [IMPORTANT]
-In most cases to serve a model, the trained model would be uploaded into this sub-directory. *Ollama is a special case, as it can download and manage Several LLM models as part of the runtime.*  
+In most cases, to serve a model, the trained model would be uploaded into this sub-directory. *However, Ollama is a special case, as it can download and manage Several LLM models as part of the runtime.*  
 
  . We still need a file available in this folder for the model deployment workflow to succeed.
 
- . So we will copy an emptyfile.txt file to the ollama subdirectory.  You can download the file from https://github.com/rh-aiservices-bu/llm-on-openshift/tree/main/serving-runtimes/ollama_runtime[*this location*].  Or you can create your own file called emptyfile.txt and upload it.
+ . So we will copy an *emptyfile.txt* file to the ollama subdirectory. You can download the file from https://github.com/rh-aiservices-bu/llm-on-openshift/tree/main/serving-runtimes/ollama_runtime[*this location*]. Alternatively, you can create your own file called emptyfile.txt and upload it.
 
- . Once you have this file ready, upload it into the Ollama path in the model bucket, by clicking the upload button and selecting the file from your local desktop.
+ . Once you have this file ready, upload it into the Ollama path in the model bucket by clicking the upload button and selecting the file from your local desktop.
 
 === Create Data Connection 
 
@@ -316,28 +316,28 @@ Navigate to the Data Science Project section of the OpenShift AI Console /Dashbo
 . Select the Data Connection menu, followed by create data connection
 . Provide the following values:
 ..  Name:  *models*
-..  Access Key: is the minio_root-user from YAML file
-..  Secret Key: is the minio_root_password from the YAML File
-..  Endpoint: is the Minio API URL from the Routes page in Openshift Dashboard
-..  Region: Is required for AWS storage & cannot be blank (no-region-minio)
-.. Bucket: is the Minio Storage bucket name: *models* 
+..  Access Key: use the minio_root-user from YAML file
+..  Secret Key: use the minio_root_password from the YAML File
+..  Endpoint: use the Minio API URL from the Routes page in Openshift Dashboard
+..  Region: This is required for AWS storage & cannot be blank (no-region-minio)
+.. Bucket: use the Minio Storage bucket name: *models* 
 
-Repeat for the Storage bucket, using *storage* for the name & bucket.
+Repeat the same process for the Storage bucket, using *storage* for the name & bucket.
 
 
 == Creating a WorkBench 
 
 Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the Ollama-model project.  
 
- . Select the WorkBench button, then create workbench
+ . Select the WorkBench button, then click create workbench
 
  .. Name:  `ollama-model`
 
  .. Notebook Image:  `Minimal Python`
 
- .. Leave the remianing options default
+ .. Leave the remianing options default.
 
- .. Optionally, scroll to the bottom, check the `Use data connection box`
+ .. Optionally, scroll to the bottom, check the `Use data connection box`.
  
  .. Select *storage* from the dropdown to attach the storage bucket to the workbench.  
 
@@ -349,7 +349,7 @@ Depending on the notebook image selected, it can take between 2-20 minutes for t
 
 == Creating The Model Server
 
-From the ollama-model WorkBench Dashboard in the ollama-model project,  specify the **Models** section, and select Deploy Model from the **Single Model Serving Platform Button**.
+From the ollama-model WorkBench Dashboard in the ollama-model project, navigate to the **Models** section, and select Deploy Model from the **Single Model Serving Platform Button**.
 
 
 *Create the model server with the following values:*
@@ -363,7 +363,7 @@ From the ollama-model WorkBench Dashboard in the ollama-model project,  specify 
  .. Model location path: `/ollama`
 
 
-After clicking the **Deploy** button at the bottom of the form, the model is added to our **Models & Model Server list**.  When the model is avialable the inference endpoint will populate & the status will indicate a green checkmark.
+After clicking the **Deploy** button at the bottom of the form, the model is added to our **Models & Model Server list**.  When the model is available, the inference endpoint will populate & the status will indicate a green checkmark.
 
 We are now ready to interact with our newly deployed LLM Model.  Join me in Section 2 to explore Mistral running on OpenShift AI using Jupyter Notebooks. 
 
