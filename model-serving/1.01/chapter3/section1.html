@@ -234,9 +234,14 @@ spec:
       name: any</code></pre>
 </div>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/serving_runtime.png" alt="serving runtime" width="640">
+</div>
+</div>
 </li>
 <li>
-<p>After clicking the <strong>Add</strong> button at the bottom of the input area, you will see the new Ollama Runtime in the list. We can re-order the list as needed (the order chosen here is the order in which the users will see these choices).</p>
+<p>After clicking the <strong>Create</strong> button at the bottom of the input area, you will see the new Ollama Runtime in the list. We can re-order the list as needed (the order chosen here is the order in which the users will see these choices).</p>
 </li>
 </ol>
 </div>
@@ -266,6 +271,11 @@ spec:
 <p>Select Create.</p>
 </li>
 </ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/dsp_create.png" alt="dsp create" width="640">
+</div>
 </div>
 </div>
 </div>
@@ -306,6 +316,15 @@ This version of MinIO should not be used in production-grade environments. Aditi
 <li>
 <p>Then Select the + (plus) icon from the top right of the dashboard.</p>
 </li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/minio2.png" alt="minio2" width="640">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>In the new window, we will paste the following YAML file.  In the YAML below its recommended to change the default user name &amp; password.</p>
 </li>
@@ -609,6 +628,11 @@ In most cases, to serve a model, the trained model would be uploaded into this s
 </li>
 </ol>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/dataconnection_models.png" alt="dataconnection models" width="800">
+</div>
+</div>
 <div class="paragraph">
 <p>Repeat the same process for the Storage bucket, using <strong>storage</strong> for the name &amp; bucket.</p>
 </div>
@@ -620,6 +644,11 @@ In most cases, to serve a model, the trained model would be uploaded into this s
 <div class="sectionbody">
 <div class="paragraph">
 <p>Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the Ollama-model project.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/create_workbench.png" alt="create workbench" width="800">
+</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -669,6 +698,11 @@ Depending on the notebook image selected, it can take between 2-20 minutes for t
 <div class="sectionbody">
 <div class="paragraph">
 <p>From the ollama-model WorkBench Dashboard in the ollama-model project, navigate to the <strong>Models</strong> section, and select Deploy Model from the <strong>Single Model Serving Platform Button</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/deploy_model_2.png" alt="deploy model 2" width="800">
+</div>
 </div>
 <div class="paragraph">
 <p><strong>Create the model server with the following values:</strong></p>
