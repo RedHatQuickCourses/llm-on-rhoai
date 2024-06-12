@@ -194,6 +194,15 @@ Most customers will not use the self-signed certificates, opting instead to use 
 <li>
 <p>Select the <strong>openshift-ingress</strong> project from the list.</p>
 </li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/openshiftingress_project.png" alt="openshiftingress project">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Locate the file named <strong>ingress-certs-(XX-XX-2024)</strong>, type should be <strong>Opaque</strong></p>
 </li>
@@ -238,10 +247,15 @@ tls.key: &gt;-
 type: kubernetes.io/tls</code></pre>
 </div>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/createsecret.png" alt="createsecret">
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Copy the Name in red portion of the text  (optional, but helpful)</p>
+<p>Copy the name of the secret from line 4, just the name  (optional, but helpful)</p>
 </li>
 <li>
 <p>Click <strong>create</strong> to apply this YAML into the istio-system proejct (namespace).</p>
@@ -290,8 +304,18 @@ serving:
     name: knative-serving</code></pre>
 </div>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/dcsyamlfile.png" alt="dcsyamlfile">
+</div>
+</div>
 <div class="paragraph">
 <p>Once you have made those changes to the YAML file, <strong>Click Create</strong> to Deploy the Data Science Cluster.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/createDSC.png" alt="createDSC">
+</div>
 </div>
 <div class="paragraph">
 <p>Single Model Serve Platform will now be deployed to expose ingress connections with the same certificate as OpenShift Routes. Endpoints will be accessible using TLS without having to ignore error messages or create special configurations.</p>
@@ -299,7 +323,7 @@ serving:
 </div>
 </div>
 <div class="sect1">
-<h2 id="_epilogue"><a class="anchor" href="#_epilogue"></a>Epilogue</h2>
+<h2 id="_openshift_ai_install_summary"><a class="anchor" href="#_openshift_ai_install_summary"></a>OpenShift AI install summary</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Congratulations, you have successfully completed the installation of OpenShift AI on an OpenShift Container Cluster. OpenShift AI is now running on a new Dashboard!</p>
