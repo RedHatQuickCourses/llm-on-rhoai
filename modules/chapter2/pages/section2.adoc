@@ -1,5 +1,7 @@
 = Modifying the OpenShift AI TLS Certificate
 
+video::OpenShift Ai TLS Cert-low.mp4[width=600]
+
 [NOTE]
 
 An SSL/TLS certificate is a digital object that allows systems to verify the identity & subsequently establish an encrypted network connection to another system using the Secure Sockets Layer/Transport Layer Security (SSL/TLS) protocol.

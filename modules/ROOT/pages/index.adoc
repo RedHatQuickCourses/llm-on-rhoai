@@ -39,6 +39,8 @@ We will use the https://demo.redhat.com/catalog?item=babylon-catalog-prod%2Fopen
 [TIP]
 If you are planning on starting this course now, go ahead & launch the workshop now. It takes <10 minutes to provision, which is just enough time to finish the introduction section. 
 
+video::OpenShift Demo Platform Order v2-low.mp4[width=800]
+
 When ordering this catalog item in RHDP:
 
   . Select Practice/Enablement for the Activity field
