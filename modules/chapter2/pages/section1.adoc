@@ -2,6 +2,8 @@
 
 *Red{nbsp}Hat OpenShift AI* is available as an operator via the OpenShift Operator Hub.  You will install the *Red{nbsp}Hat OpenShift AI operator* and dependencies using the OpenShift web console in this section.
 
+video::OpenShift Ai Operator v2-low.mp4[width=600]
+
 == Lab: Installation of Red{nbsp}Hat OpenShift AI
 
 IMPORTANT: The installation requires a user with the _cluster-admin_ role

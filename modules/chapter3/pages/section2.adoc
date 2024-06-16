@@ -1,5 +1,7 @@
 = Jupyter Notebooks & Mistral LLM Model Setup
 
+video::OpenShift AI notebook v2-low.mp4[width=600]
+
 == Open the Jupyter Notebook
 
 From the OpenShift AI ollama-model workbench dashboard:
