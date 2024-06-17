@@ -1,0 +1,51 @@
+= Quiz: Components of Red Hat OpenShift AI
+
+Objective::
+
+Identify components of the Red Hat OpenStack AI on OpenShift product and how a Red Hat OpenShift AI Deploys Resources to support AI/ML Development
+
+WARNING: Pending review.
+
+== Questions
+
+// This quiz uses things a learner might know from his previous experience with RHEL or OpenStack as *distractors*, but does NOT rely on any previous knowledge. Learners new to OpenStack and OpenShift should be able to answer all questions from only the contents on the previouis lecture.
+
+1. Which of the following *Operator components* are either are required to enable Red Hat OpenShift AI on OpenShift with Single Model Serving Platform capabilities ? 
+
+* [ ] Red Hat OpenShift serverless operator 
+* [ ] Red Hat OpenShift service mesh operator 
+* [ ] Red Hat OpenShift pipelines operator
+* [ ] Red Hat OpenShift node feature discovery operator
+* [ ] Red Hat OpenShift Nvidia gpu operator
+* [ ] Red Hat OpenShift gitOps operator
+* [ ] Red Hat OpenShift smart gateway operator
+
+
+2. After the installation of OpenShift AI Operator via Operator Hub, which of the following actions are required to enable the OpenShift AI console or dashboard ?
+
+* [ ] Create a new OpenShift AI data science project
+* [ ] Modify the data science cluster YAML file to use custom TLS certificates
+* [ ] Create a new OpenShift AI data science cluster
+* [ ] Create a new data science project workbench
+* [ ] A third-party vendor operator is required by Red Hat OpenShift AI.
+
+3. What resources / services are available in a new OpenShift AI data science project ?
+
+* [ ] Workbench
+* [ ] Data connections
+* [ ] Pipelines
+* [ ] Model serving
+* [ ] Workloads
+* [ ] Routes
+* [ ] Permissions
+* [ ] Accelerator profiles
+* [ ] Operator Hub
+
+4. When deploying a Model Server in an OpenShift AI workbench, what other workbench resources must be preconfigured ?
+
+* [ ] Data connection
+* [ ] Pipelines
+* [ ] Serving Runtimes
+* [ ] Workbench
+* [ ] Data science project
+* [ ] Model files located in S3 comptabile object storage
