@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>OpenShift AI Customization :: Serving LLM Models on OpenShift AI</title>
+    <link rel="prev" href="index.html">
+    <link rel="next" href="section2.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Serving LLM Models on OpenShift AI</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/changeme/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="model-serving" data-version="1.01">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Serving LLM Models on OpenShift AI</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../chapter1/index.html">Technical side of LLMs</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter1/section1.html">Technology Components</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../chapter2/index.html">OpenShift AI Initilization</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/section1.html">Installing Red&#160;Hat OpenShift AI Using the Web Console</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter2/section2.html">Modifying the OpenShift AI TLS Certificate</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">OpenShift AI Configuration</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="section1.html">OpenShift AI Customization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section2.html">Jupyter Notebooks &amp; Mistral LLM Model Setup</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../appendix/appendix.html">Knowledge Check</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/section1.html">Quiz: Components of Red Hat OpenShift AI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/section2.html">Answers to the Quiz</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Serving LLM Models on OpenShift AI</span>
+    <span class="version">1.01</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Serving LLM Models on OpenShift AI</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.01</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Serving LLM Models on OpenShift AI</a></li>
+    <li><a href="index.html">OpenShift AI Configuration</a></li>
+    <li><a href="section1.html">OpenShift AI Customization</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">OpenShift AI Customization</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="videoblock">
+<div class="content">
+<video src="_images/openshiftai_setup_part1.mp4" width="640" controls>
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_model_serving_runtimes"><a class="anchor" href="#_model_serving_runtimes"></a>Model Serving Runtimes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A model-serving runtime provides integration with a specified model server and the model frameworks that it supports. By default, Red Hat OpenShift AI includes the following Model Run Times:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>OpenVINO Model Server runtime.</p>
+</li>
+<li>
+<p>Caikit TGIS for KServe</p>
+</li>
+<li>
+<p>TGIS Standalone for KServe</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>However, if these runtime do not meet your needs (it they don&#8217;t support a particular model framework, for example), you might want to add your own custom runtimes.</p>
+</div>
+<div class="paragraph">
+<p>As an administrator, you can use the OpenShift AI interface to add and enable custom model-serving runtimes. You can then choose from your enabled runtimes when you create a new model server.</p>
+</div>
+<div class="paragraph">
+<p>This exercise will guide you through the broad steps necessary to deploy a custom Serving Runtime in order to serve a model using the Ollama Model Serving Framework.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>While RHOAI supports the ability to add your own runtime, it is up to you to configure, adjust, and maintain your custom runtimes.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_add_the_ollama_custom_runtime"><a class="anchor" href="#_add_the_ollama_custom_runtime"></a>Add The Ollama Custom Runtime</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in to RHOAI with a user who is part of the RHOAI admin group, for this lab we will be using the admin account.</p>
+</li>
+<li>
+<p>In the RHOAI Console, Navigate to the Settings menu, then select Serving Runtimes</p>
+</li>
+<li>
+<p>Select the Add Serving Runtime button:</p>
+</li>
+<li>
+<p>For the model serving platform runtime, <strong>select: Single-Model Serving Platform.</strong></p>
+</li>
+<li>
+<p>For API protocol this runtime supports, <strong>select: REST</strong></p>
+</li>
+<li>
+<p>Click on Start from scratch in the window that opens up, paste the following YAML:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: serving.kserve.io/v1alpha1
+kind: ServingRuntime
+labels:
+  opendatahub.io/dashboard: "true"
+metadata:
+  annotations:
+    openshift.io/display-name: Ollama
+  name: ollama
+spec:
+  builtInAdapter:
+    modelLoadingTimeoutMillis: 90000
+  containers:
+    - image: quay.io/rh-aiservices-bu/ollama-ubi9:0.1.30
+      env:
+        - name: OLLAMA_MODELS
+          value: /.ollama/models
+        - name: OLLAMA_HOST
+          value: 0.0.0.0
+        - name: OLLAMA_KEEP_ALIVE
+          value: '-1m'
+      name: kserve-container
+      ports:
+        - containerPort: 11434
+          name: http1
+          protocol: TCP
+  multiModel: false
+  supportedModelFormats:
+    - autoSelect: true
+      name: any</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/serving_runtime.png" alt="serving runtime" width="640">
+</div>
+</div>
+</li>
+<li>
+<p>After clicking the <strong>Create</strong> button at the bottom of the input area, you will see the new Ollama Runtime in the list. We can re-order the list as needed (the order chosen here is the order in which the users will see these choices).</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_a_data_science_project"><a class="anchor" href="#_create_a_data_science_project"></a>Create a Data Science Project</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Navigate to &amp; select the Data Science Projects section.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select the create data science project button.</p>
+</li>
+<li>
+<p>Enter a name for your project, such as <strong>ollama-model</strong>.</p>
+</li>
+<li>
+<p>The resource name should be populated automatically.</p>
+</li>
+<li>
+<p>Optionally add a description to the data science project.</p>
+</li>
+<li>
+<p>Select Create.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/dsp_create.png" alt="dsp create" width="640">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deploy_minio_as_s3_compatible_storage"><a class="anchor" href="#_deploy_minio_as_s3_compatible_storage"></a>Deploy MinIO as S3 Compatible Storage</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_minio_overview"><a class="anchor" href="#_minio_overview"></a>MinIO overview</h3>
+<div class="paragraph">
+<p><strong>MinIO</strong> is a high-performance, S3-compatible object store. It can be deployed on a wide variety of platforms, and it comes in multiple flavors.</p>
+</div>
+<div class="paragraph">
+<p>This segment describes a very quick way of deploying the community version of MinIO in order to quickly setup a fully standalone Object Store, in an OpenShift Cluster. This can then be used for various prototyping tasks that require Object Storage.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+This version of MinIO should not be used in production-grade environments. Aditionally, MinIO is not included in RHOAI, and Red Hat does not provide support for MinIO.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_minio_deployment"><a class="anchor" href="#_minio_deployment"></a>MinIO Deployment</h3>
+<div class="paragraph">
+<p>To Deploy MinIO, we will utilize the OpenShift Dashboard.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click on the Project Selection list dropdown and select the Ollama-Model project or the data science project you created in the previous step.</p>
+</li>
+<li>
+<p>Then Select the + (plus) icon from the top right of the dashboard.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/minio2.png" alt="minio2" width="640">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the new window, we will paste the following YAML file.  In the YAML below its recommended to change the default user name &amp; password.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: minio-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 40Gi
+  volumeMode: Filesystem
+---
+kind: Secret
+apiVersion: v1
+metadata:
+  name: minio-secret
+stringData:
+  # change the username and password to your own values.
+  # ensure that the user is at least 3 characters long and the password at least 8
+  minio_root_user: minio
+  minio_root_password: minio123
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: minio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minio
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: minio
+    spec:
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: minio-pvc
+      containers:
+        - resources:
+            limits:
+              cpu: 250m
+              memory: 1Gi
+            requests:
+              cpu: 20m
+              memory: 100Mi
+          readinessProbe:
+            tcpSocket:
+              port: 9000
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          terminationMessagePath: /dev/termination-log
+          name: minio
+          livenessProbe:
+            tcpSocket:
+              port: 9000
+            initialDelaySeconds: 30
+            timeoutSeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          env:
+            - name: MINIO_ROOT_USER
+              valueFrom:
+                secretKeyRef:
+                  name: minio-secret
+                  key: minio_root_user
+            - name: MINIO_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: minio-secret
+                  key: minio_root_password
+          ports:
+            - containerPort: 9000
+              protocol: TCP
+            - containerPort: 9090
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: data
+              mountPath: /data
+              subPath: minio
+          terminationMessagePolicy: File
+          image: &gt;-
+            quay.io/minio/minio:RELEASE.2023-06-19T19-52-50Z
+          args:
+            - server
+            - /data
+            - --console-address
+            - :9090
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: minio-service
+spec:
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: api
+      protocol: TCP
+      port: 9000
+      targetPort: 9000
+    - name: ui
+      protocol: TCP
+      port: 9090
+      targetPort: 9090
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: minio
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: minio-api
+spec:
+  to:
+    kind: Service
+    name: minio-service
+    weight: 100
+  port:
+    targetPort: api
+  wildcardPolicy: None
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: minio-ui
+spec:
+  to:
+    kind: Service
+    name: minio-service
+    weight: 100
+  port:
+    targetPort: ui
+  wildcardPolicy: None
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>This should finish in a few seconds.  Now it&#8217;s time to deploy our storage buckets.</strong></p>
+</div>
+<div class="videoblock">
+<div class="content">
+<video src="_images/openshiftai_setup_part2.mp4" width="640" controls>
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_minio_storage_bucket_creation"><a class="anchor" href="#_minio_storage_bucket_creation"></a>MinIO Storage Bucket Creation</h3>
+<div class="paragraph">
+<p>From the OCP Dashboard:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select Networking / Routes from the navigation menu.</p>
+</li>
+<li>
+<p>This will display two routes, one for the UI &amp; another for the API.</p>
+</li>
+<li>
+<p>For the first step, select the UI route and paste it in a browser Window.</p>
+</li>
+<li>
+<p>This window opens the MinIO Dashboard. Log in with user/password combination you set, or the default listed in yaml file above.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Once logged into the MinIO Console:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Click Create Bucket to get started.</p>
+</li>
+<li>
+<p>Create two Buckets:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><strong>models</strong></p>
+</li>
+<li>
+<p><strong>storage</strong></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+  When serving an LLM or other model, Openshift AI looks within a Folder. Therefore, we need at least one subdirectory under the Models Folder.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Via the Navigation menu, <strong>select object browser</strong>, then click on the Model Bucket.</p>
+</li>
+<li>
+<p>From the models bucket page, click add path, and type <strong>ollama</strong> as the name of the sub-folder or path.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+In most cases, to serve a model, the trained model would be uploaded into this sub-directory. <strong>However, Ollama is a special case, as it can download and manage Several LLM models as part of the runtime.</strong>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>We still need a file available in this folder for the model deployment workflow to succeed.</p>
+</li>
+<li>
+<p>So we will copy an <strong>emptyfile.txt</strong> file to the ollama subdirectory. You can download the file from <a href="https://github.com/rh-aiservices-bu/llm-on-openshift/tree/main/serving-runtimes/ollama_runtime"><strong>this location</strong></a>. Alternatively, you can create your own file called emptyfile.txt and upload it.</p>
+</li>
+<li>
+<p>Once you have this file ready, upload it into the Ollama path in the model bucket by clicking the upload button and selecting the file from your local desktop.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_create_data_connection"><a class="anchor" href="#_create_data_connection"></a>Create Data Connection</h3>
+<div class="paragraph">
+<p>Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the Ollama-model project.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select the Data Connection menu, followed by create data connection</p>
+</li>
+<li>
+<p>Provide the following values:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Name:  <strong>models</strong></p>
+</li>
+<li>
+<p>Access Key: use the minio_root-user from YAML file</p>
+</li>
+<li>
+<p>Secret Key: use the minio_root_password from the YAML File</p>
+</li>
+<li>
+<p>Endpoint: use the Minio API URL from the Routes page in Openshift Dashboard</p>
+</li>
+<li>
+<p>Region: This is required for AWS storage &amp; cannot be blank (no-region-minio)</p>
+</li>
+<li>
+<p>Bucket: use the Minio Storage bucket name: <strong>models</strong></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/dataconnection_models.png" alt="dataconnection models" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p>Repeat the same process for the Storage bucket, using <strong>storage</strong> for the name &amp; bucket.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_a_workbench"><a class="anchor" href="#_creating_a_workbench"></a>Creating a WorkBench</h2>
+<div class="sectionbody">
+<div class="videoblock">
+<div class="content">
+<video src="_images/openshiftai_setup_part3.mp4" width="640" controls>
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+<div class="paragraph">
+<p>Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the Ollama-model project.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/create_workbench.png" alt="create workbench" width="800">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select the WorkBench button, then click create workbench</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Name:  <code>ollama-model</code></p>
+</li>
+<li>
+<p>Notebook Image:  <code>Minimal Python</code></p>
+</li>
+<li>
+<p>Leave the remianing options default.</p>
+</li>
+<li>
+<p>Optionally, scroll to the bottom, check the <code>Use data connection box</code>.</p>
+</li>
+<li>
+<p>Select <strong>storage</strong> from the dropdown to attach the storage bucket to the workbench.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Select the Create Workbench option.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Depending on the notebook image selected, it can take between 2-20 minutes for the container image to be fully deployed. The Open Link will be available when our container is fully deployed.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_the_model_server"><a class="anchor" href="#_creating_the_model_server"></a>Creating The Model Server</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>From the ollama-model WorkBench Dashboard in the ollama-model project, navigate to the <strong>Models</strong> section, and select Deploy Model from the <strong>Single Model Serving Platform Button</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/deploy_model_2.png" alt="deploy model 2" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Create the model server with the following values:</strong></p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Model name: <code>Ollama-Mistral</code></p>
+</li>
+<li>
+<p>Serving Runtime: <code>Ollama</code></p>
+</li>
+<li>
+<p>Model framework: <code>Any</code></p>
+</li>
+<li>
+<p>Model Server Size: <code>Medium</code></p>
+</li>
+<li>
+<p>Model location data connection: <code>models</code></p>
+</li>
+<li>
+<p>Model location path: <code>/ollama</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>After clicking the <strong>Deploy</strong> button at the bottom of the form, the model is added to our <strong>Models &amp; Model Server list</strong>.  When the model is available, the inference endpoint will populate &amp; the status will indicate a green checkmark.</p>
+</div>
+<div class="paragraph">
+<p>We are now ready to interact with our newly deployed LLM Model.  Join me in Section 2 to explore Mistral running on OpenShift AI using Jupyter Notebooks.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="index.html">OpenShift AI Configuration</a></span>
+  <span class="next"><a href="section2.html">Jupyter Notebooks &amp; Mistral LLM Model Setup</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
