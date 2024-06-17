@@ -1,0 +1,58 @@
+= Answers to the Quiz
+
+WARNING: Pending review.
+
+== Components of Red Hat OpenShift AI
+
+1. Which of the following *Operator components* are either are required to enable Red Hat OpenShift AI on OpenShift with Single Model Serving Platform capabilities ? 
+
+* [x] *Red Hat OpenShift serverless operator*  +
+_Correct_
+* [x] *Red Hat OpenShift service mesh operator* +
+_Correct_
+* [x] *Red Hat OpenShift pipelines operator* +
+_Correct_
+* [ ] Red Hat OpenShift node feature discovery operator
+* [ ] Red Hat OpenShift Nvidia gpu operator
+* [ ] Red Hat OpenShift gitOps operator
+* [ ] Red Hat OpenShift smart gateway operator
+
+
+2. After the installation of OpenShift AI Operator via Operator Hub, which of the following actions are required to enable the OpenShift AI console or dashboard ?
+
+* [ ] Create a new OpenShift AI data science project
+* [ ] Modify the data science cluster YAML file to use custom TLS certificates
+* [x] *Create a new OpenShift AI data science cluster* +
+_Correct_
+* [ ] Create a new data science project workbench
+* [ ] A third-party vendor operator is required by Red Hat OpenShift AI.
+
+3. What resources / services are available in a new OpenShift AI data science project ?
+
+* [x] *Workbench* +
+_Correct_
+* [x] *Data connections* +
+_Correct_
+* [x] *Pipelines* +
+_Correct_
+* [x] *Model serving* +
+_Correct_
+* [ ] Workloads
+* [ ] Routes
+* [x] *Permissions* +
+_Correct_
+* [ ] Accelerator profiles
+* [ ] Operator Hub
+
+4. When deploying a Model Server in an OpenShift AI workbench, what other workbench resources must be preconfigured ?
+
+* [x] *Data connection* +
+_Correct_
+* [ ] Pipelines
+* [ ] *Serving Runtimes* +
+_Correct_
+* [ ] Workbench
+* [ ] *Data science project* +
+_Correct_
+* [x] *Model files located in S3 comptabile object storage* +
+_Correct_
