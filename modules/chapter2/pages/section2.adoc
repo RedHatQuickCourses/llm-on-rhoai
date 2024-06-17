@@ -1,6 +1,6 @@
 = Modifying the OpenShift AI TLS Certificate
 
-video::OpenShift Ai TLS Cert-low.mp4[width=600]
+video::openshiftai_tls.mp4[width=640]
 
 [NOTE]
 

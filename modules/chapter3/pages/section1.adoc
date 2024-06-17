@@ -1,6 +1,6 @@
 = OpenShift AI Customization
 
-video::OpenShift AI Setup part1 v2-low.mp4[width=600]
+video::openshiftai_setup_part1.mp4[width=640]
 
 == Model Serving Runtimes
 
@@ -277,7 +277,7 @@ spec:
 
 *This should finish in a few seconds.  Now it's time to deploy our storage buckets.*
 
-video::OpenShift AI Setup part2 v2-low.mp4[width=600]
+video::openshiftai_setup_part2.mp4[width=640]
 
 === MinIO Storage Bucket Creation
 
@@ -335,7 +335,7 @@ Repeat the same process for the Storage bucket, using *storage* for the name & b
 
 == Creating a WorkBench 
 
-video::OpenShift AI Setup part3 v2-low.mp4[width=600]
+video::openshiftai_setup_part3.mp4[width=640]
 
 Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the Ollama-model project.  
 

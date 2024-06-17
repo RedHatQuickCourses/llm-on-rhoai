@@ -1,6 +1,6 @@
 = Jupyter Notebooks & Mistral LLM Model Setup
 
-video::OpenShift AI notebook v2-low.mp4[width=600]
+video::openshiftai_notebook.mp4[width=640]
 
 == Open the Jupyter Notebook
 
