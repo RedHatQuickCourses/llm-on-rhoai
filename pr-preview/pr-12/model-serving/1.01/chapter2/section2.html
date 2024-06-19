@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Modifying the OpenShift AI TLS Certificate :: Serving LLM Models on OpenShift AI</title>
+    <link rel="prev" href="section1.html">
+    <link rel="next" href="../chapter3/index.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Serving LLM Models on OpenShift AI</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/changeme/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="model-serving" data-version="1.01">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Serving LLM Models on OpenShift AI</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../chapter1/index.html">Technical side of LLMs</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter1/section1.html">Technology Components</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">OpenShift AI Initilization</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="section1.html">Installing Red&#160;Hat OpenShift AI Using the Web Console</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="section2.html">Modifying the OpenShift AI TLS Certificate</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../chapter3/index.html">OpenShift AI Configuration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter3/section1.html">OpenShift AI Customization</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../chapter3/section2.html">Jupyter Notebooks &amp; Mistral LLM Model Setup</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../appendix/appendix.html">Knowledge Check</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/section1.html">Quiz: Components of Red Hat OpenShift AI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../appendix/section2.html">Answers to the Quiz</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Serving LLM Models on OpenShift AI</span>
+    <span class="version">1.01</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Serving LLM Models on OpenShift AI</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.01</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Serving LLM Models on OpenShift AI</a></li>
+    <li><a href="index.html">OpenShift AI Initilization</a></li>
+    <li><a href="section2.html">Modifying the OpenShift AI TLS Certificate</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Modifying the OpenShift AI TLS Certificate</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="videoblock">
+<div class="content">
+<video src="_images/openshiftai_tls.mp4" width="640" controls>
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+An SSL/TLS certificate is a digital object that allows systems to verify the identity &amp; subsequently establish an encrypted network connection to another system using the Secure Sockets Layer/Transport Layer Security (SSL/TLS) protocol.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>By default, the Single Model Serving Platform in Openshift AI uses a self-signed certificate generated during installation for the endpoints that are created when deploying a Model server.</p>
+</div>
+<div class="paragraph">
+<p>This can be counterintuitive because the OCP Cluster already has certificates configured which will be used by default for endpoints like Routes.</p>
+</div>
+<div class="paragraph">
+<p>This following procedure explains how to use the same certificate from the OpenShift Container cluster for OpenShift AI.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_use_openshift_certificates_for_ingress_routes"><a class="anchor" href="#_use_openshift_certificates_for_ingress_routes"></a>Use OpenShift Certificates for Ingress Routes</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Most customers will not use the self-signed certificates, opting instead to use certificates generated by their own authority.  Therefore, this step of adding secrets to OpenShift &amp; OpenShift AI is common process during installation.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_navigate_to_the_openshift_container_cluster_dashboard"><a class="anchor" href="#_navigate_to_the_openshift_container_cluster_dashboard"></a>Navigate to the OpenShift Container Cluster Dashboard</h3>
+<div class="paragraph">
+<p>The content of the Secret (data) should contain two items, <strong>tls.cert</strong> and <strong>tls.key</strong>. They are the certificate and key that are used for all the OpenShift Routes.</p>
+</div>
+<div class="paragraph">
+<p><strong>Collect the Secret YAML Text:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In the Navigation pane on the left, click on the <strong>Workloads</strong> section, then <strong>Secrets</strong> under Workloads.</p>
+</li>
+<li>
+<p>From the Project dropdown, toggle the <strong>show default projects</strong> radial button to on.</p>
+</li>
+<li>
+<p>Select the <strong>openshift-ingress</strong> project from the list.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/openshiftingress_project.png" alt="openshiftingress project" width="640">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Locate the file named <strong>ingress-certs-(XX-XX-2024)</strong>, type should be <strong>Opaque</strong></p>
+</li>
+<li>
+<p>Click on the filename to open the secret, Select the <strong>YAML Tab</strong></p>
+</li>
+<li>
+<p>Copy all the text from the window, and ensure that you scroll down.  (CTL-A should work).</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Clean &amp; Deploy the Secret YAML Text:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Click on the Project dropdown again, select the <strong>Istio-system</strong> project</p>
+</li>
+<li>
+<p>Select the <strong>Create</strong> button on the right, then Select the <strong>from YAML</strong> option.</p>
+</li>
+<li>
+<p>Delete the text from the Window, and <strong>paste the copied Secret text</strong></p>
+</li>
+<li>
+<p>Cleanup the YAML Text to just keep the relevant content. It should look like the below YAML file (the name of the secret will be different, it&#8217;s normally tied to the date the RDHP Cluster was deployed). Change the type to <strong>kubernetes.io/tls</strong>.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">kind: Secret
+apiVersion: v1
+metadata:
+name: ingress-certs-05-28-2024
+data:
+tls.crt: &gt;-
+    LS0tLS1CRUd...
+tls.key: &gt;-
+    LS0tLS1CRUd...
+type: kubernetes.io/tls</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/createsecret.png" alt="createsecret" width="640">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Copy the name of the secret from line 4, just the name  (optional, but helpful)</p>
+</li>
+<li>
+<p>Click <strong>create</strong> to apply this YAML into the istio-system proejct (namespace).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>We have copied the Secret used by OCP &amp; made it available be used by OAI.</strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_create_openshift_ai_data_science_cluster"><a class="anchor" href="#_create_openshift_ai_data_science_cluster"></a>Create OpenShift AI Data Science Cluster</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>With our secrets in place, the next step is to create OpenShift AI <strong>Data Science Cluster</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Return to the OpenShift Navigation Menu, Select Installed Operators, and Click on the OpenShift AI Operator name to open the operator.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Select the Option to create a Data Science Cluster.</strong></p>
+</li>
+<li>
+<p><strong>Select the radial button to switch to the YAML view.</strong></p>
+</li>
+<li>
+<p>Find the section below in the YAML file, in the Kserve Section find the Serving/Certificate area; add the line: <strong>secretName:</strong> followed by the name of the secret name that we deployed in the istio-system project. In addition, change the type from SelfSigned to <strong>Provided</strong>. See below for the example.</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">kserve:
+devFlags: {}
+managementState: Managed
+serving:
+    ingressGateway:
+    certificate:
+        secretName: ingress-certs-XX-XX-2024
+        type: Provided
+    managementState: Managed
+    name: knative-serving</code></pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/dcsyamlfile.png" alt="dcsyamlfile" width="640">
+</div>
+</div>
+<div class="paragraph">
+<p>Once you have made those changes to the YAML file, <strong>Click Create</strong> to Deploy the Data Science Cluster.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/createDSC.png" alt="createDSC" width="640">
+</div>
+</div>
+<div class="paragraph">
+<p>Single Model Serve Platform will now be deployed to expose ingress connections with the same certificate as OpenShift Routes. Endpoints will be accessible using TLS without having to ignore error messages or create special configurations.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_openshift_ai_install_summary"><a class="anchor" href="#_openshift_ai_install_summary"></a>OpenShift AI install summary</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Congratulations, you have successfully completed the installation of OpenShift AI on an OpenShift Container Cluster. OpenShift AI is now running on a new Dashboard!</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>We installed the required OpenShift AI Operators</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Serverless, ServiceMesh, &amp; Pipelines Operators</p>
+</li>
+<li>
+<p>OpenShift AI Operator</p>
+</li>
+<li>
+<p>Web Terminal Operator</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Additionally, we took this installation a step further by sharing TLS certificates from the OpenShift Cluster with OpenShift AI.</p>
+</div>
+<div class="paragraph">
+<p>We will pick up working with the OpenShift AI UI in the next Chapter.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="section1.html">Installing Red&#160;Hat OpenShift AI Using the Web Console</a></span>
+  <span class="next"><a href="../chapter3/index.html">OpenShift AI Configuration</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
