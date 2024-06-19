@@ -6,16 +6,16 @@ video::intro_v4.mp4[width=640]
 
 Welcome to this quick course on _Serving an LLM using OpenShift AI_. 
 
-This program was designed to guide you through the process of installing an OpenShift AI Platform using an OpenShift Container Platform Web Console UI.  We get hands-on experience in each component needed to enable a RHOAI Platform using an Openshift Container Platform Cluster. 
+This program was designed to guide you through the process of installing an OpenShift AI Platform using the OpenShift Container Platform Web Console UI. We get hands-on experience in each component needed to enable a RHOAI Platform using an Openshift Container Platform Cluster. 
 
-Once we have an operational OpenShift AI Platform. We will login and begin the process of configuration of: Model Runtimes, Data Science Projects, Data connections, & finally use a jupyter notebook to infer the answers to easy questions. 
+Once we have an operational OpenShift AI Platform, we will login and begin the configuration of: Model Runtimes, Data Science Projects, Data connections, & finally use a jupyter notebook to infer the answers to easy questions. 
 
-There will be some challenges along the way, all designed to teach us about a component, or give us the knowledge utilizing OpenShift AI and hosting an Large Language Model. 
+There will be some challenges along the way, all designed to teach us about a component, or give us the knowledge needed to utilize OpenShift AI and host a Large Language Model. 
 
-If you're ready, let’s get started !
+If you're ready, let’s get started!
 
 
-IMPORTANT: The hands-on labs in this course were created and tested with RHOAI v2.9.1 & later. Labs will work without any changes in minor dot release upgrades of the product. Please open issues in this repository if you face any issue.
+IMPORTANT: The hands-on labs in this course were created and tested with RHOAI v2.9.1 & later versions. Labs will work without any changes in minor dot release upgrades of the product. Please open issues in this repository if you face any problem.
 
 
 == Authors
@@ -37,7 +37,7 @@ The PTL team acknowledges the valuable contributions of the following Red Hat as
 We will use the https://demo.redhat.com/catalog?item=babylon-catalog-prod%2Fopenshift-cnv.ocpmulti-wksp-cnv.prod[*Red Hat OpenShift Container Platform Cluster*] catalog item in the Red Hat Demo Platform (RHDP) to run the hands-on exercises in this course.
 
 [TIP]
-If you are planning on starting this course now, go ahead & launch the workshop now. It takes <10 minutes to provision, which is just enough time to finish the introduction section. 
+If you are planning on starting this course now, go ahead & launch the workshop. It takes <10 minutes to provision it, which is just enough time to finish the introduction section. 
 
 video::openshiftai_demo.mp4[width=640]
 
@@ -75,6 +75,6 @@ The overall objectives of this course include:
 
  * Load an LLM model into the Ollama runtime framework
 
- * Import (from git repositories), interact with LLM model via a Jupyter Notebooks
+ * Import (from git repositories), interact with LLM model via Jupyter Notebooks
 
  * Experiment with the Mistral LLM

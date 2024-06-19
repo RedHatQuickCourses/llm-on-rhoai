@@ -101,7 +101,7 @@ Single Model Serve Platform will now be deployed to expose ingress connections w
 Congratulations, you have successfully completed the installation of OpenShift AI on an OpenShift Container Cluster. OpenShift AI is now running on a new Dashboard!
 
 
-  * We Installed the required OpenShift AI Operators
+  * We installed the required OpenShift AI Operators
   ** Serverless, ServiceMesh, & Pipelines Operators
   ** OpenShift AI Operator
   ** Web Terminal Operator
