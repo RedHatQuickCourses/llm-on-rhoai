@@ -159,7 +159,7 @@ Your browser does not support the video tag.
 <h2 id="_model_serving_runtimes"><a class="anchor" href="#_model_serving_runtimes"></a>Model Serving Runtimes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A model-serving runtime provides integration with a specified model server and the model frameworks that it supports. By default, Red Hat OpenShift AI includes the following Model Run Times:</p>
+<p>A model-serving runtime provides integration with a specified model server and the model frameworks that it supports. By default, Red Hat OpenShift AI includes the following Model RunTimes:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -175,7 +175,7 @@ Your browser does not support the video tag.
 </ul>
 </div>
 <div class="paragraph">
-<p>However, if these runtime do not meet your needs (it they don&#8217;t support a particular model framework, for example), you might want to add your own custom runtimes.</p>
+<p>However, if these runtime do not meet your needs (if they don&#8217;t support a particular model framework, for example), you might want to add your own custom runtimes.</p>
 </div>
 <div class="paragraph">
 <p>As an administrator, you can use the OpenShift AI interface to add and enable custom model-serving runtimes. You can then choose from your enabled runtimes when you create a new model server.</p>
@@ -516,7 +516,7 @@ spec:
 </div>
 </div>
 <div class="paragraph">
-<p><strong>This should finish in a few seconds.  Now it&#8217;s time to deploy our storage buckets.</strong></p>
+<p><strong>This should finish in a few seconds. Now it&#8217;s time to deploy our storage buckets.</strong></p>
 </div>
 <div class="videoblock">
 <div class="content">
@@ -543,7 +543,7 @@ Your browser does not support the video tag.
 <p>For the first step, select the UI route and paste it in a browser Window.</p>
 </li>
 <li>
-<p>This window opens the MinIO Dashboard. Log in with user/password combination you set, or the default listed in yaml file above.</p>
+<p>This window opens the MinIO Dashboard. Log in with username/password combination you set, or the default listed in yaml file above.</p>
 </li>
 </ol>
 </div>
@@ -741,8 +741,6 @@ Depending on the notebook image selected, it can take between 2-20 minutes for t
 <div class="paragraph">
 <p><strong>Create the model server with the following values:</strong></p>
 </div>
-<div class="openblock">
-<div class="content">
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -769,9 +767,7 @@ Depending on the notebook image selected, it can take between 2-20 minutes for t
 <p>After clicking the <strong>Deploy</strong> button at the bottom of the form, the model is added to our <strong>Models &amp; Model Server list</strong>.  When the model is available, the inference endpoint will populate &amp; the status will indicate a green checkmark.</p>
 </div>
 <div class="paragraph">
-<p>We are now ready to interact with our newly deployed LLM Model.  Join me in Section 2 to explore Mistral running on OpenShift AI using Jupyter Notebooks.</p>
-</div>
-</div>
+<p>We are now ready to interact with our newly deployed LLM Model. Join me in Section 2 to explore Mistral running on OpenShift AI using Jupyter Notebooks.</p>
 </div>
 </div>
 </div>
