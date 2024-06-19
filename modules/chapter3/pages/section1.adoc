@@ -4,13 +4,13 @@ video::openshiftai_setup_part1.mp4[width=640]
 
 == Model Serving Runtimes
 
-A model-serving runtime provides integration with a specified model server and the model frameworks that it supports. By default, Red Hat OpenShift AI includes the following Model Run Times:
+A model-serving runtime provides integration with a specified model server and the model frameworks that it supports. By default, Red Hat OpenShift AI includes the following Model RunTimes:
 
  * OpenVINO Model Server runtime.
  * Caikit TGIS for KServe
  * TGIS Standalone for KServe 
  
-However, if these runtime do not meet your needs (it they don't support a particular model framework, for example), you might want to add your own custom runtimes.
+However, if these runtime do not meet your needs (if they don't support a particular model framework, for example), you might want to add your own custom runtimes.
 
 As an administrator, you can use the OpenShift AI interface to add and enable custom model-serving runtimes. You can then choose from your enabled runtimes when you create a new model server.
 
@@ -275,7 +275,7 @@ spec:
     insecureEdgeTerminationPolicy: Redirect
 ```
 
-*This should finish in a few seconds.  Now it's time to deploy our storage buckets.*
+*This should finish in a few seconds. Now it's time to deploy our storage buckets.*
 
 video::openshiftai_setup_part2.mp4[width=640]
 
@@ -289,7 +289,7 @@ From the OCP Dashboard:
 
  . For the first step, select the UI route and paste it in a browser Window.
   
- . This window opens the MinIO Dashboard. Log in with user/password combination you set, or the default listed in yaml file above.
+ . This window opens the MinIO Dashboard. Log in with username/password combination you set, or the default listed in yaml file above.
 
 Once logged into the MinIO Console:
 
@@ -367,7 +367,7 @@ image::deploy_model_2.png[width=800]
 
 *Create the model server with the following values:*
 
---
+
  .. Model name: `Ollama-Mistral`
  .. Serving Runtime: `Ollama`
  .. Model framework: `Any`
@@ -378,6 +378,6 @@ image::deploy_model_2.png[width=800]
 
 After clicking the **Deploy** button at the bottom of the form, the model is added to our **Models & Model Server list**.  When the model is available, the inference endpoint will populate & the status will indicate a green checkmark.
 
-We are now ready to interact with our newly deployed LLM Model.  Join me in Section 2 to explore Mistral running on OpenShift AI using Jupyter Notebooks. 
+We are now ready to interact with our newly deployed LLM Model. Join me in Section 2 to explore Mistral running on OpenShift AI using Jupyter Notebooks. 
 
 
