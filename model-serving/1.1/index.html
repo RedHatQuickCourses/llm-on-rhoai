@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Serving an LLM using OpenShift AI :: Serving an LLM using OpenShift AI</title>
+    <link rel="next" href="chapter1/index.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../..">Serving an LLM using OpenShift AI</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/changeme/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="model-serving" data-version="1.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Serving an LLM using OpenShift AI</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="chapter1/index.html">Technical Component Intoduction</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="chapter1/section1.html">Red Hat OpenShift AI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="chapter1/section2.html">Large Language Models</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="chapter2/index.html">OpenShift AI Initilization</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="chapter2/section1.html">Installing Red&#160;Hat OpenShift AI Using the Web Console</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="chapter2/section2.html">Modifying the OpenShift AI TLS Certificate</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="chapter2/section3.html">Configure the OpenShift AI Data Science Cluster</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="chapter3/index.html">OpenShift AI Configuration</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="chapter3/section1.html">Creating OpenShift AI Resources - 1</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="chapter3/section2.html">MinIO S3 Compatible Storage Setup</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="chapter3/section3.html">OpeonShift AI Resources - 2</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="chapter4/index.html">Jupyter Notebooks &amp; Large Language Model Inference</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="chapter4/section1.html">Jupyter Notebooks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="chapter4/section2.html">Mistral LLM Model Inference</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="appendix/appendix.html">Knowledge Check</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="appendix/section1.html">Quiz: Components of Red Hat OpenShift AI</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="appendix/section2.html">Answers to the Quiz</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Serving an LLM using OpenShift AI</span>
+    <span class="version">1.1</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="index.html">Serving an LLM using OpenShift AI</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">1.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link is-current"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Serving an LLM using OpenShift AI</a></li>
+    <li><a href="index.html">Home</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Serving an LLM using OpenShift AI</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="videoblock">
+<div class="content">
+<video src="_images/intro_v5.mp4" width="640" controls>
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+<div class="paragraph">
+<p>Welcome to this quick course on <em>Serving an LLM using OpenShift AI</em>.</p>
+</div>
+<div class="paragraph">
+<p>This program was designed to guide you through the process of installing an OpenShift AI Platform using the OpenShift Container Platform Web Console UI. We get hands-on experience in each component needed to enable a RHOAI Platform using an Openshift Container Platform Cluster.</p>
+</div>
+<div class="paragraph">
+<p>Once we have an operational OpenShift AI Platform, we will login and begin the configuration of: Model Runtimes, Data Science Projects, Data connections, &amp; finally use a jupyter notebook to infer the answers to easy questions.</p>
+</div>
+<div class="paragraph">
+<p>There will be some challenges along the way, all designed to teach us about a component, or give us the knowledge needed to utilize OpenShift AI and host a Large Language Model.</p>
+</div>
+<div class="paragraph">
+<p>If you&#8217;re ready, let’s get started!</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+The hands-on labs in this course were created and tested with RHOAI v2.9.1 &amp; later versions. Labs will work without any changes in minor dot release upgrades of the product. Please open issues in this repository if you face any problem.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authors"><a class="anchor" href="#_authors"></a>Authors</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The PTL team acknowledges the valuable contributions of the following Red Hat associates:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Christopher Nuland</p>
+</li>
+<li>
+<p>Vijay Chebolu</p>
+</li>
+<li>
+<p>Noel O&#8217;Conner</p>
+</li>
+<li>
+<p>Hunter Gerlach</p>
+</li>
+<li>
+<p>Karlos Knox</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_classroom_environment"><a class="anchor" href="#_classroom_environment"></a>Classroom Environment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We will use the <a href="https://demo.redhat.com/catalog?item=babylon-catalog-prod%2Fopenshift-cnv.ocpmulti-wksp-cnv.prod"><strong>Red Hat OpenShift Container Platform Cluster</strong></a> catalog item in the Red Hat Demo Platform (RHDP) to run the hands-on exercises in this course.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you are planning on starting this course now, go ahead &amp; launch the workshop. It takes &lt;10 minutes to provision it, which is just enough time to finish the introduction section.
+</td>
+</tr>
+</table>
+</div>
+<div class="videoblock">
+<div class="content">
+<video src="_images/openshiftai_demo.mp4" width="640" controls>
+Your browser does not support the video tag.
+</video>
+</div>
+</div>
+<div class="paragraph">
+<p>When ordering this catalog item in RHDP:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Select Practice/Enablement for the Activity field</p>
+</li>
+<li>
+<p>Select Learning about the Product for the Purpose field</p>
+</li>
+<li>
+<p>Leave the Salesforce ID field blank</p>
+</li>
+<li>
+<p>Scroll to the bottom, and check the box to confirm acceptance of terms and conditions</p>
+</li>
+<li>
+<p>Click order</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For Red Hat partners who do not have access to RHDP, provision an environment using the Red Hat Hybrid Cloud Console. Unfortunately, the labs will NOT work on the trial sandbox environment. You need to provision an OpenShift AI cluster on-premises, or in the supported cloud environments by following the product documentation at <a href="https://access.redhat.com/documentation/en-us/red_hat_openshift_ai_self-managed/2.9/html/installing_and_uninstalling_openshift_ai_self-managed/index">Product Documentation for Red Hat OpenShift AI 2024</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Basic experience with Red Hat OpenShift Container Platform is recommended but is not mandatory.</p>
+</li>
+<li>
+<p>We will encounter &amp; modify code segments, deploy resources using YAML files, &amp; modify launch configurations; but we will not have to write code.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_objectives"><a class="anchor" href="#_objectives"></a>Objectives</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The overall objectives of this course include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Utilize Red Hat OpenShift AI to serve &amp; interact with an LLM</p>
+</li>
+<li>
+<p>Install Red Hat OpenShift AI operators &amp; dependencies</p>
+</li>
+<li>
+<p>Add a custom model serving runtime</p>
+</li>
+<li>
+<p>Create a data science project, workbench &amp; data connections</p>
+</li>
+<li>
+<p>Load an LLM model into the Ollama runtime framework</p>
+</li>
+<li>
+<p>Import (from git repositories), interact with LLM model via Jupyter Notebooks</p>
+</li>
+<li>
+<p>Experiment with the Mistral LLM</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="next"><a href="chapter1/index.html">Technical Component Intoduction</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
