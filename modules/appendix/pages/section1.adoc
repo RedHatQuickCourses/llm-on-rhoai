@@ -10,7 +10,7 @@ WARNING: Pending review.
 
 // This quiz uses things a learner might know from his previous experience with RHEL or OpenStack as *distractors*, but does NOT rely on any previous knowledge. Learners new to OpenStack and OpenShift should be able to answer all questions from only the contents on the previouis lecture.
 
-1. Which of the following *Operator components* are either are required to enable Red Hat OpenShift AI on OpenShift with Single Model Serving Platform capabilities ? 
+1. Which of the following *Operator components* are required to enable Red Hat OpenShift AI on OpenShift with Single Model Serving Platform capabilities ? 
 
 * [ ] Red Hat OpenShift serverless operator 
 * [ ] Red Hat OpenShift service mesh operator 

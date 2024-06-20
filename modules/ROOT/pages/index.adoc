@@ -1,8 +1,8 @@
-= Serving LLM Models on OpenShift AI
+= Serving an LLM using OpenShift AI
 :navtitle: Home
 
 
-video::intro_v4.mp4[width=640]
+video::intro_v5.mp4[width=640]
 
 Welcome to this quick course on _Serving an LLM using OpenShift AI_. 
 
@@ -47,7 +47,7 @@ When ordering this catalog item in RHDP:
 
   . Select Learning about the Product for the Purpose field
 
-  . Enter Learning RHOAI in the Salesforce ID field
+  . Leave the Salesforce ID field blank
 
   . Scroll to the bottom, and check the box to confirm acceptance of terms and conditions
 

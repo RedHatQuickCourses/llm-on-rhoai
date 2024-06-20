@@ -1,0 +1,73 @@
+= Jupyter Notebooks
+
+video::llm_jupyter_v3.mp4[width=640]
+
+== Open the Jupyter Notebook
+
+From the OpenShift AI ollama-model workbench dashboard:
+
+* Select the Open link to the right of the status section. When the new window opens, use the OpenShift admin user & password to login to the Notebook. 
+
+* Click *Allow selected permissions* button to complete login to the notebook.
+
+[NOTE]
+If the *OPEN* link for the notebook is grayed out, the notebook container is still starting. This process can take a few minutes & up to 20+ minutes depending on the notebook image we opted to choose.
+
+
+== Inside the Jupyter Notebook
+
+Clone the notebook file to interact with the Ollama Framework from this location: https://github.com/rh-aiservices-bu/llm-on-openshift.git
+
+Navigate to the llm-on-openshift/examples/notebooks/langchain folder:
+
+Then open the file: _Langchain-Ollama-Prompt-memory.ipynb_
+
+Explore the notebook, and then continue.
+
+=== Update the Inference Endpoint
+
+Head back to the RHOAI workbench dashboard & copy the interence endpoint from our ollama-mistral model.
+// Should it be inference instead of interence?
+
+Return the Jupyter Notebook Environment:
+
+ . Paste the inference endpoint into the Cell labeled interfence_server_url = *"replace with your own inference address"*
+
+image::serverurl.png[width=800]
+
+ . We can now start executing the code in the cells, starting with the set the inference server URL cell. 
+
+ . Next we run the second cell: !pip install -q langchain==0.1.14 ; there is a notice to update pip, just ignore and continue. 
+
+ . The third cell imports the langchain components that provide the libraries and programming files to interact with our LLM model.
+
+ . In the fourth cell, place our first call to the Ollama-Mistral Framework Served by OpenShift AI. 
+
+[WARNING]
+Before we continue, we need to perform the following additional step. As mentioned, The Ollama Model Runtime we launched in OpenShift AI is a Framework that can host multiple LLM Models. It is currently running but is waiting for the command to instruct it to download Model to Serve. The following command needs to run from the OpenShift Dashboard. We are going to use the web_terminal operator to perform this next step. 
+
+== Activating the Mistral Model in Ollama
+
+We will need to obtain the endpoint from the OpenShift AI model serving console. I usually just paste the text below into a cell in the Jupyter Notebook and paste the url in the code block from there.
+
+image::mistral_config.png[width=640]
+
+[source, yaml]
+----
+curl https://your-endpoint/api/pull \
+    -k \
+    -H "Content-Type: application/json" \
+    -d '{"name": "mistral"}'
+----
+
+ . Next copy the entire code snippet, and open the OpenShift Dashboard.
+ . At the top right of the dashboard, locate the ">_" and select it. 
+ . This will open the terminal window at the bottom of the dashboard.
+ . Click on the Start button in the terminal window, wait for the bash..$ prompt to appear
+ . Past the modified code block into the window and press enter.
+
+The message: *status: pulling manifest* should appear. This begins the model downloading process.
+
+image::curl_command.png[width=800]
+
+Once the download completes, the *status: success:* message appears. We can now return to the Jupyter Notebook Tab in the browser and proceed. 

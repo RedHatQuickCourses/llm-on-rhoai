@@ -1,141 +1,230 @@
-= Jupyter Notebooks & Mistral LLM Model Setup
+= MinIO S3 Compatible Storage Setup
 
-video::openshiftai_notebook.mp4[width=640]
+video::llm_minio_v3.mp4[width=640]
 
-== Open the Jupyter Notebook
+== Deploy MinIO as S3 compatible storage
 
-From the OpenShift AI ollama-model workbench dashboard:
+=== MinIO overview
 
-* Select the Open link to the right of the status section. When the new window opens, use the OpenShift admin user & password to login to the Notebook. 
+*MinIO* is a high-performance, S3-compatible object store. It can be deployed on a wide variety of platforms, and it comes in multiple flavors.
 
-* Click *Allow selected permissions* button to complete login to the notebook.
-
-[NOTE]
-If the *OPEN* link for the notebook is grayed out, the notebook container is still starting. This process can take a few minutes & up to 20+ minutes depending on the notebook image we opted to choose.
-
-
-== Inside the Jupyter Notebook
-
-Clone the notebook file to interact with the Ollama Framework from this location: https://github.com/rh-aiservices-bu/llm-on-openshift.git
-
-Navigate to the llm-on-openshift/examples/notebooks/langchain folder:
-
-Then open the file: _Langchain-Ollama-Prompt-memory.ipynb_
-
-Explore the notebook, and then continue.
-
-=== Update the Inference Endpoint
-
-Head back to the RHOAI workbench dashboard & copy the interence endpoint from our ollama-mistral model.
-// Should it be inference instead of interence?
-
-Return the Jupyter Notebook Environment:
-
- . Paste the inference endpoint into the Cell labeled interfence_server_url = *"replace with your own inference address"*
-
-image::serverurl.png[width=800]
-
- . We can now start executing the code in the cells, starting with the set the inference server URL cell. 
-
- . Next we run the second cell: !pip install -q langchain==0.1.14 ; there is a notice to update pip, just ignore and continue. 
-
- . The third cell imports the langchain components that provide the libraries and programming files to interact with our LLM model.
-
- . In the fourth cell, place our first call to the Ollama-Mistral Framework Served by OpenShift AI. 
+This segment describes a very quick way of deploying the community version of MinIO in order to quickly setup a fully standalone Object Store, in an OpenShift Cluster. This can then be used for various prototyping tasks that require Object Storage.
 
 [WARNING]
-Before we continue, we need to perform the following additional step. As mentioned, The Ollama Model Runtime we launched in OpenShift AI is a Framework that can host multiple LLM Models. It is currently running but is waiting for the command to instruct it to download Model to Serve. The following command needs to run from the OpenShift Dashboard. We are going to use the web_terminal operator to perform this next step. 
+This version of MinIO should not be used in production-grade environments. Aditionally, MinIO is not included in RHOAI, and Red Hat does not provide support for MinIO.
 
-== Activating the Mistral Model in Ollama
+=== MinIO Deployment
+To Deploy MinIO, we will utilize the OpenShift Dashboard. 
 
-We will need to obtain the endpoint from the OpenShift AI model serving console. I usually just paste the text below into a cell in the Jupyter Notebook and paste the url in the code block from there.
+ . Click on the Project Selection list dropdown and select the Ollama-Model project or the data science project you created in the previous step. 
 
-image::mistral_config.png[width=640]
+ . Then Select the + (plus) icon from the top right of the dashboard.
 
-[source, yaml]
-----
-curl https://your-endpoint/api/pull \
-    -k \
-    -H "Content-Type: application/json" \
-    -d '{"name": "mistral"}'
-----
+image::minio2.png[width=640]
 
- . Next copy the entire code snippet, and open the OpenShift Dashboard.
- . At the top right of the dashboard, locate the ">_" and select it. 
- . This will open the terminal window at the bottom of the dashboard.
- . Click on the Start button in the terminal window, wait for the bash..$ prompt to appear
- . Past the modified code block into the window and press enter.
-
-The message: *status: pulling manifest* should appear. This begins the model downloading process.
-
-image::curl_command.png[width=800]
-
-Once the download completes, the *status: success:* message appears. We can now return to the Jupyter Notebook Tab in the browser and proceed. 
-
-=== Create the Prompt
-
-This cell sets the *system message* portion of the query to our model. Normally, we don't get the see this part of the query. This message details how the model should act, respond, and consider our questions. It adds checks to valdiate the information is best as possible, and to explain answers in detail.
-
-== Memory for the conversation
-
-This cell keeps track of the conversation, this way history of the chat are also sent along with new chat information, keeping the context for future questions.
-
-The next cell tracks the conversation and prints it to the Notebook output window so we can experience the full conversation list. 
-
-=== First input to our LLM 
-
-The Notebooks first input to our model askes it to describe Paris in 100 words or less. 
-
-In green text is the window, there is the setup message that is sent along with the single sentence question to desctibe to the model how to consider and respond to the question.
-
-It takes approximately 12 seconds for the model to respond with the first word of the reply, and the final word is printed to the screen approximately 30 seconds after the request was started.
-
-image::paris.png[width=800]
-
-The responce answered the question in a well-considered and informated paragraph that is less than 100 words in length.
-
-=== Second Input
-
-Notice that the Second input - "Is there a River" - does not specify where the location is that might have a River. Because the conversation history is passed with the second input, there is not need to specify any additional informaiton.
-
-image::london.png[width=800]
-
-The total time to first word took approximately 14 seconds this time, just a bit longer due the orginal information being sent. The time for the entire reponse to be printed to the screen just took over 4 seoncds.
-
-Overall our Model is performing well without a GPU and in a container limited to 4 cpus & 10Gb of memory.
-
-== Second Example Prompt
-
-Similar to the previous example, except we use the City of London, and run a cell to remove the verbose text reguarding what is sent or recieved apart from the answer from the model.
-
-There is no change to memory setting, but go ahead and evalute where the second input; "Is there a river?" is answer correctly.
-
-== Experimentation with Model 
-
-Add a few new cells to the Notebook.
-
-image::experiment.png[width=800]
-
-Experiment with clearing the memory statement, then asking the river question again. Or perhaps copy one of the input statements and add your own question for the model. 
-
-Try not clearing the memory and asking a few questions.
-
-**You have successfully deployed a Large Language Model, now test the information that it has available and find out what is doesn't know.**
+ .  In the new window, we will paste the following YAML file.  In the YAML below its recommended to change the default user name & password. 
 
 
-== Delete the Environment
+```yaml
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: minio-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 40Gi
+  volumeMode: Filesystem
+---
+kind: Secret
+apiVersion: v1
+metadata:
+  name: minio-secret
+stringData:
+  # change the username and password to your own values.
+  # ensure that the user is at least 3 characters long and the password at least 8
+  minio_root_user: minio
+  minio_root_password: minio123
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: minio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minio
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: minio
+    spec:
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: minio-pvc
+      containers:
+        - resources:
+            limits:
+              cpu: 250m
+              memory: 1Gi
+            requests:
+              cpu: 20m
+              memory: 100Mi
+          readinessProbe:
+            tcpSocket:
+              port: 9000
+            initialDelaySeconds: 5
+            timeoutSeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          terminationMessagePath: /dev/termination-log
+          name: minio
+          livenessProbe:
+            tcpSocket:
+              port: 9000
+            initialDelaySeconds: 30
+            timeoutSeconds: 1
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
+          env:
+            - name: MINIO_ROOT_USER
+              valueFrom:
+                secretKeyRef:
+                  name: minio-secret
+                  key: minio_root_user
+            - name: MINIO_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: minio-secret
+                  key: minio_root_password
+          ports:
+            - containerPort: 9000
+              protocol: TCP
+            - containerPort: 9090
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: data
+              mountPath: /data
+              subPath: minio
+          terminationMessagePolicy: File
+          image: >-
+            quay.io/minio/minio:RELEASE.2023-06-19T19-52-50Z
+          args:
+            - server
+            - /data
+            - --console-address
+            - :9090
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: minio-service
+spec:
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: api
+      protocol: TCP
+      port: 9000
+      targetPort: 9000
+    - name: ui
+      protocol: TCP
+      port: 9090
+      targetPort: 9090
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: minio
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: minio-api
+spec:
+  to:
+    kind: Service
+    name: minio-service
+    weight: 100
+  port:
+    targetPort: api
+  wildcardPolicy: None
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: minio-ui
+spec:
+  to:
+    kind: Service
+    name: minio-service
+    weight: 100
+  port:
+    targetPort: ui
+  wildcardPolicy: None
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+```
 
-Once you have finished experimenting with questions, make sure you head back to the Red Hat Demo Platform and delete the Openshift Container Platform Cluster.
+*This should finish in a few seconds. Now it's time to deploy our storage buckets.*
 
-You don't have to remove any of the resources; deleting the environment will remove any resources created during this lesson.
+=== MinIO Storage Bucket Creation
 
-=== Leave Feedback
+From the OCP Dashboard:
 
-If you enjoyed this walkthrough, please send the team a note.
-If you have suggestions to make it better or clarify a point, please send the team a note.
+ . Select Networking / Routes from the navigation menu.
+ 
+ . This will display two routes, one for the UI & another for the API.
 
-Until next time, Keep being Awesome!
+ . For the first step, select the UI route and paste it in a browser Window.
+  
+ . This window opens the MinIO Dashboard. Log in with username/password combination you set, or the default listed in yaml file above.
 
+Once logged into the MinIO Console:
 
+  . Click Create Bucket to get started.
 
+  . Create two Buckets: 
 
+   ..  *models* 
+
+   ..  *storage*
+
+[NOTE]
+  When serving an LLM or other model, Openshift AI looks within a Folder. Therefore, we need at least one subdirectory under the Models Folder.  
+
+ . Via the Navigation menu, *select object browser*, then click on the Model Bucket.
+ . From the models bucket page, click add path, and type *ollama* as the name of the sub-folder or path.  
+
+[IMPORTANT]
+In most cases, to serve a model, the trained model would be uploaded into this sub-directory. *However, Ollama is a special case, as it can download and manage Several LLM models as part of the runtime.*  
+
+ . We still need a file available in this folder for the model deployment workflow to succeed.
+
+ . So we will copy an *emptyfile.txt* file to the ollama subdirectory. You can download the file from https://github.com/rh-aiservices-bu/llm-on-openshift/tree/main/serving-runtimes/ollama_runtime[*this location*]. Alternatively, you can create your own file called emptyfile.txt and upload it.
+
+ . Once you have this file ready, upload it into the Ollama path in the model bucket by clicking the upload button and selecting the file from your local desktop. 
+ 

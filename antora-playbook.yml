@@ -1,5 +1,5 @@
 site:
-  title: Serving LLM Models on OpenShift AI
+  title: Serving an LLM using OpenShift AI
   start_page: model-serving::index.adoc
 
 content:

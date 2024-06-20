@@ -1,29 +1,67 @@
-= refer only
+= Mistral LLM Model Inference
 
-*Red{nbsp}Hat OpenShift AI* is available as an operator via the OpenShift Operator Hub.  You will install the *Red{nbsp}Hat OpenShift AI operator* and dependencies using the OpenShift web console in this section.
+video::llm_model_v3.mp4[width=640]
 
-== Lab: Installation of Red{nbsp}Hat OpenShift AI
+=== Create the Prompt
 
-IMPORTANT: The installation requires a user with the _cluster-admin_ role
+This cell sets the *system message* portion of the query to our model. Normally, we don't get the see this part of the query. This message details how the model should act, respond, and consider our questions. It adds checks to valdiate the information is best as possible, and to explain answers in detail.
 
-. Login to the Red Hat OpenShift using a user which has the _cluster-admin_ role assigned.
+== Memory for the conversation
 
-. Navigate to **Operators** -> **OperatorHub** and search for each of the following Operators individually.  Click on the button or tile for each. In the pop up window that opens, ensure you select the latest version in the *stable* channel and click on **Install** to open the operator's installation view. For this lab you can skip the installation of the optional operators
+This cell keeps track of the conversation, this way history of the chat are also sent along with new chat information, keeping the context for future questions.
 
- * Web Terminal 
+The next cell tracks the conversation and prints it to the Notebook output window so we can experience the full conversation list. 
 
- * Red Hat OpenShift Serverless 
+=== First input to our LLM 
 
- * Red Hat OpenShift Service Mesh
+The Notebooks first input to our model askes it to describe Paris in 100 words or less. 
 
- * Red Hat OpenShift Pipelines 
+In green text is the window, there is the setup message that is sent along with the single sentence question to desctibe to the model how to consider and respond to the question.
 
- * GPU Support
+It takes approximately 12 seconds for the model to respond with the first word of the reply, and the final word is printed to the screen approximately 30 seconds after the request was started.
 
- **  Node Feature Discovery Operator (optional)
+image::paris.png[width=800]
 
- **  NVIDIA GPU Operator (optional)
+The responce answered the question in a well-considered and informated paragraph that is less than 100 words in length.
 
-[TIP]
- 
- Installing these Operators prior to the installation of OpenShift AI in my experience has made a difference in OpenShift AI acknowledging the availability of these components and adjusting the initial configuration to shift management of these components to OpenShift AI. 
+=== Second Input
+
+Notice that the Second input - "Is there a River" - does not specify where the location is that might have a River. Because the conversation history is passed with the second input, there is not need to specify any additional informaiton.
+
+image::london.png[width=800]
+
+The total time to first word took approximately 14 seconds this time, just a bit longer due the orginal information being sent. The time for the entire reponse to be printed to the screen just took over 4 seoncds.
+
+Overall our Model is performing well without a GPU and in a container limited to 4 cpus & 10Gb of memory.
+
+== Second Example Prompt
+
+Similar to the previous example, except we use the City of London, and run a cell to remove the verbose text reguarding what is sent or recieved apart from the answer from the model.
+
+There is no change to memory setting, but go ahead and evalute where the second input; "Is there a river?" is answer correctly.
+
+== Experimentation with Model 
+
+Add a few new cells to the Notebook.
+
+image::experiment.png[width=800]
+
+Experiment with clearing the memory statement, then asking the river question again. Or perhaps copy one of the input statements and add your own question for the model. 
+
+Try not clearing the memory and asking a few questions.
+
+**You have successfully deployed a Large Language Model, now test the information that it has available and find out what is doesn't know.**
+
+
+== Delete the Environment
+
+Once you have finished experimenting with questions, make sure you head back to the Red Hat Demo Platform and delete the Openshift Container Platform Cluster.
+
+You don't have to remove any of the resources; deleting the environment will remove any resources created during this lesson.
+
+=== Leave Feedback
+
+If you enjoyed this walkthrough, please send the team a note.
+If you have suggestions to make it better or clarify a point, please send the team a note.
+
+Until next time, Keep being Awesome!

@@ -1,9 +1,10 @@
 name: model-serving
-title: Serving LLM Models on OpenShift AI
-version: 1.01
+title: Serving an LLM using OpenShift AI
+version: 1.10
 nav:
 - modules/ROOT/nav.adoc
 - modules/chapter1/nav.adoc
 - modules/chapter2/nav.adoc
 - modules/chapter3/nav.adoc
+- modules/chapter4/nav.adoc
 - modules/appendix/nav.adoc
