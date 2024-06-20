@@ -1,3 +1,7 @@
-= Chapter 3
+= Jupyter Notebooks & Large Language Model Inference
 
-This is the home page of _Chapter 3_ in the *hello* quick course....
+This chapter begins with running and  configured OpenShift AI environment. If you don't already have your environment running, head over to Chapter 2.  
+
+In section, we will explore using the Jupyter Notebook from our workbench to infer data from the Mistral Large Language Model. While less technical than previous sections of this hands-on course, there are some steps to download the Mistral Model, update our notebook with an inference endpoint, and evaluate our models performance. 
+
+Let's get started!
