@@ -63,7 +63,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../chapter2/index.html">OpenShift AI Initilization</a>
+    <a class="nav-link" href="../chapter2/index.html">OpenShift AI Initialization</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../chapter2/section1.html">Installing Red&#160;Hat OpenShift AI Using the Web Console</a>
@@ -91,7 +91,7 @@
     <a class="nav-link" href="../chapter3/section2.html">MinIO S3 Compatible Storage Setup</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter3/section3.html">OpeonShift AI Resources - 2</a>
+    <a class="nav-link" href="../chapter3/section3.html">OpenShift AI Resources - 2</a>
   </li>
 </ul>
   </li>
@@ -101,7 +101,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="index.html">Jupyter Notebooks &amp; Large Language Model Inference</a>
+    <a class="nav-link" href="index.html">Jupyter Notebooks &amp; LLMs</a>
 <ul class="nav-list">
   <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="section1.html">Jupyter Notebooks</a>
@@ -109,21 +109,8 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="section2.html">Mistral LLM Model Inference</a>
   </li>
-</ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../appendix/appendix.html">Knowledge Check</a>
-<ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../appendix/section1.html">Quiz: Components of Red Hat OpenShift AI</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../appendix/section2.html">Answers to the Quiz</a>
+    <a class="nav-link" href="section3.html">LLama3 LLM Model Inference</a>
   </li>
 </ul>
   </li>
@@ -158,7 +145,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">Serving an LLM using OpenShift AI</a></li>
-    <li><a href="index.html">Jupyter Notebooks &amp; Large Language Model Inference</a></li>
+    <li><a href="index.html">Jupyter Notebooks &amp; LLMs</a></li>
     <li><a href="section1.html">Jupyter Notebooks</a></li>
   </ul>
 </nav>
@@ -181,15 +168,18 @@ Your browser does not support the video tag.
 </div>
 </div>
 <div class="sect1">
-<h2 id="_open_the_jupyter_notebook"><a class="anchor" href="#_open_the_jupyter_notebook"></a>Open the Jupyter Notebook</h2>
+<h2 id="_open_jupyterlab"><a class="anchor" href="#_open_jupyterlab"></a>Open JupyterLab</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>From the OpenShift AI ollama-model workbench dashboard:</p>
+<p>JupyterLab enables you to work with documents and activities such as Jupyter notebooks, text editors, terminals, and custom components in a flexible, integrated, and extensible manner. For a demonstration of JupyterLab and its features, <a href="https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#what-will-happen-to-the-classic-notebook">you can view this video.</a></p>
+</div>
+<div class="paragraph">
+<p>Return to the ollama-model workbench dashboard in the OpenShift AI console.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Select the Open link to the right of the status section. When the new window opens, use the OpenShift admin user &amp; password to login to the Notebook.</p>
+<p>Select the <strong>Open</strong> link to the right of the status section. When the new window opens, use the OpenShift admin user &amp; password to login to JupyterLab.</p>
 </li>
 <li>
 <p>Click <strong>Allow selected permissions</strong> button to complete login to the notebook.</p>
@@ -211,124 +201,176 @@ If the <strong>OPEN</strong> link for the notebook is grayed out, the notebook c
 </div>
 </div>
 <div class="sect1">
-<h2 id="_inside_the_jupyter_notebook"><a class="anchor" href="#_inside_the_jupyter_notebook"></a>Inside the Jupyter Notebook</h2>
+<h2 id="_inside_jupyterlab"><a class="anchor" href="#_inside_jupyterlab"></a>Inside JupyterLab</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Clone the notebook file to interact with the Ollama Framework from this location: <a href="https://github.com/rh-aiservices-bu/llm-on-openshift.git" class="bare">https://github.com/rh-aiservices-bu/llm-on-openshift.git</a></p>
+<p>This takes us to the JupyterLab screen where we can select multiple options / tools / to work to begin our data science experimentation.</p>
 </div>
 <div class="paragraph">
+<p>Our first action is to clone a git repository that contains a collection of LLM projects including  the notebook we are going to use to interact with the LLM.</p>
+</div>
+<div class="paragraph">
+<p>Clone the github repository to interact with the Ollama Framework from this location:
+<a href="https://github.com/rh-aiservices-bu/llm-on-openshift.git" class="bare">https://github.com/rh-aiservices-bu/llm-on-openshift.git</a></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Copy the URL link above</p>
+</li>
+<li>
+<p>Click on the Clone a Repo Icon above explorer section window.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/clone_a_repo.png" alt="clone a repo" width="640">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Paste the link into the <strong>clone a repo</strong> pop up,   make sure the <strong>included submodules are checked</strong>, then click the clone.</p>
+</li>
+<li>
 <p>Navigate to the llm-on-openshift/examples/notebooks/langchain folder:</p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p>Then open the file: <em>Langchain-Ollama-Prompt-memory.ipynb</em></p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p>Explore the notebook, and then continue.</p>
+</li>
+</ol>
 </div>
 <div class="sect2">
-<h3 id="_update_the_inference_endpoint"><a class="anchor" href="#_update_the_inference_endpoint"></a>Update the Inference Endpoint</h3>
-<div class="paragraph">
-<p>Head back to the RHOAI workbench dashboard &amp; copy the interence endpoint from our ollama-mistral model.</p>
+<h3 id="_configure_the_ollama_framework_with_a_large_language_model"><a class="anchor" href="#_configure_the_ollama_framework_with_a_large_language_model"></a>Configure the Ollama Framework with a Large Language Model</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>From the Notebook page, add a new cell above the inference url</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/add_a_cell.png" alt="add a cell" width="640">
+</div>
 </div>
 <div class="paragraph">
-<p>Return the Jupyter Notebook Environment:</p>
+<p>The Ollama Model Runtime we deployed using the Single Model Serving Platform in OpenShift AI is a Framework that can host various large language models. It is currently running, but is waiting for the command to instruct the framework on which model to download and serve.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Paste the inference endpoint into the Cell labeled interfence_server_url = <strong>"replace with your own inference address"</strong></p>
+<p>To load the mistral model, we are going use the following python code to instruct the runtime to download and serve a quantized 4 bit version of the mistral large language model.</p>
+</li>
+<li>
+<p>Copy the code below and paste this code in the new cell added to the notebook in the previous step.</p>
 </li>
 </ol>
-</div>
-<div class="imageblock unresolved">
-<div class="content">
-<img src="serverurl.png" alt="serverurl" width="800">
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>We can now start executing the code in the cells, starting with the set the inference server URL cell.</p>
-</li>
-<li>
-<p>Next we run the second cell: !pip install -q langchain==0.1.14 ; there is a notice to update pip, just ignore and continue.</p>
-</li>
-<li>
-<p>The third cell imports the langchain components that provide the libraries and programming files to interact with our LLM model.</p>
-</li>
-<li>
-<p>In the fourth cell, place our first call to the Ollama-Mistral Framework Served by OpenShift AI.</p>
-</li>
-</ol>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-Before we continue, we need to perform the following additional step. As mentioned, The Ollama Model Runtime we launched in OpenShift AI is a Framework that can host multiple LLM Models. It is currently running but is waiting for the command to instruct it to download Model to Serve. The following command needs to run from the OpenShift Dashboard. We are going to use the web_terminal operator to perform this next step.
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_activating_the_mistral_model_in_ollama"><a class="anchor" href="#_activating_the_mistral_model_in_ollama"></a>Activating the Mistral Model in Ollama</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>We will need to obtain the endpoint from the OpenShift AI model serving console. I usually just paste the text below into a cell in the Jupyter Notebook and paste the url in the code block from there.</p>
-</div>
-<div class="imageblock unresolved">
-<div class="content">
-<img src="mistral_config.png" alt="mistral config" width="640">
-</div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">curl https://your-endpoint/api/pull \
-    -k \
-    -H "Content-Type: application/json" \
-    -d '{"name": "mistral"}'</code></pre>
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">import requests
+
+headers = {
+    # Already added when you pass json=
+    # 'Content-Type': 'application/json',
+}
+
+json_data = {
+    'name': 'mistral',
+}
+
+response = requests.post('https://your-endpoint/api/pull', headers=headers, json=json_data, verify=False)</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>We&#8217;ll need to modify the url in the bottom line beginning with <strong>response =</strong> in the next step.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_update_the_inference_endpoints"><a class="anchor" href="#_update_the_inference_endpoints"></a>Update the Inference Endpoints</h3>
+<div class="paragraph">
+<p>Head back to the RHOAI ollama-model workbench dashboard, from the models tab, copy the inference endpoint for the ollama-mistral model.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/inference_endpoint.png" alt="inference endpoint" width="640">
+</div>
+</div>
+<div class="paragraph">
+<p>Return the Jupyter notebook</p>
+</div>
+<div class="paragraph">
+<p>We will be updating two cells with the inference endpoint.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Next copy the entire code snippet, and open the OpenShift Dashboard.</p>
+<p>Replace the <a href="https://your-endopint" class="bare">https://your-endopint</a> section of the python code we copied into the new cell. Ensure you leave the /api/pull portion appended to the url.</p>
 </li>
 <li>
-<p>At the top right of the dashboard, locate the "&gt;_" and select it.</p>
+<p>Replace the red text inside the quotation marks for the inference_server_url with the same inference endpoint url.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/replaced_endpoints2.png" alt="replaced endpoints2" width="640">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_execute_cell_code_to_assemble_the_langchain_components"><a class="anchor" href="#_execute_cell_code_to_assemble_the_langchain_components"></a>Execute cell code to assemble the langchain components</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>We can now start executing the code in the cells, begin with the new cell added to the top.  Click on the cell to activate blue indicator to the left of the cell.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>You will receive a message about an Unverified HTTPs request. This is because we didn’t use authentication for this application.  You can ignore this for this lab experience, but in production we would enable authentication using certificates as suggested.  <a href="https://developers.redhat.com/articles/2021/06/18/authorino-making-open-source-cloud-native-api-security-simple-and-flexible">To use authentication we need to install the Authorino Operator.</a></p>
 </li>
 <li>
-<p>This will open the terminal window at the bottom of the dashboard.</p>
+<p>The mistral model files are now being downloaded to the Ollama Framework.</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
-<p>Click on the Start button in the terminal window, wait for the bash..$ prompt to appear</p>
+<p>Continue executing through the cells.</p>
 </li>
 <li>
-<p>Past the modified code block into the window and press enter.</p>
+<p>Next we run the cell: <strong>!pip install -q langchain==0.1.14</strong> ; there is a notice to update pip; ignore and continue.</p>
+</li>
+<li>
+<p>The next cell imports the langchain components that provide the libraries and programming files to interact with our LLM.</p>
+</li>
+<li>
+<p>This <strong>"Create the LLM instance"</strong> cell sets the variables that determine how we are going to interact with our model  and how it should respond - sets that into an array using <strong>llm</strong> variable.</p>
+</li>
+<li>
+<p>Next run the <strong>"Create the prompt"</strong> cell.  Here we are setting the <strong>template</strong> variable with the details of how the model operate, including constraints and boundries when generating the response. We often to not experience the system message when interacting with an LLM, but this is a standard field that is included along with the user prompt.</p>
+</li>
+<li>
+<p>Continue executing the cells, <strong>"memory for the conversation"</strong> keeps the previous context / conversation history so full history of the chat conversation is sent as part of the prompt.</p>
+</li>
+<li>
+<p>The <strong>create the chain</strong> cell, combines each of previous variables: llm, prompt, memory, and adds a verbose boolean to create the conversation variable, which will be sent to Models inference endpoint running in OpenShift AI.  The verbose option set to true displays the entire conversation sent to the Model in the notebook before the Models (AI&#8217;s) response.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>The message: <strong>status: pulling manifest</strong> should appear. This begins the model downloading process.</p>
+<p>In the next, section, we&#8217;ll send our first input to the running Mistral Large Language Model.</p>
 </div>
-<div class="imageblock unresolved">
-<div class="content">
-<img src="curl_command.png" alt="curl command" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Once the download completes, the <strong>status: success:</strong> message appears. We can now return to the Jupyter Notebook Tab in the browser and proceed.</p>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="prev"><a href="index.html">Jupyter Notebooks &amp; Large Language Model Inference</a></span>
+  <span class="prev"><a href="index.html">Jupyter Notebooks &amp; LLMs</a></span>
   <span class="next"><a href="section2.html">Mistral LLM Model Inference</a></span>
 </nav>
 </article>

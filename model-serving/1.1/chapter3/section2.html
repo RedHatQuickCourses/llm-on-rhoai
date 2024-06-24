@@ -63,7 +63,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../chapter2/index.html">OpenShift AI Initilization</a>
+    <a class="nav-link" href="../chapter2/index.html">OpenShift AI Initialization</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../chapter2/section1.html">Installing Red&#160;Hat OpenShift AI Using the Web Console</a>
@@ -91,7 +91,7 @@
     <a class="nav-link" href="section2.html">MinIO S3 Compatible Storage Setup</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="section3.html">OpeonShift AI Resources - 2</a>
+    <a class="nav-link" href="section3.html">OpenShift AI Resources - 2</a>
   </li>
 </ul>
   </li>
@@ -101,7 +101,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../chapter4/index.html">Jupyter Notebooks &amp; Large Language Model Inference</a>
+    <a class="nav-link" href="../chapter4/index.html">Jupyter Notebooks &amp; LLMs</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../chapter4/section1.html">Jupyter Notebooks</a>
@@ -109,21 +109,8 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../chapter4/section2.html">Mistral LLM Model Inference</a>
   </li>
-</ul>
-  </li>
-</ul>
-  </li>
-  <li class="nav-item" data-depth="0">
-<ul class="nav-list">
-  <li class="nav-item" data-depth="1">
-    <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../appendix/appendix.html">Knowledge Check</a>
-<ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../appendix/section1.html">Quiz: Components of Red Hat OpenShift AI</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../appendix/section2.html">Answers to the Quiz</a>
+    <a class="nav-link" href="../chapter4/section3.html">LLama3 LLM Model Inference</a>
   </li>
 </ul>
   </li>
@@ -254,7 +241,7 @@ stringData:
   # change the username and password to your own values.
   # ensure that the user is at least 3 characters long and the password at least 8
   minio_root_user: minio
-  minio_root_password: minio123
+  minio_root_password: minio321!
 ---
 kind: Deployment
 apiVersion: apps/v1
@@ -418,6 +405,16 @@ spec:
 </li>
 <li>
 <p>This window opens the MinIO Dashboard. Log in with username/password combination you set, or the default listed in yaml file above.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>username = minio</p>
+</li>
+<li>
+<p>password = minio321!</p>
+</li>
+</ol>
+</div>
 </li>
 </ol>
 </div>
@@ -451,7 +448,7 @@ spec:
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-  When serving an LLM or other model, Openshift AI looks within a Folder. Therefore, we need at least one subdirectory under the Models Folder.
+  When serving an LLM or other model, Openshift AI looks within a folder. Therefore, we need at least one subdirectory under the models folder.
 </td>
 </tr>
 </table>
@@ -484,8 +481,15 @@ In most cases, to serve a model, the trained model would be uploaded into this s
 <p>We still need a file available in this folder for the model deployment workflow to succeed.</p>
 </li>
 <li>
-<p>So we will copy an <strong>emptyfile.txt</strong> file to the ollama subdirectory. You can download the file from <a href="https://github.com/rh-aiservices-bu/llm-on-openshift/tree/main/serving-runtimes/ollama_runtime"><strong>this location</strong></a>. Alternatively, you can create your own file called emptyfile.txt and upload it.</p>
+<p>So we will copy an <strong>emptyfile.txt</strong> file to the ollama subdirectory.</p>
 </li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You can download the file from <a href="_attachments/emptyfile.txt" class="xref attachment">this location</a>. Alternatively, you can create your own file called emptyfile.txt and upload it.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Once you have this file ready, upload it into the Ollama path in the model bucket by clicking the upload button and selecting the file from your local desktop.</p>
 </li>
@@ -496,7 +500,7 @@ In most cases, to serve a model, the trained model would be uploaded into this s
 </div>
 <nav class="pagination">
   <span class="prev"><a href="section1.html">Creating OpenShift AI Resources - 1</a></span>
-  <span class="next"><a href="section3.html">OpeonShift AI Resources - 2</a></span>
+  <span class="next"><a href="section3.html">OpenShift AI Resources - 2</a></span>
 </nav>
 </article>
   </div>
