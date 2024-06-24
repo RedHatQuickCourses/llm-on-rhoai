@@ -1,0 +1,69 @@
+= LLama3 LLM Model Inference
+
+// video::llm_model_v.mp4[width=640]
+
+Experimentation with various models allows the selection of the best model for the task at hand.
+
+== Delete existing deployed model
+
+Return to the OpenShift AI Dashboard and ollama-model workbench
+
+ . Head to the Model section of the workbench
+
+ . To the right of the ollama-mistral model there are three stacked dots, select the dots, then delete from the menu
+
+ . You need to type in the *ollama-mistral* model name to confirm the deletion. 
+
+ . No need to wait, continue onto the next section.
+
+== Creating The Model Server
+
+From the ollama-model WorkBench Dashboard in the ollama-model project, navigate to the **Models** section, and select Deploy Model from the **Single Model Serving Platform Button**.
+
+*Create the model server with the following values:*
+
+
+ .. Model name: `ollama-llama3`
+ .. Serving Runtime: `Ollama`
+ .. Model framework: `Any`
+ .. Model Server Size: `Medium`
+ .. Model location data connection: `models`
+ .. Model location path: `/ollama`
+
+
+After clicking the **Deploy** button at the bottom of the form, the model is added to our **Models & Model Server list**.  When the model is available, the inference endpoint will populate & the status will indicate a green checkmark.
+
+Copy The Interence Endpoint, we need to replace the orginal inference endpoints used in our notebooks top two cells.
+
+=== Update the Inference Endpoints
+
+ . From the Notebook page, replace the previous inference endpoints with the ollama-llama3 endpoint
+
+ . In the phython code cell, we also need to change the name of the large language model in the json_data section from "mistral" to *"llama3"* 
+
+ . To load the llama3 model, we are going use the following python code to instruct the runtime to download and serve a quantized 4 bit version of the llama3 large language model.
+
+
+image::llama3_url.png[width=800]
+
+
+[NOTE]
+The Ollama Model Runtime we deployed using the Single Model Serving Platform in OpenShift AI is a Framework that can host various large language models. It is currently running, but is waiting for the command to instruct the framework on which model to download and serve.  You can view the available models in https://ollama.com/library[the ollama library here.]
+
+
+=== Execute the cells again 
+
+ . We can now start executing the code in the cells, begin from the top at Set inference server cell.  Click to left of the cell to activate orange indicator next to cell.  Orange indicate the cell has been modified from the original, blue will still highlight for unmodified cells.
+
+ .. You will again receive the message about an unverified HTTPs request. This is because we didn’t use authentication for this application. 
+
+ .. The *llama3* model files are now being downloaded to the Ollama Framework.
+
+ . Continue executing through the cells, but stop at the *create the LLM instance cell*.
+
+ . For the  *create the LLM instance* cell, we need to change the _model =mistral text_ to *llama3*. 
+
+image::llama_llm.png[width=800]
+ 
+
+
