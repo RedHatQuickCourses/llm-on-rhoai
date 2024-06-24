@@ -1,4 +1,4 @@
-= OpeonShift AI Resources - 2
+= OpenShift AI Resources - 2
 
 video::llm_dataconn_v3.mp4[width=640]
 
@@ -49,12 +49,10 @@ Depending on the notebook image selected, it can take between 2-20 minutes for t
 
 From the ollama-model WorkBench Dashboard in the ollama-model project, navigate to the **Models** section, and select Deploy Model from the **Single Model Serving Platform Button**.
 
-image::deploy_model_2.png[width=800]
-
 *Create the model server with the following values:*
 
 
- .. Model name: `Ollama-Mistral`
+ .. Model name: `ollama-mistral`
  .. Serving Runtime: `Ollama`
  .. Model framework: `Any`
  .. Model Server Size: `Medium`

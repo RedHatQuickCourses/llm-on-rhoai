@@ -2,11 +2,14 @@
 
 video::llm_jupyter_v3.mp4[width=640]
 
-== Open the Jupyter Notebook
+== Open JupyterLab 
 
-From the OpenShift AI ollama-model workbench dashboard:
+JupyterLab enables you to work with documents and activities such as Jupyter notebooks, text editors, terminals, and custom components in a flexible, integrated, and extensible manner. For a demonstration of JupyterLab and its features, https://jupyterlab.readthedocs.io/en/stable/getting_started/overview.html#what-will-happen-to-the-classic-notebook[you can view this video.]
 
-* Select the Open link to the right of the status section. When the new window opens, use the OpenShift admin user & password to login to the Notebook. 
+
+Return to the ollama-model workbench dashboard in the OpenShift AI console.
+
+* Select the *Open* link to the right of the status section. When the new window opens, use the OpenShift admin user & password to login to JupyterLab. 
 
 * Click *Allow selected permissions* button to complete login to the notebook.
 
@@ -14,60 +17,98 @@ From the OpenShift AI ollama-model workbench dashboard:
 If the *OPEN* link for the notebook is grayed out, the notebook container is still starting. This process can take a few minutes & up to 20+ minutes depending on the notebook image we opted to choose.
 
 
-== Inside the Jupyter Notebook
+== Inside JupyterLab
 
-Clone the notebook file to interact with the Ollama Framework from this location: https://github.com/rh-aiservices-bu/llm-on-openshift.git
+This takes us to the JupyterLab screen where we can select multiple options / tools / to work to begin our data science experimentation.
 
-Navigate to the llm-on-openshift/examples/notebooks/langchain folder:
+Our first action is to clone a git repository that contains a collection of LLM projects including  the notebook we are going to use to interact with the LLM. 
 
-Then open the file: _Langchain-Ollama-Prompt-memory.ipynb_
+Clone the github repository to interact with the Ollama Framework from this location:
+https://github.com/rh-aiservices-bu/llm-on-openshift.git
 
-Explore the notebook, and then continue.
+ . Copy the URL link above
 
-=== Update the Inference Endpoint
+ . Click on the Clone a Repo Icon above explorer section window.
 
-Head back to the RHOAI workbench dashboard & copy the interence endpoint from our ollama-mistral model.
-// Should it be inference instead of interence?
+image::clone_a_repo.png[width=640]
 
-Return the Jupyter Notebook Environment:
+ . Paste the link into the *clone a repo* pop up,   make sure the *included submodules are checked*, then click the clone.
+ 
+ . Navigate to the llm-on-openshift/examples/notebooks/langchain folder:
 
- . Paste the inference endpoint into the Cell labeled interfence_server_url = *"replace with your own inference address"*
+ . Then open the file: _Langchain-Ollama-Prompt-memory.ipynb_
 
-image::serverurl.png[width=800]
+ . Explore the notebook, and then continue.
 
- . We can now start executing the code in the cells, starting with the set the inference server URL cell. 
+=== Configure the Ollama Framework with a Large Language Model
 
- . Next we run the second cell: !pip install -q langchain==0.1.14 ; there is a notice to update pip, just ignore and continue. 
+ . From the Notebook page, add a new cell above the inference url 
 
- . The third cell imports the langchain components that provide the libraries and programming files to interact with our LLM model.
+image::add_a_cell.png[width=640]
 
- . In the fourth cell, place our first call to the Ollama-Mistral Framework Served by OpenShift AI. 
 
-[WARNING]
-Before we continue, we need to perform the following additional step. As mentioned, The Ollama Model Runtime we launched in OpenShift AI is a Framework that can host multiple LLM Models. It is currently running but is waiting for the command to instruct it to download Model to Serve. The following command needs to run from the OpenShift Dashboard. We are going to use the web_terminal operator to perform this next step. 
+The Ollama Model Runtime we deployed using the Single Model Serving Platform in OpenShift AI is a Framework that can host various large language models. It is currently running, but is waiting for the command to instruct the framework on which model to download and serve.
 
-== Activating the Mistral Model in Ollama
+. To load the mistral model, we are going use the following python code to instruct the runtime to download and serve a quantized 4 bit version of the mistral large language model.
 
-We will need to obtain the endpoint from the OpenShift AI model serving console. I usually just paste the text below into a cell in the Jupyter Notebook and paste the url in the code block from there.
+. Copy the code below and paste this code in the new cell added to the notebook in the previous step.
 
-image::mistral_config.png[width=640]
-
+ 
 [source, yaml]
 ----
-curl https://your-endpoint/api/pull \
-    -k \
-    -H "Content-Type: application/json" \
-    -d '{"name": "mistral"}'
+import requests
+
+headers = {
+    # Already added when you pass json=
+    # 'Content-Type': 'application/json',
+}
+
+json_data = {
+    'name': 'mistral',
+}
+
+response = requests.post('https://your-endpoint/api/pull', headers=headers, json=json_data, verify=False)
 ----
 
- . Next copy the entire code snippet, and open the OpenShift Dashboard.
- . At the top right of the dashboard, locate the ">_" and select it. 
- . This will open the terminal window at the bottom of the dashboard.
- . Click on the Start button in the terminal window, wait for the bash..$ prompt to appear
- . Past the modified code block into the window and press enter.
+We'll need to modify the url in the bottom line beginning with *response =* in the next step.
 
-The message: *status: pulling manifest* should appear. This begins the model downloading process.
+=== Update the Inference Endpoints
 
-image::curl_command.png[width=800]
+Head back to the RHOAI ollama-model workbench dashboard, from the models tab, copy the inference endpoint for the ollama-mistral model.
 
-Once the download completes, the *status: success:* message appears. We can now return to the Jupyter Notebook Tab in the browser and proceed. 
+image::inference_endpoint.png[width=640]
+
+Return the Jupyter notebook 
+
+We will be updating two cells with the inference endpoint. 
+
+ . Replace the https://your-endopint section of the python code we copied into the new cell. Ensure you leave the /api/pull portion appended to the url.
+
+ . Replace the red text inside the quotation marks for the inference_server_url with the same inference endpoint url.
+
+image::replaced_endpoints2.png[width=640]
+
+=== Execute cell code to assemble the langchain components
+
+ . We can now start executing the code in the cells, begin with the new cell added to the top.  Click on the cell to activate blue indicator to the left of the cell. 
+
+ .. You will receive a message about an Unverified HTTPs request. This is because we didn’t use authentication for this application.  You can ignore this for this lab experience, but in production we would enable authentication using certificates as suggested.  https://developers.redhat.com/articles/2021/06/18/authorino-making-open-source-cloud-native-api-security-simple-and-flexible[To use authentication we need to install the Authorino Operator.]
+
+ .. The mistral model files are now being downloaded to the Ollama Framework.
+
+ . Continue executing through the cells. 
+
+ . Next we run the cell: *!pip install -q langchain==0.1.14* ; there is a notice to update pip; ignore and continue. 
+
+ . The next cell imports the langchain components that provide the libraries and programming files to interact with our LLM.
+
+ . This *"Create the LLM instance"* cell sets the variables that determine how we are going to interact with our model  and how it should respond - sets that into an array using *llm* variable. 
+ 
+ . Next run the *"Create the prompt"* cell.  Here we are setting the *template* variable with the details of how the model operate, including constraints and boundries when generating the response. We often to not experience the system message when interacting with an LLM, but this is a standard field that is included along with the user prompt.
+
+ . Continue executing the cells, *"memory for the conversation"* keeps the previous context / conversation history so full history of the chat conversation is sent as part of the prompt.
+
+ . The *create the chain* cell, combines each of previous variables: llm, prompt, memory, and adds a verbose boolean to create the conversation variable, which will be sent to Models inference endpoint running in OpenShift AI.  The verbose option set to true displays the entire conversation sent to the Model in the notebook before the Models (AI's) response. 
+
+
+In the next, section, we'll send our first input to the running Mistral Large Language Model.

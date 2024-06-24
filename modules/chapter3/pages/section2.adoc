@@ -47,7 +47,7 @@ stringData:
   # change the username and password to your own values.
   # ensure that the user is at least 3 characters long and the password at least 8
   minio_root_user: minio
-  minio_root_password: minio123
+  minio_root_password: minio321!
 ---
 kind: Deployment
 apiVersion: apps/v1
@@ -203,6 +203,10 @@ From the OCP Dashboard:
   
  . This window opens the MinIO Dashboard. Log in with username/password combination you set, or the default listed in yaml file above.
 
+ .. username = minio
+
+ .. password = minio321!
+
 Once logged into the MinIO Console:
 
   . Click Create Bucket to get started.
@@ -214,7 +218,7 @@ Once logged into the MinIO Console:
    ..  *storage*
 
 [NOTE]
-  When serving an LLM or other model, Openshift AI looks within a Folder. Therefore, we need at least one subdirectory under the Models Folder.  
+  When serving an LLM or other model, Openshift AI looks within a folder. Therefore, we need at least one subdirectory under the models folder.  
 
  . Via the Navigation menu, *select object browser*, then click on the Model Bucket.
  . From the models bucket page, click add path, and type *ollama* as the name of the sub-folder or path.  
@@ -224,7 +228,10 @@ In most cases, to serve a model, the trained model would be uploaded into this s
 
  . We still need a file available in this folder for the model deployment workflow to succeed.
 
- . So we will copy an *emptyfile.txt* file to the ollama subdirectory. You can download the file from https://github.com/rh-aiservices-bu/llm-on-openshift/tree/main/serving-runtimes/ollama_runtime[*this location*]. Alternatively, you can create your own file called emptyfile.txt and upload it.
+ . So we will copy an *emptyfile.txt* file to the ollama subdirectory. 
+
+
+You can download the file from xref:attachment$emptyfile.txt[this location]. Alternatively, you can create your own file called emptyfile.txt and upload it.
 
  . Once you have this file ready, upload it into the Ollama path in the model bucket by clicking the upload button and selecting the file from your local desktop. 
  
