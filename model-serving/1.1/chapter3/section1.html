@@ -171,23 +171,21 @@ Your browser does not support the video tag.
 <h2 id="_model_serving_runtimes"><a class="anchor" href="#_model_serving_runtimes"></a>Model Serving Runtimes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A model-serving runtime provides integration with a specified model server and the model frameworks that it supports. By default, Red Hat OpenShift AI includes the following Model RunTimes:</p>
+<p>A model-serving runtime provides integration with a specified model server and the model frameworks that it supports. By default, Red Hat OpenShift AI includes the following model serving runTimes:</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>OpenVINO Model Server runtime.</p>
-</li>
-<li>
-<p>Caikit TGIS for KServe</p>
-</li>
-<li>
-<p>TGIS Standalone for KServe</p>
-</li>
-</ul>
+<div class="literalblock">
+<div class="content">
+<pre>Multi-model
+* OpenVINO Model Server - Multi-model
+Single-model
+* OpenVINO Model Server
+* Caikit TGIS for KServe
+* TGIS Standalone for KServe
+* vLLM For KServe</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>However, if these runtime do not meet your needs (if they don&#8217;t support a particular model framework, for example), you might want to add your own custom runtimes.</p>
+<p>However, if these runtimes do not meet your needs (if they don&#8217;t support a particular model framework, for example), you might want to add your own custom runtimes.</p>
 </div>
 <div class="paragraph">
 <p>As an administrator, you can use the OpenShift AI interface to add and enable custom model-serving runtimes. You can then choose from your enabled runtimes when you create a new model server.</p>
@@ -247,7 +245,7 @@ spec:
   builtInAdapter:
     modelLoadingTimeoutMillis: 90000
   containers:
-    - image: quay.io/rh-aiservices-bu/ollama-ubi9:0.1.30
+    - image: quay.io/rh-aiservices-bu/ollama-ubi9:0.1.45
       env:
         - name: OLLAMA_MODELS
           value: /.ollama/models

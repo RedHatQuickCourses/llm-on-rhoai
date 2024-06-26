@@ -169,7 +169,7 @@ For information about OpenShift AI on a Red Hat managed environment, see <a href
 </li>
 <li>
 <p>Self-managed software that you can install on-premise or on the public cloud in a self-managed environment, such as <strong>OpenShift Container Platform</strong>.
-For information about OpenShift AI as self-managed software on your OpenShift cluster in a connected or a disconnected environment, see <a href="https://access.redhat.com/documentation/en-us/red_hat_openshift_ai_self-managed/2.8">Product Documentation for Red Hat OpenShift AI Self-Managed 2.8</a>.</p>
+For information about OpenShift AI as self-managed software on your OpenShift cluster in a connected or a disconnected environment, see <a href="https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/2.10">Product Documentation for Red Hat OpenShift AI Self-Managed 2.10</a>.</p>
 </li>
 </ul>
 </div>
@@ -191,49 +191,28 @@ For information about OpenShift AI as self-managed software on your OpenShift cl
 <div class="paragraph">
 <p>In addition to the <strong>Red&#160;Hat OpenShift AI</strong> Operator there are additional operators that you may need to install depending on which features and components of <strong>Red&#160;Hat OpenShift AI</strong> you want to utilize.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>To support the KServe component, which is used by the single-model serving platform to serve large models, install the Operators for Red Hat OpenShift Serverless and Red Hat OpenShift Service Mesh.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><a href="https://docs.openshift.com/container-platform/latest/hardware_enablement/psap-node-feature-discovery-operator.html">OpenShift Serveless Operator</a></dt>
+<dt class="hdlist1"><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift/serverless">Red&#160;Hat OpenShift Serverless Operator</a></dt>
 <dd>
-<p>The <strong>OpenShift Serveless Operator</strong> is a prerequisite for the <strong>Single Model Serving Platform</strong>.</p>
+<p>The <strong>Red Hat OpenShift Serverless operator</strong> provides a collection of APIs that enables containers, microservices and functions to run "serverless". The <strong>Red&#160;Hat OpenShift Serverless Operator</strong> is required if you want to install the Single-model serving platform component.</p>
 </dd>
-<dt class="hdlist1"><a href="https://docs.openshift.com/container-platform/latest/hardware_enablement/psap-node-feature-discovery-operator.html">OpenShift Service Mesh Operator</a></dt>
+<dt class="hdlist1"><a href="https://catalog.redhat.com/software/container-stacks/detail/5ec53e8c110f56bd24f2ddc4">Red&#160;Hat OpenShift Service Mesh Operator</a></dt>
 <dd>
-<p>The <strong>OpenShift Service Mesh Operator</strong> is a prerequisite for the <strong>Single Model Serving Platform</strong>.</p>
+<p><strong>Red Hat OpenShift Service Mesh operator</strong> provides an easy way to create a network of deployed services that provides discovery, load balancing, service-to-service authentication, failure recovery, metrics, and monitoring. The <strong>Red&#160;Hat OpenShift Serverless Operator</strong> is required if you want to install the Single-model serving platform component.</p>
 </dd>
-<dt class="hdlist1"><a href="https://www.redhat.com/en/technologies/cloud-computing/openshift/pipelines">Red&#160;Hat OpenShift Pipelines Operator</a></dt>
+<dt class="hdlist1"><a href="https://developers.redhat.com/articles/2021/06/18/authorino-making-open-source-cloud-native-api-security-simple-and-flexible">Red&#160;Hat Authorino (technical preview) Operator</a></dt>
 <dd>
-<p>The <strong>Red&#160;Hat OpenShift Pipelines Operator</strong> is a prerequisite for the <strong>Single Model Serving Platform</strong>.</p>
+<p><strong>Red Hat Authorino</strong> is an open source, Kubernetes-native external authorization service to protect APIs. The <strong>Red&#160;Hat Authorino Operator</strong> is required to support enforcing authentication policies in Red Hat OpenShift AI.</p>
 </dd>
 </dl>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>The following Operators are required to support the use of Nvidia GPUs (accelerators) with OpenShift AI:</p>
 </div>
-</td>
-</tr>
-</table>
+</div>
 </div>
 <div class="dlist">
 <dl>
