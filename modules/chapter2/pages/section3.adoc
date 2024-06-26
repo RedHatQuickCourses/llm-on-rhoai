@@ -42,9 +42,10 @@ Congratulations, you have successfully completed the installation of OpenShift A
 
 
   * We installed the required OpenShift AI Operators
-  ** Serverless, ServiceMesh, & Pipelines Operators
+  ** Red Hat OpenShift Serverless 
+  ** Red Hat OpenShift ServiceMesh
+  ** Red Hat Authorino (technical preview)
   ** OpenShift AI Operator
-  ** Web Terminal Operator
 
 Additionally, we took this installation a step further by sharing TLS certificates from the OpenShift Cluster with OpenShift AI. 
 

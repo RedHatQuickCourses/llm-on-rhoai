@@ -8,7 +8,7 @@ Welcome to this quick course on _Serving an LLM using OpenShift AI_.
 
 This program was designed to guide you through the process of installing an OpenShift AI Platform using the OpenShift Container Platform Web Console UI. We get hands-on experience in each component needed to enable a RHOAI Platform using an Openshift Container Platform Cluster. 
 
-Once we have an operational OpenShift AI Platform, we will login and begin the configuration of: Model Runtimes, Data Science Projects, Data connections, & finally use a jupyter notebook to infer the answers to easy questions. 
+Once we have an operational OpenShift AI Platform, we will login and begin the configuration of: model runtimes, data science projects, data connections, & finally use a jupyter notebook to infer the answers to easy questions. 
 
 There will be some challenges along the way, all designed to teach us about a component, or give us the knowledge needed to utilize OpenShift AI and host a Large Language Model. 
 
@@ -39,7 +39,7 @@ We will use the https://demo.redhat.com/catalog?item=babylon-catalog-prod%2Fopen
 [TIP]
 If you are planning on starting this course now, go ahead & launch the workshop. It takes <10 minutes to provision it, which is just enough time to finish the introduction section. 
 
-video::openshiftai_demo.mp4[width=640]
+// video::openshiftai_demo.mp4[width=640]
 
 When ordering this catalog item in RHDP:
 
@@ -53,7 +53,7 @@ When ordering this catalog item in RHDP:
 
   . Click order
 
-For Red Hat partners who do not have access to RHDP, provision an environment using the Red Hat Hybrid Cloud Console. Unfortunately, the labs will NOT work on the trial sandbox environment. You need to provision an OpenShift AI cluster on-premises, or in the supported cloud environments by following the product documentation at https://access.redhat.com/documentation/en-us/red_hat_openshift_ai_self-managed/2.9/html/installing_and_uninstalling_openshift_ai_self-managed/index[Product Documentation for Red Hat OpenShift AI 2024].
+For Red Hat partners who do not have access to RHDP, provision an environment using the Red Hat Hybrid Cloud Console. Unfortunately, the labs will NOT work on the trial sandbox environment. You need to provision an OpenShift AI cluster on-premises, or in the supported cloud environments by following the product documentation at https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/2.10/html/installing_and_uninstalling_openshift_ai_self-managed/index[Product Documentation for installing Red Hat OpenShift AI 2.10].
 
 == Prerequisites
 
@@ -77,4 +77,4 @@ The overall objectives of this course include:
 
  * Import (from git repositories), interact with LLM model via Jupyter Notebooks
 
- * Experiment with the Mistral LLM
+ * Experiment with the Mistral LLM and Llama3 large language models

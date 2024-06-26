@@ -7,7 +7,7 @@ OpenShift AI is supported in two configurations:
 For information about OpenShift AI on a Red Hat managed environment, see https://access.redhat.com/documentation/en-us/red_hat_openshift_ai_cloud_service/1[Product Documentation for Red Hat OpenShift AI Cloud Service].
 
 * Self-managed software that you can install on-premise or on the public cloud in a self-managed environment, such as *OpenShift Container Platform*.
-For information about OpenShift AI as self-managed software on your OpenShift cluster in a connected or a disconnected environment, see https://access.redhat.com/documentation/en-us/red_hat_openshift_ai_self-managed/2.8[Product Documentation for Red Hat OpenShift AI Self-Managed 2.8].
+For information about OpenShift AI as self-managed software on your OpenShift cluster in a connected or a disconnected environment, see https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/2.10[Product Documentation for Red Hat OpenShift AI Self-Managed 2.10].
 
 In this course we cover installation of *Red Hat OpenShift AI self-managed* using the OpenShift Web Console.
 
@@ -22,25 +22,17 @@ The product name has been recently changed to *Red{nbsp}Hat OpenShift AI (RHOAI)
 In addition to the *Red{nbsp}Hat OpenShift AI* Operator there are additional operators that you may need to install depending on which features and components of *Red{nbsp}Hat OpenShift AI* you want to utilize.
 
 
-[NOTE]
-====
-To support the KServe component, which is used by the single-model serving platform to serve large models, install the Operators for Red Hat OpenShift Serverless and Red Hat OpenShift Service Mesh. 
-====
+https://www.redhat.com/en/technologies/cloud-computing/openshift/serverless[Red{nbsp}Hat OpenShift Serverless Operator]::
+The *Red Hat OpenShift Serverless operator* provides a collection of APIs that enables containers, microservices and functions to run "serverless". The *Red{nbsp}Hat OpenShift Serverless Operator* is required if you want to install the Single-model serving platform component.
 
-https://docs.openshift.com/container-platform/latest/hardware_enablement/psap-node-feature-discovery-operator.html[OpenShift Serveless Operator]::
-// Is this the correct link for OpenShift Serveless Operator?
-The *OpenShift Serveless Operator* is a prerequisite for the *Single Model Serving Platform*.
+https://catalog.redhat.com/software/container-stacks/detail/5ec53e8c110f56bd24f2ddc4[Red{nbsp}Hat OpenShift Service Mesh Operator]::
+*Red Hat OpenShift Service Mesh operator* provides an easy way to create a network of deployed services that provides discovery, load balancing, service-to-service authentication, failure recovery, metrics, and monitoring. The *Red{nbsp}Hat OpenShift Serverless Operator* is required if you want to install the Single-model serving platform component.
 
-https://docs.openshift.com/container-platform/latest/hardware_enablement/psap-node-feature-discovery-operator.html[OpenShift Service Mesh Operator]::
-// Is this the correct link for OpenShift Service Mesh Operator?
-The *OpenShift Service Mesh Operator* is a prerequisite for the *Single Model Serving Platform*.
-
-https://www.redhat.com/en/technologies/cloud-computing/openshift/pipelines[Red{nbsp}Hat OpenShift Pipelines Operator]::
-The *Red{nbsp}Hat OpenShift Pipelines Operator* is a prerequisite for the *Single Model Serving Platform*.  
+https://developers.redhat.com/articles/2021/06/18/authorino-making-open-source-cloud-native-api-security-simple-and-flexible[Red{nbsp}Hat Authorino (technical preview) Operator]::
+*Red Hat Authorino* is an open source, Kubernetes-native external authorization service to protect APIs. The *Red{nbsp}Hat Authorino Operator* is required to support enforcing authentication policies in Red Hat OpenShift AI.
 
 
-
-[NOTE]
+[INFO]
 ====
 The following Operators are required to support the use of Nvidia GPUs (accelerators) with OpenShift AI:
 ====
