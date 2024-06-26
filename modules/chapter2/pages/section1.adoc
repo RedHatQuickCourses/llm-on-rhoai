@@ -2,7 +2,7 @@
 
 *Red{nbsp}Hat OpenShift AI* is available as an operator via the OpenShift Operator Hub.  You will install the *Red{nbsp}Hat OpenShift AI operator* and dependencies using the OpenShift web console in this section.
 
-video::openshiftai_operator.mp4[width=640]
+// video::openshiftai_operator.mp4[width=640]
 
 == Lab: Installation of Red{nbsp}Hat OpenShift AI
 
@@ -19,13 +19,11 @@ This exercise uses the Red Hat Demo Platform; specifically the OpenShift Contain
 [*] You do not have to wait for the previous Operator to complete before installing the next. For this lab you can skip the installation of the optional operators as there is no GPU.
 // Should this be a note?
 
-    * Web Terminal 
-
     * Red Hat OpenShift Serverless 
 
     * Red Hat OpenShift Service Mesh
 
-    * Red Hat OpenShift Pipelines 
+    * Red Hat Authorino technical preview
 
     * GPU Support
 
@@ -41,7 +39,7 @@ This exercise uses the Red Hat Demo Platform; specifically the OpenShift Contain
 
 image::openshiftai_operator.png[width=640]
 
-. Click on the `Red{nbsp}Hat OpenShift AI` operator. In the pop up window that opens, ensure you select the latest version in the *fast* channel. Any version greater than 2.91 and click on **Install** to open the operator's installation view.
+. Click on the `Red{nbsp}Hat OpenShift AI` operator. In the pop up window that opens, ensure you select the latest version in the *stable* channel. Any version greater than 2.10 and click on **Install** to open the operator's installation view.
 +
 
 . In the `Install Operator` page, leave all of the options as default and click on the *Install* button to start the installation.
