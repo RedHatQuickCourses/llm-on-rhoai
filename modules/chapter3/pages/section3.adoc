@@ -25,7 +25,7 @@ video::openshiftai_setup_part3.mp4[width=640]
 
 Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the Ollama-model project.  
 
-image::create_workbench.png[width=800]
+image::create_workbench.png[width=640]
 
  . Select the WorkBench button, then click create workbench
 
@@ -59,9 +59,11 @@ From the ollama-model WorkBench Dashboard in the ollama-model project, navigate 
  .. Model location data connection: `models`
  .. Model location path: `/ollama`
 
++
+image::oai_model_deploy.png[width=640]
 
 After clicking the **Deploy** button at the bottom of the form, the model is added to our **Models & Model Server list**.  When the model is available, the inference endpoint will populate & the status will indicate a green checkmark.
 
-We are now ready to interact with our newly deployed LLM Model. Join me in Section 2 to explore Mistral running on OpenShift AI using Jupyter Notebooks. 
+We are now ready to interact with our newly deployed LLM Model. Join me in the next section to explore Mistral running on OpenShift AI using Jupyter Notebooks. 
 
 

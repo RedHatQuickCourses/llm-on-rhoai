@@ -15,14 +15,14 @@ There will be some challenges along the way, all designed to teach us about a co
 If you're ready, let’s get started!
 
 
-IMPORTANT: The hands-on labs in this course were created and tested with RHOAI v2.9.1 & later versions. Labs will work without any changes in minor dot release upgrades of the product. Please open issues in this repository if you face any problem.
+IMPORTANT: The hands-on labs in this course were created and tested with RHOAI v2.10 & later versions. Labs will work without any changes in minor dot release upgrades of the product. https://github.com/RedHatQuickCourses/llm-on-rhoai[Please open issues in this repository if you face any problem.]
 
 
 == Authors
 
 The PTL team acknowledges the valuable contributions of the following Red Hat associates:
 
-* Christopher Nuland
+ * Christopher Nuland
 
  * Vijay Chebolu
 
@@ -37,9 +37,9 @@ The PTL team acknowledges the valuable contributions of the following Red Hat as
 We will use the https://demo.redhat.com/catalog?item=babylon-catalog-prod%2Fopenshift-cnv.ocpmulti-wksp-cnv.prod[*Red Hat OpenShift Container Platform Cluster*] catalog item in the Red Hat Demo Platform (RHDP) to run the hands-on exercises in this course.
 
 [TIP]
-If you are planning on starting this course now, go ahead & launch the workshop. It takes <10 minutes to provision it, which is just enough time to finish the introduction section. 
+If you are planning on starting this course now, go ahead & launch the workshop. It takes ~15 minutes to provision it, which is just enough time to finish the introduction section. 
 
-// video::openshiftai_demo.mp4[width=640]
+video::demohub_resources_v4.mp4[width=640]
 
 When ordering this catalog item in RHDP:
 
@@ -49,7 +49,7 @@ When ordering this catalog item in RHDP:
 
   . Leave the Salesforce ID field blank
 
-  . Scroll to the bottom, and check the box to confirm acceptance of terms and conditions
+  . Scroll to the bottom, read the usage cost section, then check the box to confirm acceptance of terms and conditions
 
   . Click order
 
