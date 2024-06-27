@@ -110,7 +110,7 @@
     <a class="nav-link" href="../chapter4/section2.html">Mistral LLM Model Inference</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter4/section3.html">LLama3 LLM Model Inference</a>
+    <a class="nav-link" href="../chapter4/section3.html">Llama3 LLM Model Inference</a>
   </li>
 </ul>
   </li>
@@ -156,33 +156,44 @@
 </aside>
 <article class="doc">
 <h1 class="page">Creating OpenShift AI Resources - 1</h1>
-<div id="preamble">
-<div class="sectionbody">
-<div class="videoblock">
-<div class="content">
-<video src="_images/llm_dsp_v3.mp4" width="640" controls>
-Your browser does not support the video tag.
-</video>
-</div>
-</div>
-</div>
-</div>
 <div class="sect1">
 <h2 id="_model_serving_runtimes"><a class="anchor" href="#_model_serving_runtimes"></a>Model Serving Runtimes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A model-serving runtime provides integration with a specified model server and the model frameworks that it supports. By default, Red Hat OpenShift AI includes the following model serving runTimes:</p>
+<p>A model-serving runtime provides integration with a specified model server and the model frameworks that it supports. By default, Red Hat OpenShift AI includes the following model serving runtimes:</p>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>Multi-model
-* OpenVINO Model Server - Multi-model
-Single-model
-* OpenVINO Model Server
-* Caikit TGIS for KServe
-* TGIS Standalone for KServe
-* vLLM For KServe</pre>
+<div class="ulist">
+<ul>
+<li>
+<p>Multi-model</p>
+<div class="ulist">
+<ul>
+<li>
+<p>OpenVINO Model Server - Multi-model</p>
+</li>
+</ul>
 </div>
+</li>
+<li>
+<p>Single-model</p>
+<div class="ulist">
+<ul>
+<li>
+<p>OpenVINO Model Server</p>
+</li>
+<li>
+<p>Caikit TGIS for KServe</p>
+</li>
+<li>
+<p>TGIS Standalone for KServe</p>
+</li>
+<li>
+<p>vLLM For KServe</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>However, if these runtimes do not meet your needs (if they don&#8217;t support a particular model framework, for example), you might want to add your own custom runtimes.</p>
@@ -191,7 +202,7 @@ Single-model
 <p>As an administrator, you can use the OpenShift AI interface to add and enable custom model-serving runtimes. You can then choose from your enabled runtimes when you create a new model server.</p>
 </div>
 <div class="paragraph">
-<p>This exercise will guide you through the broad steps necessary to deploy a custom Serving Runtime in order to serve a model using the Ollama Model Serving Framework.</p>
+<p>This exercise will guide you through the steps necessary to deploy a custom Serving Runtime in order to serve a model using the Ollama Model Serving Framework.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -221,16 +232,16 @@ Single-model
 <p>In the RHOAI Console, Navigate to the Settings menu, then select Serving Runtimes</p>
 </li>
 <li>
-<p>Select the Add Serving Runtime button:</p>
+<p><strong>Select:</strong> the <strong>Add Serving Runtime</strong> button</p>
 </li>
 <li>
-<p>For the model serving platform runtime, <strong>select: Single-Model Serving Platform.</strong></p>
+<p>For the model serving platform runtime, <strong>select: Single-Model Serving Platform</strong></p>
 </li>
 <li>
 <p>For API protocol this runtime supports, <strong>select: REST</strong></p>
 </li>
 <li>
-<p>Click on Start from scratch in the window that opens up, paste the following YAML:</p>
+<p><strong>Click on: Start from scratch</strong> in the window that opens up, paste the following YAML</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">apiVersion: serving.kserve.io/v1alpha1
@@ -306,6 +317,12 @@ spec:
 <div class="content">
 <img src="_images/dsp_create.png" alt="dsp create" width="640">
 </div>
+</div>
+<div class="paragraph">
+<p>The next step is to create a <strong>Data Connection</strong> in our Data Science Project.  Before we can create our Data Connection, we will setup MinIO as our S3 compatible storage for this Lab.</p>
+</div>
+<div class="paragraph">
+<p>Continue to the next section to deploy and configure Minio.</p>
 </div>
 </div>
 </div>

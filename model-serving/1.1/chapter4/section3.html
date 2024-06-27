@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>LLama3 LLM Model Inference :: Serving an LLM using OpenShift AI</title>
+    <title>Llama3 LLM Model Inference :: Serving an LLM using OpenShift AI</title>
     <link rel="prev" href="section2.html">
     <meta name="generator" content="Antora 3.1.3">
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -109,7 +109,7 @@
     <a class="nav-link" href="section2.html">Mistral LLM Model Inference</a>
   </li>
   <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="section3.html">LLama3 LLM Model Inference</a>
+    <a class="nav-link" href="section3.html">Llama3 LLM Model Inference</a>
   </li>
 </ul>
   </li>
@@ -145,7 +145,7 @@
   <ul>
     <li><a href="../index.html">Serving an LLM using OpenShift AI</a></li>
     <li><a href="index.html">Jupyter Notebooks &amp; LLMs</a></li>
-    <li><a href="section3.html">LLama3 LLM Model Inference</a></li>
+    <li><a href="section3.html">Llama3 LLM Model Inference</a></li>
   </ul>
 </nav>
 </div>
@@ -154,11 +154,34 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">LLama3 LLM Model Inference</h1>
+<h1 class="page">Llama3 LLM Model Inference</h1>
 <div id="preamble">
 <div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The Ollama Model Runtime we deployed using the Single Model Serving Platform in OpenShift AI is a framework that can host various large language models. You can view the available models in <a href="https://ollama.com/library">the ollama library here.</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lab_switch_to_the_llama3_large_language_model"><a class="anchor" href="#_lab_switch_to_the_llama3_large_language_model"></a>Lab: Switch to the Llama3 large language model</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Experimentation with various models allows the selection of the best model for the task at hand.</p>
+<p>Meta Llama 3, a family of models developed by Meta Inc. are new state-of-the-art , available in both 8B and 70B parameter sizes (pre-trained or instruction-tuned).</p>
+</div>
+<div class="paragraph">
+<p>Llama 3 instruction-tuned models are fine-tuned and optimized for dialogue/chat use cases and outperform many of the available open-source chat models on common benchmarks.</p>
+</div>
+<div class="paragraph">
+<p>In this Lab, we experiment with a quantized version of the base Llama3 model</p>
 </div>
 </div>
 </div>
@@ -175,6 +198,11 @@
 </li>
 <li>
 <p>To the right of the ollama-mistral model there are three stacked dots, select the dots, then delete from the menu</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/model_deletion.png" alt="model deletion" width="640">
+</div>
+</div>
 </li>
 <li>
 <p>You need to type in the <strong>ollama-mistral</strong> model name to confirm the deletion.</p>
@@ -190,7 +218,7 @@
 <h2 id="_creating_the_model_server"><a class="anchor" href="#_creating_the_model_server"></a>Creating The Model Server</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>From the ollama-model WorkBench Dashboard in the ollama-model project, navigate to the <strong>Models</strong> section, and select Deploy Model from the <strong>Single Model Serving Platform Button</strong>.</p>
+<p>From the ollama-model WorkBench Dashboard in the ollama-model project, navigate to the <strong>Models</strong> section, and select Deploy Model.</p>
 </div>
 <div class="paragraph">
 <p><strong>Create the model server with the following values:</strong></p>
@@ -214,46 +242,57 @@
 </li>
 <li>
 <p>Model location path: <code>/ollama</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/deploy_llama3_model.png" alt="deploy llama3 model" width="640">
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/deploy_llama3_model2.png" alt="deploy llama3 model2" width="640">
+</div>
+</div>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <p>After clicking the <strong>Deploy</strong> button at the bottom of the form, the model is added to our <strong>Models &amp; Model Server list</strong>.  When the model is available, the inference endpoint will populate &amp; the status will indicate a green checkmark.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/copy_llama3_endpoint.png" alt="copy llama3 endpoint" width="640">
+</div>
+</div>
 <div class="paragraph">
-<p>Copy The Interence Endpoint, we need to replace the orginal inference endpoints used in our notebooks top two cells.</p>
+<p>Copy the <strong>Interence endpoint</strong> for for newly deployed model, we need to replace the orginal inference endpoints used in our notebook&#8217;s top two cells.</p>
 </div>
 <div class="sect2">
-<h3 id="_update_the_inference_endpoints"><a class="anchor" href="#_update_the_inference_endpoints"></a>Update the Inference Endpoints</h3>
+<h3 id="_update_the_inference_endpoints_change_the_model_name"><a class="anchor" href="#_update_the_inference_endpoints_change_the_model_name"></a>Update the inference endpoints &amp; change the model name</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>From the Notebook page, replace the previous inference endpoints with the ollama-llama3 endpoint</p>
+<p>Return to the jupyter notebook</p>
 </li>
 <li>
-<p>In the phython code cell, we also need to change the name of the large language model in the json_data section from "mistral" to <strong>"llama3"</strong></p>
-</li>
-<li>
-<p>To load the llama3 model, we are going use the following python code to instruct the runtime to download and serve a quantized 4 bit version of the llama3 large language model.</p>
-</li>
-</ol>
-</div>
+<p>Replace the both previous inference endpoints with the ollama-llama3 endpoint url.</p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/llama3_url.png" alt="llama3 url" width="800">
 </div>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The Ollama Model Runtime we deployed using the Single Model Serving Platform in OpenShift AI is a Framework that can host various large language models. It is currently running, but is waiting for the command to instruct the framework on which model to download and serve.  You can view the available models in <a href="https://ollama.com/library">the ollama library here.</a>
-</td>
-</tr>
-</table>
+</li>
+<li>
+<p>In the python code cell, or first cell under <strong>set the inference server url headding.</strong> We need to change the name of the large language model in the json_data section from "mistral" to <strong>"llama3"</strong></p>
+</li>
+<li>
+<p>The final edit we need to change is to rename mistal to llama3 in the <strong>create the llm instance</strong> cell</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/llama3_llm.png" alt="llama3 llm" width="400">
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -261,7 +300,7 @@ The Ollama Model Runtime we deployed using the Single Model Serving Platform in 
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>We can now start executing the code in the cells, begin from the top at Set inference server cell.  Click to left of the cell to activate orange indicator next to cell.  Orange indicate the cell has been modified from the original, blue will still highlight for unmodified cells.</p>
+<p>We can now start executing the code in the cells, begin from the top at Set inference server cell.  Click to left of the cell to activate orange indicator next to cell.  Orange indicates the cell code has been modified, blue will still highlight for unmodified cells.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -274,18 +313,57 @@ The Ollama Model Runtime we deployed using the Single Model Serving Platform in 
 </div>
 </li>
 <li>
-<p>Continue executing through the cells, but stop at the <strong>create the LLM instance cell</strong>.</p>
-</li>
-<li>
-<p>For the  <strong>create the LLM instance</strong> cell, we need to change the <em>model =mistral text</em> to <strong>llama3</strong>.</p>
+<p>Continue executing the cells in the notebook.</p>
 </li>
 </ol>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/llama_llm.png" alt="llama llm" width="800">
+<div class="paragraph">
+<p>When you arrive at the "Let&#8217;s Talk" cells, re-read the mistral responses before executing the cells as answers will replaced with the llama3 responses.</p>
+</div>
+<div class="paragraph">
+<p>When you reach the bottom of the notebook, feel free to experiment with the Llama3 model by creating your own more complex prompts.</p>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_experiment_with_llama3"><a class="anchor" href="#_experiment_with_llama3"></a>Experiment with Llama3</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Instead of editing the questions try experimenting with system prompt:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>edit the <strong>create the prompt</strong> cell system message to alter the personality of the large language model responses.  Instruct the model use humor, respond like I&#8217;m five years old, or perhaps like an historian.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Try adjusting the top_p, temperature, repeat penalty values in the <strong>"create an LLM instance"</strong>  cell</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Edit the <strong>create the LLM instance</strong> cell to adjust the values set for the model tuning parameters to explore the difference in answers.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Deploy a different large language model</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Vist the <a href="https://ollama.com/library">Ollama Model Library</a> and deploy a new model on your own. Perhaps the <strong>granite-code</strong> model from IBM for code intelligence.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Once you complete with your learning, don&#8217;t forget to return to Red Hat Demo Hub to stop the environment if you plan to return. Delete the environment when your finished.</p>
+</div>
+<div class="paragraph">
+<p>Thanks for completing this course!</p>
 </div>
 </div>
 </div>

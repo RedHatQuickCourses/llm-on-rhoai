@@ -110,7 +110,7 @@
     <a class="nav-link" href="../chapter4/section2.html">Mistral LLM Model Inference</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter4/section3.html">LLama3 LLM Model Inference</a>
+    <a class="nav-link" href="../chapter4/section3.html">Llama3 LLM Model Inference</a>
   </li>
 </ul>
   </li>
@@ -156,17 +156,6 @@
 </aside>
 <article class="doc">
 <h1 class="page">MinIO S3 Compatible Storage Setup</h1>
-<div id="preamble">
-<div class="sectionbody">
-<div class="videoblock">
-<div class="content">
-<video src="_images/llm_minio_v3.mp4" width="640" controls>
-Your browser does not support the video tag.
-</video>
-</div>
-</div>
-</div>
-</div>
 <div class="sect1">
 <h2 id="_deploy_minio_as_s3_compatible_storage"><a class="anchor" href="#_deploy_minio_as_s3_compatible_storage"></a>Deploy MinIO as S3 compatible storage</h2>
 <div class="sectionbody">
@@ -203,16 +192,12 @@ This version of MinIO should not be used in production-grade environments. Aditi
 </li>
 <li>
 <p>Then Select the + (plus) icon from the top right of the dashboard.</p>
-</li>
-</ol>
-</div>
 <div class="imageblock">
 <div class="content">
-<img src="_images/minio2.png" alt="minio2" width="640">
+<img src="_images/minio_yaml_deploy.png" alt="minio yaml deploy" width="640">
 </div>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+</li>
 <li>
 <p>In the new window, we will paste the following YAML file.  In the YAML below its recommended to change the default user name &amp; password.</p>
 </li>
@@ -399,6 +384,11 @@ spec:
 </li>
 <li>
 <p>This will display two routes, one for the UI &amp; another for the API.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/minio_routes.png" alt="minio routes" width="640">
+</div>
+</div>
 </li>
 <li>
 <p>For the first step, select the UI route and paste it in a browser Window.</p>
@@ -434,7 +424,7 @@ spec:
 <p><strong>models</strong></p>
 </li>
 <li>
-<p><strong>storage</strong></p>
+<p><strong>storage</strong> (optional)</p>
 </li>
 </ol>
 </div>
@@ -448,7 +438,7 @@ spec:
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-  When serving an LLM or other model, Openshift AI looks within a folder. Therefore, we need at least one subdirectory under the models folder.
+  When serving an LLM or other model, Openshift AI expects to search within a directory. Therefore, we need at least one subdirectory under the models folder.
 </td>
 </tr>
 </table>
@@ -494,6 +484,14 @@ In most cases, to serve a model, the trained model would be uploaded into this s
 <p>Once you have this file ready, upload it into the Ollama path in the model bucket by clicking the upload button and selecting the file from your local desktop.</p>
 </li>
 </ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/minio_emptyfile_view.png" alt="minio emptyfile view" width="640">
+</div>
+</div>
+<div class="paragraph">
+<p>With our S3 Compatible ready to go and our "model files" uploaded. Let&#8217;s head back to the OpenShift AI Web UI and continue configuring resources.</p>
 </div>
 </div>
 </div>
