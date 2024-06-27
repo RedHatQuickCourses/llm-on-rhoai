@@ -1,6 +1,6 @@
 = Jupyter Notebooks
 
-video::llm_jupyter_v3.mp4[width=640]
+// video::llm_jupyter_v3.mp4[width=640]
 
 == Open JupyterLab 
 
@@ -9,9 +9,14 @@ JupyterLab enables you to work with documents and activities such as Jupyter not
 
 Return to the ollama-model workbench dashboard in the OpenShift AI console.
 
-* Select the *Open* link to the right of the status section. When the new window opens, use the OpenShift admin user & password to login to JupyterLab. 
+ . Select the *Open* link to the right of the status section.
++
+image::oai_open_jupyter.png[width=640]
 
-* Click *Allow selected permissions* button to complete login to the notebook.
+ . When the new window opens, use the OpenShift admin user & password to login to JupyterLab. 
+
+ . Click *Allow selected permissions* button to complete login to the notebook.
+
 
 [NOTE]
 If the *OPEN* link for the notebook is grayed out, the notebook container is still starting. This process can take a few minutes & up to 20+ minutes depending on the notebook image we opted to choose.
@@ -29,7 +34,7 @@ https://github.com/rh-aiservices-bu/llm-on-openshift.git
  . Copy the URL link above
 
  . Click on the Clone a Repo Icon above explorer section window.
-
++
 image::clone_a_repo.png[width=640]
 
  . Paste the link into the *clone a repo* pop up,   make sure the *included submodules are checked*, then click the clone.
@@ -37,6 +42,8 @@ image::clone_a_repo.png[width=640]
  . Navigate to the llm-on-openshift/examples/notebooks/langchain folder:
 
  . Then open the file: _Langchain-Ollama-Prompt-memory.ipynb_
++
+image::navigate_ollama_notebook.png[width=640]
 
  . Explore the notebook, and then continue.
 
@@ -44,6 +51,7 @@ image::clone_a_repo.png[width=640]
 
  . From the Notebook page, add a new cell above the inference url 
 
++
 image::add_a_cell.png[width=640]
 
 
@@ -70,6 +78,8 @@ json_data = {
 response = requests.post('https://your-endpoint/api/pull', headers=headers, json=json_data, verify=False)
 ----
 
+image::inference_server_url.png[width=640]
+
 We'll need to modify the url in the bottom line beginning with *response =* in the next step.
 
 === Update the Inference Endpoints
@@ -82,7 +92,7 @@ Return the Jupyter notebook
 
 We will be updating two cells with the inference endpoint. 
 
- . Replace the https://your-endopint section of the python code we copied into the new cell. Ensure you leave the /api/pull portion appended to the url.
+ . Replace the https://your-endopint section of the python code we copied into the new cell. Ensure you leave the */api/pull* portion appended to the url.
 
  . Replace the red text inside the quotation marks for the inference_server_url with the same inference endpoint url.
 
@@ -90,17 +100,20 @@ image::replaced_endpoints2.png[width=640]
 
 === Execute cell code to assemble the langchain components
 
- . We can now start executing the code in the cells, begin with the new cell added to the top.  Click on the cell to activate blue indicator to the left of the cell. 
+ . We can now start executing the code in the cells, begin with the new cell added to the top.  Click on the cell to activate blue indicator to the left of the cell. Next click on the play icon to run the selected cells and advanced to the next. While the cell is executing, an *** (asterisk icon) will appear in the brackets, when complete this will change to a number. 
 
- .. You will receive a message about an Unverified HTTPs request. This is because we didn’t use authentication for this application.  You can ignore this for this lab experience, but in production we would enable authentication using certificates as suggested.  https://developers.redhat.com/articles/2021/06/18/authorino-making-open-source-cloud-native-api-security-simple-and-flexible[To use authentication we need to install the Authorino Operator.]
++
+image::execute_cell2.png[width=640]
 
- .. The mistral model files are now being downloaded to the Ollama Framework.
+ .. You will receive a message about an Unverified HTTPs request. This is because we didn’t use authentication for this application.  You can ignore this for this lab experience, but in production we would enable authentication using Authorino secured connections. 
+
+ .. The mistral model files are now being downloaded to the Ollama Framework. This may take a few minutes, the *** will change to a number when complete.
 
  . Continue executing through the cells. 
 
  . Next we run the cell: *!pip install -q langchain==0.1.14* ; there is a notice to update pip; ignore and continue. 
 
- . The next cell imports the langchain components that provide the libraries and programming files to interact with our LLM.
+ . The next cell imports the *langchain components* that provide the libraries and programming files to interact with our LLM.
 
  . This *"Create the LLM instance"* cell sets the variables that determine how we are going to interact with our model  and how it should respond - sets that into an array using *llm* variable. 
  

@@ -23,16 +23,16 @@ managementState: Managed
 serving:
     ingressGateway:
     certificate:
-        secretName: ingress-certs-XX-XX-2024
+        secretName: cert-manager-ingress-cert
         type: Provided
     managementState: Managed
     name: knative-serving
 ```
-image::dcsyamlfile.png[width=640]
+image::dsc_cert_example.png[width=640]
 
 Once you have made those changes to the YAML file, *Click Create* to Deploy the Data Science Cluster.  
 
-image::createDSC.png[width=640]
+image::dsc_deploy_complete.png[width=640]
 
 Single Model Serve Platform will now be deployed to expose ingress connections with the same certificate as OpenShift Routes. Endpoints will be accessible using TLS without having to ignore error messages or create special configurations.
 

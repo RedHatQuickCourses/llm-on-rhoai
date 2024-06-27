@@ -1,25 +1,26 @@
 = Creating OpenShift AI Resources - 1
 
-video::llm_dsp_v3.mp4[width=640]
+// video::llm_dsp_v3.mp4[width=640]
 
 == Model Serving Runtimes
 
-A model-serving runtime provides integration with a specified model server and the model frameworks that it supports. By default, Red Hat OpenShift AI includes the following model serving runTimes:
+A model-serving runtime provides integration with a specified model server and the model frameworks that it supports. By default, Red Hat OpenShift AI includes the following model serving runtimes:
 
- Multi-model
- * OpenVINO Model Server - Multi-model
- Single-model
- * OpenVINO Model Server
- * Caikit TGIS for KServe
- * TGIS Standalone for KServe
- * vLLM For KServe 
+
+ * Multi-model
+ ** OpenVINO Model Server - Multi-model
+ * Single-model
+ ** OpenVINO Model Server
+ ** Caikit TGIS for KServe
+ ** TGIS Standalone for KServe
+ ** vLLM For KServe 
  
 However, if these runtimes do not meet your needs (if they don't support a particular model framework, for example), you might want to add your own custom runtimes.
 
 As an administrator, you can use the OpenShift AI interface to add and enable custom model-serving runtimes. You can then choose from your enabled runtimes when you create a new model server.
 
 
-This exercise will guide you through the broad steps necessary to deploy a custom Serving Runtime in order to serve a model using the Ollama Model Serving Framework.
+This exercise will guide you through the steps necessary to deploy a custom Serving Runtime in order to serve a model using the Ollama Model Serving Framework.
 
 [NOTE]
 ====
@@ -32,13 +33,13 @@ While RHOAI supports the ability to add your own runtime, it is up to you to con
 
 . In the RHOAI Console, Navigate to the Settings menu, then select Serving Runtimes
 
-. Select the Add Serving Runtime button:
+. *Select:* the *Add Serving Runtime* button
 
-. For the model serving platform runtime, *select: Single-Model Serving Platform.*
+. For the model serving platform runtime, *select: Single-Model Serving Platform*
 
 .  For API protocol this runtime supports, *select: REST*
 
-. Click on Start from scratch in the window that opens up, paste the following YAML:
+. *Click on: Start from scratch* in the window that opens up, paste the following YAML
 +
 ```yaml
 apiVersion: serving.kserve.io/v1alpha1
@@ -92,6 +93,9 @@ Navigate to & select the Data Science Projects section.
 
 image::dsp_create.png[width=640]
 
+ 
+The next step is to create a *Data Connection* in our Data Science Project.  Before we can create our Data Connection, we will setup MinIO as our S3 compatible storage for this Lab. 
 
+Continue to the next section to deploy and configure Minio. 
 
 

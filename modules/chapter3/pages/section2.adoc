@@ -1,6 +1,6 @@
 = MinIO S3 Compatible Storage Setup
 
-video::llm_minio_v3.mp4[width=640]
+// video::llm_minio_v3.mp4[width=640]
 
 == Deploy MinIO as S3 compatible storage
 
@@ -19,8 +19,8 @@ To Deploy MinIO, we will utilize the OpenShift Dashboard.
  . Click on the Project Selection list dropdown and select the Ollama-Model project or the data science project you created in the previous step. 
 
  . Then Select the + (plus) icon from the top right of the dashboard.
-
-image::minio2.png[width=640]
++
+image::minio_yaml_deploy.png[width=640]
 
  .  In the new window, we will paste the following YAML file.  In the YAML below its recommended to change the default user name & password. 
 
@@ -198,6 +198,8 @@ From the OCP Dashboard:
  . Select Networking / Routes from the navigation menu.
  
  . This will display two routes, one for the UI & another for the API.
++
+image::minio_routes.png[width=640]
 
  . For the first step, select the UI route and paste it in a browser Window.
   
@@ -215,10 +217,10 @@ Once logged into the MinIO Console:
 
    ..  *models* 
 
-   ..  *storage*
+   ..  *storage* (optional)
 
 [NOTE]
-  When serving an LLM or other model, Openshift AI looks within a folder. Therefore, we need at least one subdirectory under the models folder.  
+  When serving an LLM or other model, Openshift AI expects to search within a directory. Therefore, we need at least one subdirectory under the models folder.  
 
  . Via the Navigation menu, *select object browser*, then click on the Model Bucket.
  . From the models bucket page, click add path, and type *ollama* as the name of the sub-folder or path.  
@@ -235,3 +237,6 @@ You can download the file from xref:attachment$emptyfile.txt[this location]. Alt
 
  . Once you have this file ready, upload it into the Ollama path in the model bucket by clicking the upload button and selecting the file from your local desktop. 
  
+image::minio_emptyfile_view.png[width=640]
+
+With our S3 Compatible ready to go and our "model files" uploaded. Let's head back to the OpenShift AI Web UI and continue configuring resources. 

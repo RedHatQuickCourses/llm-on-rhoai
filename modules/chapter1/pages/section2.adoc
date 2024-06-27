@@ -22,7 +22,7 @@ However, there are  techniques for compressing large LLM models, making them sma
 
  * Reducing the precision of LLM parameters to save computational resources without sacrificing performance. Trimming surplus connections or parameters to make LLMs smaller and faster yet performant.
 
-In this course, we will be using a quantized version of the Mistral Large Language Model.  Instead of requiring 24Gb of memory and graphics processing unit to simulate the neural network, we are going to run our model with  4 CPUs and 8GB of ram, burstable to 8 CPU with 10Gb ram max.
+In this course, we will be using a quantized versions of the Mistral and Llama3 Large Language Models.  Instead of requiring 24Gb of memory and graphics processing unit to simulate the neural network, we are going to run our model with  4 CPUs and 8GB of ram, burstable to 8 CPU with 10Gb ram max.
 
 
 == The Ollama Model Framework
@@ -36,6 +36,6 @@ Ollama is not an LLM Model - Ollama is a relatively new but powerful open-source
 
 At its core, Ollama simplifies the process of downloading, installing, and interacting with a wide range of LLMs, empowering users to explore their capabilities without the need for extensive technical expertise or reliance on cloud-based platforms.
 
-In this course, we will focus on single LLM, Mistral, run on the Ollama Framework. However, with the understanding of the Ollama Framework, we will be able to work with a variety of large language models utilizing the exact same configuration.  
+In this course, we will focus on two LLMs, Mistra and Llama3 run on the Ollama Framework. However, with the understanding of the Ollama Framework, we will be able to work with a variety of large language models utilizing the exact same configuration.  https://ollama.com/library[Vist the Ollama library for details on supported Models.]
 
 You will be able to switch models in minutes, all running on the same platform. This will enable you test, compare, and evalute multiple models with the skills gained in the course.

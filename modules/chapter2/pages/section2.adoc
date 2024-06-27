@@ -1,6 +1,6 @@
 = Modifying the OpenShift AI TLS Certificate
 
-video::llm_tls_v3.mp4[width=640]
+// video::llm_tls_v3.mp4[width=640]
 
 [NOTE]
 
@@ -19,9 +19,10 @@ Most customers will not use the self-signed certificates, opting instead to use 
 
 === Navigate to the OpenShift Container Cluster Dashboard
 
-The content of the Secret (data) should contain two items, *tls.cert* and *tls.key*. They are the certificate and key that are used for all the OpenShift Routes.
+[IMPORTANT]
+The content of the Secret (data) should contain two items, *tls.cert* and *tls.key*. They are the certificate and key that are used for all the OpenShift Routes.  The actual name will include the term *cert*, but could be different from the example. 
 
-*Collect the Secret YAML Text:* 
+=== Collect the Secret YAML Text: 
 
     . In the Navigation pane on the left, click on the *Workloads* section, then *Secrets* under Workloads.
     . From the Project dropdown, toggle the *show default projects* radial button to on. 
@@ -29,23 +30,25 @@ The content of the Secret (data) should contain two items, *tls.cert* and *tls.k
 
 image::openshiftingress_project.png[width=640]
 
-    . Locate the file named *ingress-certs-(XX-XX-2024)*, type should be *Opaque*
-    . Click on the filename to open the secret, Select the *YAML Tab*
+    . Locate the file named *cert-manager-ingress-cert*, type should be *kubernetes.io/tls*
+    . Click on the filename to open the secret, select the *YAML Tab*
     . Copy all the text from the window, and ensure that you scroll down.  (CTL-A should work).
 
-*Clean & Deploy the Secret YAML Text:* 
+image::ocp_ingress_cert_yaml.png[width=640]
+
+=== Clean & Deploy the Secret YAML Text: 
 
     * Click on the Project dropdown again, select the *Istio-system* project
     * Select the *Create* button on the right, then Select the *from YAML* option.
     * Delete the text from the Window, and *paste the copied Secret text*
 
-    * Cleanup the YAML Text to just keep the relevant content. It should look like the below YAML file (the name of the secret will be different, it's normally tied to the date the RDHP Cluster was deployed). Change the type to *kubernetes.io/tls*.
+    * Cleanup the YAML Text to just keep the relevant content. It should look like the below YAML file (the name of the secret will be different, it's normally tied to the date the RDHP Cluster was deployed). 
 
 ```yaml
 kind: Secret
 apiVersion: v1
 metadata:
-name: ingress-certs-05-28-2024
+name: cert-manager-ingress-cert
 data:
 tls.crt: >-
     LS0tLS1CRUd...
@@ -53,7 +56,7 @@ tls.key: >-
     LS0tLS1CRUd...
 type: kubernetes.io/tls
 ```
-image::createsecret.png[width=640]
+image::ocp_istio_cert.png[width=640]
 
 
 * Copy the name of the secret from line 4, just the name  (optional, but helpful)
