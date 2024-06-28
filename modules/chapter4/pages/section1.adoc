@@ -15,7 +15,7 @@ image::oai_open_jupyter.png[width=640]
 
  . When the new window opens, use the OpenShift admin user & password to login to JupyterLab. 
 
- . Click *Allow selected permissions* button to complete login to the notebook.
+ . Click the *Allow selected permissions* button to complete login to the notebook.
 
 
 [NOTE]
@@ -57,7 +57,7 @@ image::add_a_cell.png[width=640]
 
 The Ollama Model Runtime we deployed using the Single Model Serving Platform in OpenShift AI is a Framework that can host various large language models. It is currently running, but is waiting for the command to instruct the framework on which model to download and serve.
 
-. To load the mistral model, we are going use the following python code to instruct the runtime to download and serve a quantized 4 bit version of the mistral large language model.
+. To load the mistral model, we are going to use the following python code to instruct the runtime to download and serve a quantized 4 bit version of the mistral large language model.
 
 . Copy the code below and paste this code in the new cell added to the notebook in the previous step.
 
@@ -100,7 +100,7 @@ image::replaced_endpoints2.png[width=640]
 
 === Execute cell code to assemble the langchain components
 
- . We can now start executing the code in the cells, begin with the new cell added to the top.  Click on the cell to activate blue indicator to the left of the cell. Next click on the play icon to run the selected cells and advanced to the next. While the cell is executing, an *** (asterisk icon) will appear in the brackets, when complete this will change to a number. 
+ . We can now start executing the code in the cells, beginning with the new cell added to the top.  Click on the cell to activate the blue indicator to the left of the cell. Next click on the play icon to run the selected cells and advance to the next. While the cell is executing, an *** (asterisk icon) will appear in the brackets, when complete this will change to a number. 
 
 +
 image::execute_cell2.png[width=640]
@@ -115,13 +115,13 @@ image::execute_cell2.png[width=640]
 
  . The next cell imports the *langchain components* that provide the libraries and programming files to interact with our LLM.
 
- . This *"Create the LLM instance"* cell sets the variables that determine how we are going to interact with our model  and how it should respond - sets that into an array using *llm* variable. 
+ . This *"Create the LLM instance"* cell sets the variables that determine how we are going to interact with our model  and how it should respond - sets that into an array using the *llm* variable. 
  
- . Next run the *"Create the prompt"* cell.  Here we are setting the *template* variable with the details of how the model operate, including constraints and boundries when generating the response. We often to not experience the system message when interacting with an LLM, but this is a standard field that is included along with the user prompt.
+ . Next run the *"Create the prompt"* cell.  Here we are setting the *template* variable with the details of how the model operates, including constraints and boundaries when generating the response. We often do not experience the system message when interacting with an LLM, but this is a standard field that is included along with the user prompt.
 
- . Continue executing the cells, *"memory for the conversation"* keeps the previous context / conversation history so full history of the chat conversation is sent as part of the prompt.
+ . Continue executing the cells, *"memory for the conversation"* keeps the previous context / conversation history so the full history of the chat conversation is sent as part of the prompt.
 
  . The *create the chain* cell, combines each of previous variables: llm, prompt, memory, and adds a verbose boolean to create the conversation variable, which will be sent to Models inference endpoint running in OpenShift AI.  The verbose option set to true displays the entire conversation sent to the Model in the notebook before the Models (AI's) response. 
 
 
-In the next, section, we'll send our first input to the running Mistral Large Language Model.
+In the next section, we'll send our first input to the running Mistral Large Language Model.

@@ -11,7 +11,7 @@
 This segment describes a very quick way of deploying the community version of MinIO in order to quickly setup a fully standalone Object Store, in an OpenShift Cluster. This can then be used for various prototyping tasks that require Object Storage.
 
 [WARNING]
-This version of MinIO should not be used in production-grade environments. Aditionally, MinIO is not included in RHOAI, and Red Hat does not provide support for MinIO.
+This version of MinIO should not be used in production-grade environments. Additionally, MinIO is not included in RHOAI, and Red Hat does not provide support for MinIO.
 
 === MinIO Deployment
 To Deploy MinIO, we will utilize the OpenShift Dashboard. 
@@ -203,7 +203,7 @@ image::minio_routes.png[width=640]
 
  . For the first step, select the UI route and paste it in a browser Window.
   
- . This window opens the MinIO Dashboard. Log in with username/password combination you set, or the default listed in yaml file above.
+ . This window opens the MinIO Dashboard. Log in with the username/password combination you set, or the defaults listed the in yaml file above.
 
  .. username = minio
 

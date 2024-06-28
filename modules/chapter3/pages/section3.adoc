@@ -33,7 +33,7 @@ image::create_workbench.png[width=640]
 
  .. Notebook Image:  `Minimal Python`
 
- .. Leave the remianing options default.
+ .. Leave the remaining options default.
 
  .. Optionally, scroll to the bottom, check the `Use data connection box`.
  
