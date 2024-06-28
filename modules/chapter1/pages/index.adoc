@@ -6,9 +6,9 @@ This unit of the journey provides context around the technologies we encounter &
 
 == Why this technical course? 
 
-A Formula One Driver doesn't need to know the how to build an engine to be an F1 champion. However, she/he needs to have a *mechanical sympathy*, which is understanding of the car's mechanics to drive it effectively and get the best out it.
+A Formula One Driver doesn't need to know how to build an engine to be an F1 champion. However, she/he needs to have a *mechanical sympathy*, which is understanding of the car's mechanics to drive it effectively and get the best out of it.
 
-The same applies to AI. We don't need to be AI experts to harness the power of large language models, but we do need to develop a certain level of *"technological awareness"* about how LLM Models are trained, selected, operationalized, delivered, infered from, fined-Tuned, augmented and kept up-to-date. Not just as users, but as aficionados who understand the underlying components to effectively communicate with clients, partners, and co-workers. 
+The same applies to AI. We don't need to be AI experts to harness the power of large language models, but we do need to develop a certain level of *"technological awareness"* about how LLM Models are trained, selected, operationalized, delivered, inferred from, fined-tuned, augmented and kept up-to-date. Not just as users, but as aficionados who understand the underlying components to effectively communicate with clients, partners, and co-workers. 
 
 The true power lies in the platform that enables us to harness a diverse range of AI models, tools, infrastructure and operationalize our ML projects.
 

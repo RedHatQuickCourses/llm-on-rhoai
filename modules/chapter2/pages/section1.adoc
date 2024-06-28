@@ -141,4 +141,4 @@ image::openshiftai_operator.png[width=640]
 . The operator Installation progress window will pop up. The installation may take a couple of minutes.
 
 
-WARNING: Do not proceed with the installation past this point.  In order to access the LLM remotely; you will need to make some modifcations to the Data Science Cluster YAML file prior to completing the installation of Red Hat OpenShift AI.   
+WARNING: Do not proceed with the installation past this point.  In order to access the LLM remotely; you will need to make some modifications to the Data Science Cluster YAML file prior to completing the installation of Red Hat OpenShift AI.   

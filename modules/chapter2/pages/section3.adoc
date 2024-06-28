@@ -4,7 +4,7 @@ video::llm_dsc_v3.mp4[width=640]
 
 == Create OpenShift AI Data Science Cluster
 
-With our secrets in place, the next step is to create OpenShift AI *Data Science Cluster*.
+With our secrets in place, the next step is to create an OpenShift AI *Data Science Cluster*.
 
 _A DataScienceCluster is the plan in the form of an YAML outline for Data Science Cluster API deployment._
 

@@ -50,7 +50,7 @@ After clicking the **Deploy** button at the bottom of the form, the model is add
 
 image::copy_llama3_endpoint.png[width=640]
 
-Copy the *Interence endpoint* for for newly deployed model, we need to replace the orginal inference endpoints used in our notebook's top two cells.
+Copy the *Inference endpoint* for the newly deployed model, we need to replace the original inference endpoints used in our notebook's top two cells.
 
 === Update the inference endpoints & change the model name
 
@@ -61,7 +61,7 @@ Copy the *Interence endpoint* for for newly deployed model, we need to replace t
 +
 image::llama3_url.png[width=800]
 
- . In the python code cell, or first cell under *set the inference server url headding.* We need to change the name of the large language model in the json_data section from "mistral" to *"llama3"* 
+ . In the python code cell, or first cell under *set the inference server url heading.* We need to change the name of the large language model in the json_data section from "mistral" to *"llama3"* 
 
  . The final edit we need to change is to rename mistal to llama3 in the *create the llm instance* cell 
 
@@ -69,13 +69,14 @@ image::llama3_llm.png[width=400]
 
 === Execute the cells again 
 
- . We can now start executing the code in the cells, begin from the top at Set inference server cell.  Click to left of the cell to activate orange indicator next to cell.  Orange indicates the cell code has been modified, blue will still highlight for unmodified cells.
+ . We can now start executing the code in the cells, beginning from the top at Set inference server cell.  Click to the left of the cell to activate the orange indicator next to the cell.  Orange indicates the cell code has been modified, blue will still highlight for unmodified cells.
 
  .. You will again receive the message about an unverified HTTPs request. This is because we didn’t use authentication for this application. 
 
  .. The *llama3* model files are now being downloaded to the Ollama Framework.
 
  . Continue executing the cells in the notebook. 
+
 
 When you arrive at the "Let's Talk" cells, re-read the mistral responses before executing the cells as answers will replaced with the llama3 responses.
  
@@ -85,7 +86,7 @@ When you reach the bottom of the notebook, feel free to experiment with the Llam
 
 Instead of editing the questions try experimenting with system prompt:
 
- * edit the *create the prompt* cell system message to alter the personality of the large language model responses.  Instruct the model use humor, respond like I'm five years old, or perhaps like an historian. 
+ * edit the *create the prompt* cell system message to alter the personality of the large language model responses.  Instruct the model to:  use humor, respond like I'm five years old, or perhaps like an historian. 
 
 Try adjusting the top_p, temperature, repeat penalty values in the *"create an LLM instance"*  cell
 
@@ -95,7 +96,7 @@ Deploy a different large language model
 
  . Vist the https://ollama.com/library[Ollama Model Library] and deploy a new model on your own. Perhaps the *granite-code* model from IBM for code intelligence.
 
-Once you complete with your learning, don't forget to return to Red Hat Demo Hub to stop the environment if you plan to return. Delete the environment when your finished. 
+Once you complete your learning, don't forget to return to Red Hat Demo Hub to stop the environment if you plan to return. Delete the environment when you're finished. 
 
 Thanks for completing this course!
 
