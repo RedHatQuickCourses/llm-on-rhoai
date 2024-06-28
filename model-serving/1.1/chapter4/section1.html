@@ -179,7 +179,7 @@
 <p>When the new window opens, use the OpenShift admin user &amp; password to login to JupyterLab.</p>
 </li>
 <li>
-<p>Click <strong>Allow selected permissions</strong> button to complete login to the notebook.</p>
+<p>Click the <strong>Allow selected permissions</strong> button to complete login to the notebook.</p>
 </li>
 </ol>
 </div>
@@ -262,7 +262,7 @@ If the <strong>OPEN</strong> link for the notebook is grayed out, the notebook c
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>To load the mistral model, we are going use the following python code to instruct the runtime to download and serve a quantized 4 bit version of the mistral large language model.</p>
+<p>To load the mistral model, we are going to use the following python code to instruct the runtime to download and serve a quantized 4 bit version of the mistral large language model.</p>
 </li>
 <li>
 <p>Copy the code below and paste this code in the new cell added to the notebook in the previous step.</p>
@@ -331,7 +331,7 @@ response = requests.post('https://your-endpoint/api/pull', headers=headers, json
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>We can now start executing the code in the cells, begin with the new cell added to the top.  Click on the cell to activate blue indicator to the left of the cell. Next click on the play icon to run the selected cells and advanced to the next. While the cell is executing, an <strong>*</strong> (asterisk icon) will appear in the brackets, when complete this will change to a number.</p>
+<p>We can now start executing the code in the cells, beginning with the new cell added to the top.  Click on the cell to activate the blue indicator to the left of the cell. Next click on the play icon to run the selected cells and advance to the next. While the cell is executing, an <strong>*</strong> (asterisk icon) will appear in the brackets, when complete this will change to a number.</p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/execute_cell2.png" alt="execute cell2" width="640">
@@ -358,13 +358,13 @@ response = requests.post('https://your-endpoint/api/pull', headers=headers, json
 <p>The next cell imports the <strong>langchain components</strong> that provide the libraries and programming files to interact with our LLM.</p>
 </li>
 <li>
-<p>This <strong>"Create the LLM instance"</strong> cell sets the variables that determine how we are going to interact with our model  and how it should respond - sets that into an array using <strong>llm</strong> variable.</p>
+<p>This <strong>"Create the LLM instance"</strong> cell sets the variables that determine how we are going to interact with our model  and how it should respond - sets that into an array using the <strong>llm</strong> variable.</p>
 </li>
 <li>
-<p>Next run the <strong>"Create the prompt"</strong> cell.  Here we are setting the <strong>template</strong> variable with the details of how the model operate, including constraints and boundries when generating the response. We often to not experience the system message when interacting with an LLM, but this is a standard field that is included along with the user prompt.</p>
+<p>Next run the <strong>"Create the prompt"</strong> cell.  Here we are setting the <strong>template</strong> variable with the details of how the model operates, including constraints and boundaries when generating the response. We often do not experience the system message when interacting with an LLM, but this is a standard field that is included along with the user prompt.</p>
 </li>
 <li>
-<p>Continue executing the cells, <strong>"memory for the conversation"</strong> keeps the previous context / conversation history so full history of the chat conversation is sent as part of the prompt.</p>
+<p>Continue executing the cells, <strong>"memory for the conversation"</strong> keeps the previous context / conversation history so the full history of the chat conversation is sent as part of the prompt.</p>
 </li>
 <li>
 <p>The <strong>create the chain</strong> cell, combines each of previous variables: llm, prompt, memory, and adds a verbose boolean to create the conversation variable, which will be sent to Models inference endpoint running in OpenShift AI.  The verbose option set to true displays the entire conversation sent to the Model in the notebook before the Models (AI&#8217;s) response.</p>
@@ -372,7 +372,7 @@ response = requests.post('https://your-endpoint/api/pull', headers=headers, json
 </ol>
 </div>
 <div class="paragraph">
-<p>In the next, section, we&#8217;ll send our first input to the running Mistral Large Language Model.</p>
+<p>In the next section, we&#8217;ll send our first input to the running Mistral Large Language Model.</p>
 </div>
 </div>
 </div>
