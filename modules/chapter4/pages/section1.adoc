@@ -19,12 +19,12 @@ image::oai_open_jupyter.png[width=640]
 
 
 [NOTE]
-If the *OPEN* link for the notebook is grayed out, the notebook container is still starting. This process can take a few minutes & up to 20+ minutes depending on the notebook image we opted to choose.
+If the *Open* link for the notebook is grayed out, the notebook container is still starting. This process can take a few minutes & up to 20+ minutes depending on the notebook image we opted to choose.
 
 
 == Inside JupyterLab
 
-This takes us to the JupyterLab screen where we can select multiple options / tools / to work to begin our data science experimentation.
+This takes us to the JupyterLab screen where we can select multiple options / tools / to begin our data science experimentation.
 
 Our first action is to clone a git repository that contains a collection of LLM projects including  the notebook we are going to use to interact with the LLM. 
 
@@ -92,7 +92,7 @@ Return the Jupyter notebook
 
 We will be updating two cells with the inference endpoint. 
 
- . Replace the https://your-endopint section of the python code we copied into the new cell. Ensure you leave the */api/pull* portion appended to the url.
+ . Replace "https://your-endopint" from python code we copied into the new cell. Ensure you leave the */api/pull* portion appended to the url.
 
  . Replace the red text inside the quotation marks for the inference_server_url with the same inference endpoint url.
 
