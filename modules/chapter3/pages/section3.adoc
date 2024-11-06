@@ -9,15 +9,15 @@ Navigate to the Data Science Project section of the OpenShift AI Console /Dashbo
 . Select the Data Connection menu, followed by create data connection
 . Provide the following values:
 ..  Name:  *models*
-..  Access Key: use the minio_root-user from YAML file
-..  Secret Key: use the minio_root_password from the YAML File
-..  Endpoint: use the Minio API URL from the Routes page in Openshift Dashboard
-..  Region: This is required for AWS storage & cannot be blank (no-region-minio)
+..  Access Key: use the minio_root_user value from previous section's YAML file
+..  Secret Key: use the minio_root_password value from previous section's YAML File
+..  Endpoint: use the MinIO API URL from the Routes page in Openshift Dashboard
+..  Region: This is required for AWS storage & cannot be blank, set value to "no-region-minio"
 .. Bucket: use the Minio Storage bucket name: *models* 
 
 image::dataconnection_models.png[width=800]
 
-Repeat the same process for the Storage bucket, using *storage* for the name & bucket.
+Repeat the same process for the Storage data connection, using *storage* for the "Name" & "Bucket".
 
 == Creating a WorkBench 
 

@@ -16,7 +16,7 @@ This version of MinIO should not be used in production-grade environments. Addit
 === MinIO Deployment
 To Deploy MinIO, we will utilize the OpenShift Dashboard. 
 
- . Click on the Project Selection list dropdown and select the Ollama-Model project or the data science project you created in the previous step. 
+ . Click on the Project Selection list dropdown and select the ollama-model project or the data science project you created in the previous step. 
 
  . Then Select the + (plus) icon from the top right of the dashboard.
 +

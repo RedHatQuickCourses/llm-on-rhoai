@@ -76,7 +76,7 @@ The following section discusses installing the *Red{nbsp}Hat OpenShift Service M
 +
 image::servicemesh_operator_search.png[width=800]
 
-3. Click on the *Red{nbsp}Hat OpenShift Service Mesh* operator. In the pop up window, select the *stable* channel and the most recent version of the server mesh operator. Click on **Install** to open the operator's installation view.
+3. Click on the *Red{nbsp}Hat OpenShift Service Mesh* operator. In the pop up window, select the *stable* channel and the most recent V2 version of the server mesh operator. Click on **Install** to open the operator's installation view.
 +
 image::servicemesh_operator_install1.png[width=600]
 
@@ -102,11 +102,11 @@ The following section discusses installing the *Red{nbsp}Hat - Authorino* operat
 
 1. Login to Red{nbsp}Hat OpenShift using a user which has the _cluster-admin_ role assigned.
 
-2. Navigate to **Operators** -> **OperatorHub** and search for *Red{nbsp}Hat Authorino
+2. Navigate to **Operators** -> **OperatorHub** and search for *Red{nbsp}Hat Authorino*
 +
 image::authorino_operator_search.png[width=800]
 
-3. Click on the *Red{nbsp}Hat Authorino * operator. In the pop up window, select the *stable* channel and the most recent version of the serverless operator. Click on **Install** to open the operator's installation view.
+3. Click on the *Red{nbsp}Hat Authorino* operator. In the pop up window, select the *tech-preview-v1* channel and the most recent version of the serverless operator. Click on **Install** to open the operator's installation view.
 +
 image::authorino_operator_install1.png[width=600]
 
