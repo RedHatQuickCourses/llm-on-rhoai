@@ -171,7 +171,7 @@ An SSL/TLS certificate is a digital object that allows systems to verify the ide
 </table>
 </div>
 <div class="paragraph">
-<p>By default, the Single Model Serving Platform in Openshift AI uses a self-signed certificate generated during installation for the endpoints that are created when deploying a Model server.</p>
+<p>By default, the Single Model Serving Platform in Openshift AI v2.10 uses a self-signed certificate generated during installation for the endpoints that are created when deploying a Model server.</p>
 </div>
 <div class="paragraph">
 <p>This can be counterintuitive because the OCP Cluster already has certificates configured which will be used by default for endpoints like Routes.</p>
@@ -275,9 +275,9 @@ apiVersion: v1
 metadata:
 name: cert-manager-ingress-cert
 data:
-tls.crt: &gt;-
+  tls.crt: &gt;-
     LS0tLS1CRUd...
-tls.key: &gt;-
+  tls.key: &gt;-
     LS0tLS1CRUd...
 type: kubernetes.io/tls</code></pre>
 </div>

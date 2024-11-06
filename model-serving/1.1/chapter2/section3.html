@@ -188,18 +188,17 @@ Your browser does not support the video tag.
 <p><strong>Select the radial button to switch to the YAML view.</strong></p>
 </li>
 <li>
-<p>Find the section below in the YAML file, in the Kserve Section find the Serving/Certificate area; add the line: <strong>secretName:</strong> followed by the name of the secret name that we deployed in the istio-system project. In addition, change the type from SelfSigned to <strong>Provided</strong>. See below for the example.</p>
+<p>Find the section below in the YAML file, in the Kserve Section find the Serving/Certificate area; add the line: <strong>secretName:</strong> followed by the name of the secret name that we deployed in the istio-system project. In addition, change the type from <strong>SelfSigned</strong> to <strong>Provided</strong>. See below for the example.</p>
 </li>
 </ol>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">kserve:
-devFlags: {}
-managementState: Managed
-serving:
+  managementState: Managed
+  serving:
     ingressGateway:
-    certificate:
+      certificate:
         secretName: cert-manager-ingress-cert
         type: Provided
     managementState: Managed

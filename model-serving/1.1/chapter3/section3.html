@@ -186,16 +186,16 @@ Your browser does not support the video tag.
 <p>Name:  <strong>models</strong></p>
 </li>
 <li>
-<p>Access Key: use the minio_root-user from YAML file</p>
+<p>Access Key: use the minio_root_user value from previous section&#8217;s YAML file</p>
 </li>
 <li>
-<p>Secret Key: use the minio_root_password from the YAML File</p>
+<p>Secret Key: use the minio_root_password value from previous section&#8217;s YAML File</p>
 </li>
 <li>
-<p>Endpoint: use the Minio API URL from the Routes page in Openshift Dashboard</p>
+<p>Endpoint: use the MinIO API URL from the Routes page in Openshift Dashboard</p>
 </li>
 <li>
-<p>Region: This is required for AWS storage &amp; cannot be blank (no-region-minio)</p>
+<p>Region: This is required for AWS storage &amp; cannot be blank, set value to "no-region-minio"</p>
 </li>
 <li>
 <p>Bucket: use the Minio Storage bucket name: <strong>models</strong></p>
@@ -211,7 +211,7 @@ Your browser does not support the video tag.
 </div>
 </div>
 <div class="paragraph">
-<p>Repeat the same process for the Storage bucket, using <strong>storage</strong> for the name &amp; bucket.</p>
+<p>Repeat the same process for the Storage data connection, using <strong>storage</strong> for the "Name" &amp; "Bucket".</p>
 </div>
 </div>
 </div>
