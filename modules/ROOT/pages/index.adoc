@@ -34,26 +34,28 @@ The PTL team acknowledges the valuable contributions of the following Red Hat as
 
 == Classroom Environment
 
-We will use the https://demo.redhat.com/catalog?item=babylon-catalog-prod%2Fopenshift-cnv.ocpmulti-wksp-cnv.prod[*Red Hat OpenShift Container Platform Cluster*] catalog item in the Red Hat Demo Platform (RHDP) to run the hands-on exercises in this course.
+We will use the https://catalog.demo.redhat.com/catalog?search=openshift+on+aws&item=babylon-catalog-prod%2Fsandboxes-gpte.ocp-wksp.prod[*Red Hat OpenShift Container Platform Cluster (AWS)*] catalog item in the Red Hat Demo Platform (RHDP) to run the hands-on exercises in this course.
 
 [TIP]
-If you are planning on starting this course now, go ahead & launch the workshop. It takes ~15 minutes to provision it, which is just enough time to finish the introduction section. 
+If you are planning on starting this course now, go ahead and launch the lab environment. It takes ~45 minutes to provision it, enough time to read through to understand the concepts, then follow along on the second pass.
 
-video::demohub_resources_v4.mp4[width=640]
+image::demo_platform_catalog.gif[width=640]
 
 When ordering this catalog item in RHDP:
 
-  . Select Practice/Enablement for the Activity field
+ .  Select order from the menu item page
 
-  . Select Learning about the Product for the Purpose field
+  . Select *Practice/Enablement* for the Activity field
+
+  . Select* Learning about the Product* for the Purpose field
 
   . Leave the Salesforce ID field blank
 
-  . Scroll to the bottom, read the usage cost section, then check the box to confirm acceptance of terms and conditions
+  . Scroll to the bottom, read the usage cost section, then *check the box* to confirm acceptance of terms and conditions
 
-  . Click order
+  . Click *order*
 
-For Red Hat partners who do not have access to RHDP, provision an environment using the Red Hat Hybrid Cloud Console. Unfortunately, the labs will NOT work on the trial sandbox environment. You need to provision an OpenShift AI cluster on-premises, or in the supported cloud environments by following the product documentation at https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/2.10/html/installing_and_uninstalling_openshift_ai_self-managed/index[Product Documentation for installing Red Hat OpenShift AI 2.10].
+For Red Hat partners who do not have access to RHDP, provision an environment using the Red Hat Hybrid Cloud Console. Unfortunately, the labs will NOT work on the trial sandbox environment. You need to provision an OpenShift AI cluster on-premises, or in the supported cloud environments by following the product documentation at https://docs.redhat.com/en/documentation/red_hat_openshift_ai_self-managed/2.14/html/installing_and_uninstalling_openshift_ai_self-managed/index[Product Documentation for installing Red Hat OpenShift AI 2.14].
 
 == Prerequisites
 
