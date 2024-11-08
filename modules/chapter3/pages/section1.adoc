@@ -7,13 +7,14 @@
 A model-serving runtime provides integration with a specified model server and the model frameworks that it supports. By default, Red Hat OpenShift AI includes the following model serving runtimes:
 
 
- * Multi-model
- ** OpenVINO Model Server - Multi-model
- * Single-model
+ * *Multi-model*
  ** OpenVINO Model Server
- ** Caikit TGIS for KServe
- ** TGIS Standalone for KServe
- ** vLLM For KServe 
+ * *Single-model*
+ ** OpenVINO Model Server
+ ** Caikit Standalone ServingRuntime for KServe
+ ** Caikit ServingRuntime TGIS for KServe
+ ** TGIS Standalone ServingRuntime for KServe
+ ** vLLMServingRuntime For KServe 
  
 However, if these runtimes do not meet your needs (if they don't support a particular model framework, for example), you might want to add your own custom runtimes.
 
@@ -28,6 +29,8 @@ While RHOAI supports the ability to add your own runtime, it is up to you to con
 ====
 
 == Add The Ollama Custom Runtime
+
+image::ollama_runtime.gif[width=640]
 
 . Log in to RHOAI with a user who is part of the RHOAI admin group, for this lab we will be using the admin account. 
 
@@ -72,26 +75,11 @@ spec:
     - autoSelect: true
       name: any
 ```
-image::serving_runtime.png[width=640]
+
 
 . After clicking the **Create** button at the bottom of the input area, you will see the new Ollama Runtime in the list. We can re-order the list as needed (the order chosen here is the order in which the users will see these choices).
 
-
-== Create a Data Science Project 
-
-Navigate to & select the Data Science Projects section.
-
- . Select the create data science project button.
-
- . Enter a name for your project, such as *ollama-model*.
-
- . The resource name should be populated automatically.
-
- . Optionally add a description to the data science project.
-
- . Select Create.
-
-image::dsp_create.png[width=640]
+'''
 
  
 The next step is to create a *Data Connection* in our Data Science Project.  Before we can create our Data Connection, we will setup MinIO as our S3 compatible storage for this Lab. 

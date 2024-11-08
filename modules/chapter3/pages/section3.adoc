@@ -21,17 +21,18 @@ Repeat the same process for the Storage data connection, using *storage* for the
 
 == Creating a WorkBench 
 
-video::openshiftai_setup_part3.mp4[width=640]
+//video::openshiftai_setup_part3.mp4[width=640]
 
 Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the Ollama-model project.  
+
 
 image::create_workbench.png[width=640]
 
  . Select the WorkBench button, then click create workbench
 
- .. Name:  `ollama-model`
+ .. Name:  *`ollama-model`*
 
- .. Notebook Image:  `Minimal Python`
+ .. Notebook Image:  *`Minimal Python`*
 
  .. Leave the remaining options default.
 
@@ -39,7 +40,7 @@ image::create_workbench.png[width=640]
  
  .. Select *storage* from the dropdown to attach the storage bucket to the workbench.  
 
- . Select the Create Workbench option.
+ . Select the *Create Workbench* option.
 
 [NOTE]
 Depending on the notebook image selected, it can take between 2-20 minutes for the container image to be fully deployed. The Open Link will be available when our container is fully deployed.  
@@ -47,20 +48,23 @@ Depending on the notebook image selected, it can take between 2-20 minutes for t
 
 == Creating The Model Server
 
-From the ollama-model WorkBench Dashboard in the ollama-model project, navigate to the **Models** section, and select Deploy Model from the **Single Model Serving Platform Button**.
+From the ollama-model WorkBench Dashboard in the ollama-model project, navigate to the **Models** section, and select *Deploy Model* from the **Single Model Serving Platform Button**.
+
+.Animated - Single model deployment walkthrough 
+image::ollama_model_deploy.gif[width=640]
 
 *Create the model server with the following values:*
 
 
- .. Model name: `ollama-mistral`
- .. Serving Runtime: `Ollama`
- .. Model framework: `Any`
- .. Model Server Size: `Medium`
- .. Model location data connection: `models`
- .. Model location path: `/ollama`
+ .. Model name: *`ollama-mistral`*  (differs from animated deployment, use this name)
+ .. Serving Runtime: *`Ollama`*
+ .. Model framework: *`Any`*
+ .. Model Server Size: *`Medium`*
+ .. Model Route:  *Check the box* to make models available via an external route.
+ .. Token Authentication:  *Uncheck the box* that requires token authentication.
+ .. Model location data connection: *`models`*
+ .. Model location path: *`/ollama`*
 
-+
-image::oai_model_deploy.png[width=640]
 
 After clicking the **Deploy** button at the bottom of the form, the model is added to our **Models & Model Server list**.  When the model is available, the inference endpoint will populate & the status will indicate a green checkmark.
 
