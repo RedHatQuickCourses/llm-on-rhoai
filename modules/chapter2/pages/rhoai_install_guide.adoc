@@ -159,7 +159,7 @@ Navigate to & select the Data Science Projects section.
 
  . Select the Create Data Science Project button.
 
- . Enter a name for your project, such as *fraud-detection*.
+ . Enter a name for your project, such as *ollama-model*. (differs from animated example)
 
  . The resource name should be populated automatically.
 
@@ -168,4 +168,4 @@ Navigate to & select the Data Science Projects section.
  . Select Create.
 
 
-Once complete, you should be on the landing page of the "fraud_detection" Data Science Project section of the OpenShift AI Console / Dashboard. 
+Once complete, you should be on the landing page of the "ollama-model" Data Science Project section of the OpenShift AI Console / Dashboard. 

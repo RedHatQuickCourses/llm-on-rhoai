@@ -30,6 +30,7 @@ While RHOAI supports the ability to add your own runtime, it is up to you to con
 
 == Add The Ollama Custom Runtime
 
+.Animated - Add Ollama serving runtime
 image::ollama_runtime.gif[width=640]
 
 . Log in to RHOAI with a user who is part of the RHOAI admin group, for this lab we will be using the admin account. 
