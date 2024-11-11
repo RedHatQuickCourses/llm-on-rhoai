@@ -16,17 +16,25 @@ This version of MinIO should not be used in production-grade environments. Addit
 === MinIO Deployment
 To Deploy MinIO, we will utilize the OpenShift Dashboard. 
 
- . Click on the Project Selection list dropdown and select the ollama-model project or the data science project you created in the previous step. 
+.Animated - Minio Deployment steps for OpenShift 
+image::minio_install.gif[width=640]
 
  . Then Select the + (plus) icon from the top right of the dashboard.
-+
-image::minio_yaml_deploy.png[width=640]
 
  .  In the new window, we will paste the following YAML file.  In the YAML below its recommended to change the default user name & password. 
 
+ . Click on the Project Selection list dropdown and select the *ollama-model* project or the data science project you created in the previous step.
 
+ . Select the *create* button to deploy the Minio software.
+
+=== Minio Deployment Code
+ 
+// The title attribute is used as
+// clickable text to open the example block.
+.Click to view and copy Minio deployment code.
+[%collapsible]
+====
 ```yaml
----
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
@@ -188,22 +196,28 @@ spec:
     termination: edge
     insecureEdgeTerminationPolicy: Redirect
 ```
+====
 
 *This should finish in a few seconds. Now it's time to deploy our storage buckets.*
+
+'''
 
 === MinIO Storage Bucket Creation
 
 From the OCP Dashboard:
 
- . Select Networking / Routes from the navigation menu.
- 
- . This will display two routes, one for the UI & another for the API.
-+
-image::minio_routes.png[width=640]
+.Animated - Accessing Minio dashboard and Bucket creation
+image::minio_setup.gif[width=640]
 
- . For the first step, select the UI route and paste it in a browser Window.
+ . Select Networking / Routes from the navigation menu. 
+ 
+ . This will display two routes, one for the UI & another for the API. (if the routes are not visible, make sure you have the project selected that matches your data sicence project created earlier)
+
+. For the first step, select the UI route and paste it or open in a new browser tab or window.
+
+ . If you see a landing page with the message *application not available*, refresh the page a few times as the service is still loading.
   
- . This window opens the MinIO Dashboard. Log in with the username/password combination you set, or the defaults listed the in yaml file above.
+ . The displayed page is the MinIO Dashboard. Log in with the username/password combination you set, or the defaults listed below.
 
  .. username = minio
 
@@ -233,10 +247,11 @@ In most cases, to serve a model, the trained model would be uploaded into this s
  . So we will copy an *emptyfile.txt* file to the ollama subdirectory. 
 
 
-You can download the file from xref:attachment$emptyfile.txt[this location]. Alternatively, you can create your own file called emptyfile.txt and upload it.
+You can download the file from xref:attachment$emptyfile.txt[this location](use right click, save link as). Alternatively, you can create your own file called emptyfile.txt and upload it.
 
  . Once you have this file ready, upload it into the Ollama path in the model bucket by clicking the upload button and selecting the file from your local desktop. 
  
-image::minio_emptyfile_view.png[width=640]
+.Animated - Upload emptyfile.txt to models/ollama
+image::minio_file_upload.gif[width=640]
 
 With our S3 Compatible ready to go and our "model files" uploaded. Let's head back to the OpenShift AI Web UI and continue configuring resources. 
