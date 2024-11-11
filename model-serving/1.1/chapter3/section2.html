@@ -66,13 +66,7 @@
     <a class="nav-link" href="../chapter2/index.html">OpenShift AI Initialization</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter2/section1.html">Installing Red&#160;Hat OpenShift AI Using the Web Console</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter2/section2.html">Modifying the OpenShift AI TLS Certificate</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter2/section3.html">Configure the OpenShift AI Data Science Cluster</a>
+    <a class="nav-link" href="../chapter2/rhoai_install_guide.html">OpenShift AI Using the Web Console</a>
   </li>
 </ul>
   </li>
@@ -185,28 +179,37 @@ This version of MinIO should not be used in production-grade environments. Addit
 <div class="paragraph">
 <p>To Deploy MinIO, we will utilize the OpenShift Dashboard.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/minio_install.gif" alt="minio install" width="640">
+</div>
+<div class="title">Figure 1. Animated - Minio Deployment steps for OpenShift</div>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Click on the Project Selection list dropdown and select the ollama-model project or the data science project you created in the previous step.</p>
-</li>
-<li>
 <p>Then Select the + (plus) icon from the top right of the dashboard.</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/minio_yaml_deploy.png" alt="minio yaml deploy" width="640">
-</div>
-</div>
 </li>
 <li>
 <p>In the new window, we will paste the following YAML file.  In the YAML below its recommended to change the default user name &amp; password.</p>
 </li>
+<li>
+<p>Click on the Project Selection list dropdown and select the <strong>ollama-model</strong> project or the data science project you created in the previous step.</p>
+</li>
+<li>
+<p>Select the <strong>create</strong> button to deploy the Minio software.</p>
+</li>
 </ol>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_minio_deployment_code"><a class="anchor" href="#_minio_deployment_code"></a>Minio Deployment Code</h3>
+<details>
+<summary class="title">Click to view and copy Minio deployment code.</summary>
+<div class="content">
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">---
-kind: PersistentVolumeClaim
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: minio-pvc
@@ -368,14 +371,23 @@ spec:
     insecureEdgeTerminationPolicy: Redirect</code></pre>
 </div>
 </div>
+</div>
+</details>
 <div class="paragraph">
 <p><strong>This should finish in a few seconds. Now it&#8217;s time to deploy our storage buckets.</strong></p>
 </div>
+<hr>
 </div>
 <div class="sect2">
 <h3 id="_minio_storage_bucket_creation"><a class="anchor" href="#_minio_storage_bucket_creation"></a>MinIO Storage Bucket Creation</h3>
 <div class="paragraph">
 <p>From the OCP Dashboard:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/minio_setup.gif" alt="minio setup" width="640">
+</div>
+<div class="title">Figure 2. Animated - Accessing Minio dashboard and Bucket creation</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -383,18 +395,16 @@ spec:
 <p>Select Networking / Routes from the navigation menu.</p>
 </li>
 <li>
-<p>This will display two routes, one for the UI &amp; another for the API.</p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/minio_routes.png" alt="minio routes" width="640">
-</div>
-</div>
+<p>This will display two routes, one for the UI &amp; another for the API. (if the routes are not visible, make sure you have the project selected that matches your data sicence project created earlier)</p>
 </li>
 <li>
-<p>For the first step, select the UI route and paste it in a browser Window.</p>
+<p>For the first step, select the UI route and paste it or open in a new browser tab or window.</p>
 </li>
 <li>
-<p>This window opens the MinIO Dashboard. Log in with the username/password combination you set, or the defaults listed the in yaml file above.</p>
+<p>If you see a landing page with the message <strong>application not available</strong>, refresh the page a few times as the service is still loading.</p>
+</li>
+<li>
+<p>The displayed page is the MinIO Dashboard. Log in with the username/password combination you set, or the defaults listed below.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -476,7 +486,7 @@ In most cases, to serve a model, the trained model would be uploaded into this s
 </ol>
 </div>
 <div class="paragraph">
-<p>You can download the file from <a href="_attachments/emptyfile.txt" class="xref attachment">this location</a>. Alternatively, you can create your own file called emptyfile.txt and upload it.</p>
+<p>You can download the file from <a href="_attachments/emptyfile.txt" class="xref attachment">this location</a>(use right click, save link as). Alternatively, you can create your own file called emptyfile.txt and upload it.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -487,8 +497,9 @@ In most cases, to serve a model, the trained model would be uploaded into this s
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="_images/minio_emptyfile_view.png" alt="minio emptyfile view" width="640">
+<img src="_images/minio_file_upload.gif" alt="minio file upload" width="640">
 </div>
+<div class="title">Figure 3. Animated - Upload emptyfile.txt to models/ollama</div>
 </div>
 <div class="paragraph">
 <p>With our S3 Compatible ready to go and our "model files" uploaded. Let&#8217;s head back to the OpenShift AI Web UI and continue configuring resources.</p>

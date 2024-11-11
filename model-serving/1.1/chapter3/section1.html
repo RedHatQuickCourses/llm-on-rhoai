@@ -66,13 +66,7 @@
     <a class="nav-link" href="../chapter2/index.html">OpenShift AI Initialization</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter2/section1.html">Installing Red&#160;Hat OpenShift AI Using the Web Console</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter2/section2.html">Modifying the OpenShift AI TLS Certificate</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter2/section3.html">Configure the OpenShift AI Data Science Cluster</a>
+    <a class="nav-link" href="../chapter2/rhoai_install_guide.html">OpenShift AI Using the Web Console</a>
   </li>
 </ul>
   </li>
@@ -165,30 +159,33 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Multi-model</p>
+<p><strong>Multi-model</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>OpenVINO Model Server - Multi-model</p>
+<p>OpenVINO Model Server</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Single-model</p>
+<p><strong>Single-model</strong></p>
 <div class="ulist">
 <ul>
 <li>
 <p>OpenVINO Model Server</p>
 </li>
 <li>
-<p>Caikit TGIS for KServe</p>
+<p>Caikit Standalone ServingRuntime for KServe</p>
 </li>
 <li>
-<p>TGIS Standalone for KServe</p>
+<p>Caikit ServingRuntime TGIS for KServe</p>
 </li>
 <li>
-<p>vLLM For KServe</p>
+<p>TGIS Standalone ServingRuntime for KServe</p>
+</li>
+<li>
+<p>vLLMServingRuntime For KServe</p>
 </li>
 </ul>
 </div>
@@ -223,6 +220,12 @@
 <div class="sect1">
 <h2 id="_add_the_ollama_custom_runtime"><a class="anchor" href="#_add_the_ollama_custom_runtime"></a>Add The Ollama Custom Runtime</h2>
 <div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="_images/ollama_runtime.gif" alt="ollama runtime" width="640">
+</div>
+<div class="title">Figure 1. Animated - Add Ollama serving runtime</div>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -275,49 +278,13 @@ spec:
       name: any</code></pre>
 </div>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/serving_runtime.png" alt="serving runtime" width="640">
-</div>
-</div>
 </li>
 <li>
 <p>After clicking the <strong>Create</strong> button at the bottom of the input area, you will see the new Ollama Runtime in the list. We can re-order the list as needed (the order chosen here is the order in which the users will see these choices).</p>
 </li>
 </ol>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_create_a_data_science_project"><a class="anchor" href="#_create_a_data_science_project"></a>Create a Data Science Project</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Navigate to &amp; select the Data Science Projects section.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Select the create data science project button.</p>
-</li>
-<li>
-<p>Enter a name for your project, such as <strong>ollama-model</strong>.</p>
-</li>
-<li>
-<p>The resource name should be populated automatically.</p>
-</li>
-<li>
-<p>Optionally add a description to the data science project.</p>
-</li>
-<li>
-<p>Select Create.</p>
-</li>
-</ol>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="_images/dsp_create.png" alt="dsp create" width="640">
-</div>
-</div>
+<hr>
 <div class="paragraph">
 <p>The next step is to create a <strong>Data Connection</strong> in our Data Science Project.  Before we can create our Data Connection, we will setup MinIO as our S3 compatible storage for this Lab.</p>
 </div>

@@ -66,13 +66,7 @@
     <a class="nav-link" href="../chapter2/index.html">OpenShift AI Initialization</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter2/section1.html">Installing Red&#160;Hat OpenShift AI Using the Web Console</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter2/section2.html">Modifying the OpenShift AI TLS Certificate</a>
-  </li>
-  <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../chapter2/section3.html">Configure the OpenShift AI Data Science Cluster</a>
+    <a class="nav-link" href="../chapter2/rhoai_install_guide.html">OpenShift AI Using the Web Console</a>
   </li>
 </ul>
   </li>
@@ -218,13 +212,6 @@ Your browser does not support the video tag.
 <div class="sect1">
 <h2 id="_creating_a_workbench"><a class="anchor" href="#_creating_a_workbench"></a>Creating a WorkBench</h2>
 <div class="sectionbody">
-<div class="videoblock">
-<div class="content">
-<video src="_images/openshiftai_setup_part3.mp4" width="640" controls>
-Your browser does not support the video tag.
-</video>
-</div>
-</div>
 <div class="paragraph">
 <p>Navigate to the Data Science Project section of the OpenShift AI Console /Dashboard. Select the Ollama-model project.</p>
 </div>
@@ -240,10 +227,10 @@ Your browser does not support the video tag.
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Name:  <code>ollama-model</code></p>
+<p>Name:  <strong><code>ollama-model</code></strong></p>
 </li>
 <li>
-<p>Notebook Image:  <code>Minimal Python</code></p>
+<p>Notebook Image:  <strong><code>Minimal Python</code></strong></p>
 </li>
 <li>
 <p>Leave the remaining options default.</p>
@@ -258,7 +245,7 @@ Your browser does not support the video tag.
 </div>
 </li>
 <li>
-<p>Select the Create Workbench option.</p>
+<p>Select the <strong>Create Workbench</strong> option.</p>
 </li>
 </ol>
 </div>
@@ -280,7 +267,13 @@ Depending on the notebook image selected, it can take between 2-20 minutes for t
 <h2 id="_creating_the_model_server"><a class="anchor" href="#_creating_the_model_server"></a>Creating The Model Server</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>From the ollama-model WorkBench Dashboard in the ollama-model project, navigate to the <strong>Models</strong> section, and select Deploy Model from the <strong>Single Model Serving Platform Button</strong>.</p>
+<p>From the ollama-model WorkBench Dashboard in the ollama-model project, navigate to the <strong>Models</strong> section, and select <strong>Deploy Model</strong> from the <strong>Single Model Serving Platform Button</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/ollama_model_deploy.gif" alt="ollama model deploy" width="640">
+</div>
+<div class="title">Figure 1. Animated - Single model deployment walkthrough</div>
 </div>
 <div class="paragraph">
 <p><strong>Create the model server with the following values:</strong></p>
@@ -288,27 +281,28 @@ Depending on the notebook image selected, it can take between 2-20 minutes for t
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Model name: <code>ollama-mistral</code></p>
+<p>Model name: <strong><code>ollama-mistral</code></strong>  (differs from animated deployment, use this name)</p>
 </li>
 <li>
-<p>Serving Runtime: <code>Ollama</code></p>
+<p>Serving Runtime: <strong><code>Ollama</code></strong></p>
 </li>
 <li>
-<p>Model framework: <code>Any</code></p>
+<p>Model framework: <strong><code>Any</code></strong></p>
 </li>
 <li>
-<p>Model Server Size: <code>Medium</code></p>
+<p>Model Server Size: <strong><code>Medium</code></strong></p>
 </li>
 <li>
-<p>Model location data connection: <code>models</code></p>
+<p>Model Route:  <strong>Check the box</strong> to make models available via an external route.</p>
 </li>
 <li>
-<p>Model location path: <code>/ollama</code></p>
-<div class="imageblock">
-<div class="content">
-<img src="_images/oai_model_deploy.png" alt="oai model deploy" width="640">
-</div>
-</div>
+<p>Token Authentication:  <strong>Uncheck the box</strong> that requires token authentication.</p>
+</li>
+<li>
+<p>Model location data connection: <strong><code>models</code></strong></p>
+</li>
+<li>
+<p>Model location path: <strong><code>/ollama</code></strong></p>
 </li>
 </ol>
 </div>
